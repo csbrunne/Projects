@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Routine Name="RcpMgmt" Type="RLL">
+  <RLLContent>
+    <Rung Type="N">
+      <Text><![CDATA[JSR(_RcpStepDisplay,0);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(Cmd_Delete)OTU(Cmd_Delete)[MOVE(ptrSelect,ptrView) COP(wrkNull,wrkBuffer,1) ,COP(wrkNull,RecipeList[ptrView],1) CLR(ptrStep) ];]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(Cmd_Save)OTU(Cmd_Save)OTU(wrkClrAll)[CLR(ptrStep) JSR(_RcpClearSteps,0) ,MOVE(ptrSelect,ptrView) COP(wrkBuffer,RecipeList[ptrView],1) ];]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(Cmd_SelNext)OTU(Cmd_SelNext)ADD(ptrSelect,1,ptrSelect);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(Cmd_SelPrev)OTU(Cmd_SelPrev)SUB(ptrSelect,1,ptrSelect);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[[GT(ptrSelect,wrkListArrayMax) MOVE(wrkListArrayMax,ptrSelect) ,LT(ptrSelect,0) CLR(ptrSelect) ];]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(Cmd_Select)OTU(Cmd_Select)CLR(ptrStep)MOVE(ptrSelect,ptrView)COP(RecipeList[ptrView],wrkBuffer,1);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(Cmd_ViewActive)OTU(Cmd_ViewActive)CLR(ptrStep)MOVE(ptrActive,ptrView)MOVE(ptrActive,ptrSelect)COP(\RecipeLoad.ActiveRecipe,wrkBuffer,1);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(Cmd_Load)OTU(Cmd_Load)XIC(\SeqControl.Idle)MOVE(ptrView,ptrActive)[OTU(wrkBuffer.Running) OTU(wrkBuffer.Complete) ,OTU(wrkBuffer.Aborted) OTU(wrkBuffer.Holding) ,CLR(wrkBuffer.CurrentStep) COP(wrkBuffer,\RecipeLoad.ActiveRecipe,1) ];]]></Text>
+    </Rung>
+  </RLLContent>
+</Routine>

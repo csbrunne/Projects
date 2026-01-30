@@ -1,0 +1,188 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Tag Name="PIDE_SupplyConductivity" TagType="Base" DataType="PID_ENHANCED" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+  <Data Format="L5K"><![CDATA[[1,8192,0.00000000e+000,1.00000000e+002,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000
+		,1.00000000e+002,0.00000000e+000,1.00000000e+000,1.00000000e+000,1.00000000e+000,1.00000000e+000
+		,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,1.00000000e+002
+		,0.00000000e+000,1.00000000e+002,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000
+		,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,3.40282347e+038
+		,3.40282347e+038,-3.40282347e+038,-3.40282347e+038,0.00000000e+000,0.00000000e+000,0.00000000e+000
+		,0.00000000e+000,3.40282347e+038,3.40282347e+038,3.40282347e+038,3.40282347e+038,0.00000000e+000
+		,0,0.00000000e+000,1,0,0,1,33554496,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000
+		,0.00000000e+000,0.00000000e+000,0.00000000e+000,1.00000000e+000,5.00000000e-002,0,0,0,0.00000000e+000
+		,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000
+		,0.00000000e+000,0.00000000e+000,0.00000000e+000,5.00000000e-002,0.00000000e+000,0.00000000e+000
+		,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000
+		,0.00000000e+000,9.40402655e-038,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000
+		,0.00000000e+000,0.00000000e+000,0.00000000e+000,7.00649232e-044,4.07863472e-039,0.00000000e+000
+		,7.89211295e-042,5.00000000e-002,7.00649232e-044,4.07863472e-039,7.89211295e-042,5.00000000e-002
+		]]]></Data>
+  <Data Format="Decorated">
+    <Structure DataType="PID_ENHANCED">
+      <DataValueMember Name="EnableIn" DataType="BOOL" Radix="Decimal" Value="1" />
+      <DataValueMember Name="PV" DataType="REAL" Radix="Float" Value="0.0" />
+      <DataValueMember Name="PVFault" DataType="BOOL" Value="0" />
+      <DataValueMember Name="PVEUMax" DataType="REAL" Radix="Float" Value="100.0" />
+      <DataValueMember Name="PVEUMin" DataType="REAL" Radix="Float" Value="0.0" />
+      <DataValueMember Name="SPProg" DataType="REAL" Radix="Float" Value="0.0" />
+      <DataValueMember Name="SPOper" DataType="REAL" Radix="Float" Value="0.0" />
+      <DataValueMember Name="SPCascade" DataType="REAL" Radix="Float" Value="0.0" />
+      <DataValueMember Name="SPHLimit" DataType="REAL" Radix="Float" Value="100.0" />
+      <DataValueMember Name="SPLLimit" DataType="REAL" Radix="Float" Value="0.0" />
+      <DataValueMember Name="UseRatio" DataType="BOOL" Value="0" />
+      <DataValueMember Name="RatioProg" DataType="REAL" Radix="Float" Value="1.0" />
+      <DataValueMember Name="RatioOper" DataType="REAL" Radix="Float" Value="1.0" />
+      <DataValueMember Name="RatioHLimit" DataType="REAL" Radix="Float" Value="1.0" />
+      <DataValueMember Name="RatioLLimit" DataType="REAL" Radix="Float" Value="1.0" />
+      <DataValueMember Name="CVFault" DataType="BOOL" Value="0" />
+      <DataValueMember Name="CVInitReq" DataType="BOOL" Value="0" />
+      <DataValueMember Name="CVInitValue" DataType="REAL" Radix="Float" Value="0.0" />
+      <DataValueMember Name="CVProg" DataType="REAL" Radix="Float" Value="0.0" />
+      <DataValueMember Name="CVOper" DataType="REAL" Radix="Float" Value="0.0" />
+      <DataValueMember Name="CVOverride" DataType="REAL" Radix="Float" Value="0.0" />
+      <DataValueMember Name="CVPrevious" DataType="REAL" Radix="Float" Value="0.0" />
+      <DataValueMember Name="CVSetPrevious" DataType="BOOL" Value="0" />
+      <DataValueMember Name="CVManLimiting" DataType="BOOL" Value="0" />
+      <DataValueMember Name="CVEUMax" DataType="REAL" Radix="Float" Value="100.0" />
+      <DataValueMember Name="CVEUMin" DataType="REAL" Radix="Float" Value="0.0" />
+      <DataValueMember Name="CVHLimit" DataType="REAL" Radix="Float" Value="100.0" />
+      <DataValueMember Name="CVLLimit" DataType="REAL" Radix="Float" Value="0.0" />
+      <DataValueMember Name="CVROCLimit" DataType="REAL" Radix="Float" Value="0.0" />
+      <DataValueMember Name="FF" DataType="REAL" Radix="Float" Value="0.0" />
+      <DataValueMember Name="FFPrevious" DataType="REAL" Radix="Float" Value="0.0" />
+      <DataValueMember Name="FFSetPrevious" DataType="BOOL" Value="0" />
+      <DataValueMember Name="HandFB" DataType="REAL" Radix="Float" Value="0.0" />
+      <DataValueMember Name="HandFBFault" DataType="BOOL" Value="0" />
+      <DataValueMember Name="WindupHIn" DataType="BOOL" Value="0" />
+      <DataValueMember Name="WindupLIn" DataType="BOOL" Value="0" />
+      <DataValueMember Name="ControlAction" DataType="BOOL" Value="0" />
+      <DataValueMember Name="DependIndepend" DataType="BOOL" Value="0" />
+      <DataValueMember Name="PGain" DataType="REAL" Radix="Float" Value="0.0" />
+      <DataValueMember Name="IGain" DataType="REAL" Radix="Float" Value="0.0" />
+      <DataValueMember Name="DGain" DataType="REAL" Radix="Float" Value="0.0" />
+      <DataValueMember Name="PVEProportional" DataType="BOOL" Value="0" />
+      <DataValueMember Name="PVEDerivative" DataType="BOOL" Value="1" />
+      <DataValueMember Name="DSmoothing" DataType="BOOL" Value="0" />
+      <DataValueMember Name="PVTracking" DataType="BOOL" Value="0" />
+      <DataValueMember Name="ZCDeadband" DataType="REAL" Radix="Float" Value="0.0" />
+      <DataValueMember Name="ZCOff" DataType="BOOL" Value="0" />
+      <DataValueMember Name="PVHHLimit" DataType="REAL" Radix="Float" Value="3.40282347e+038" />
+      <DataValueMember Name="PVHLimit" DataType="REAL" Radix="Float" Value="3.40282347e+038" />
+      <DataValueMember Name="PVLLimit" DataType="REAL" Radix="Float" Value="-3.40282347e+038" />
+      <DataValueMember Name="PVLLLimit" DataType="REAL" Radix="Float" Value="-3.40282347e+038" />
+      <DataValueMember Name="PVDeadband" DataType="REAL" Radix="Float" Value="0.0" />
+      <DataValueMember Name="PVROCPosLimit" DataType="REAL" Radix="Float" Value="0.0" />
+      <DataValueMember Name="PVROCNegLimit" DataType="REAL" Radix="Float" Value="0.0" />
+      <DataValueMember Name="PVROCPeriod" DataType="REAL" Radix="Float" Value="0.0" />
+      <DataValueMember Name="DevHHLimit" DataType="REAL" Radix="Float" Value="3.40282347e+038" />
+      <DataValueMember Name="DevHLimit" DataType="REAL" Radix="Float" Value="3.40282347e+038" />
+      <DataValueMember Name="DevLLimit" DataType="REAL" Radix="Float" Value="3.40282347e+038" />
+      <DataValueMember Name="DevLLLimit" DataType="REAL" Radix="Float" Value="3.40282347e+038" />
+      <DataValueMember Name="DevDeadband" DataType="REAL" Radix="Float" Value="0.0" />
+      <DataValueMember Name="AllowCasRat" DataType="BOOL" Value="0" />
+      <DataValueMember Name="ManualAfterInit" DataType="BOOL" Value="0" />
+      <DataValueMember Name="ProgProgReq" DataType="BOOL" Value="0" />
+      <DataValueMember Name="ProgOperReq" DataType="BOOL" Value="0" />
+      <DataValueMember Name="ProgCasRatReq" DataType="BOOL" Value="0" />
+      <DataValueMember Name="ProgAutoReq" DataType="BOOL" Value="0" />
+      <DataValueMember Name="ProgManualReq" DataType="BOOL" Value="0" />
+      <DataValueMember Name="ProgOverrideReq" DataType="BOOL" Value="0" />
+      <DataValueMember Name="ProgHandReq" DataType="BOOL" Value="0" />
+      <DataValueMember Name="OperProgReq" DataType="BOOL" Value="0" />
+      <DataValueMember Name="OperOperReq" DataType="BOOL" Value="0" />
+      <DataValueMember Name="OperCasRatReq" DataType="BOOL" Value="0" />
+      <DataValueMember Name="OperAutoReq" DataType="BOOL" Value="0" />
+      <DataValueMember Name="OperManualReq" DataType="BOOL" Value="0" />
+      <DataValueMember Name="ProgValueReset" DataType="BOOL" Value="0" />
+      <DataValueMember Name="TimingMode" DataType="DINT" Radix="Decimal" Value="0" />
+      <DataValueMember Name="OversampleDT" DataType="REAL" Radix="Float" Value="0.0" />
+      <DataValueMember Name="RTSTime" DataType="DINT" Radix="Decimal" Value="1" />
+      <DataValueMember Name="RTSTimeStamp" DataType="DINT" Radix="Decimal" Value="0" />
+      <DataValueMember Name="AtuneAcquire" DataType="BOOL" Value="0" />
+      <DataValueMember Name="AtuneStart" DataType="BOOL" Value="0" />
+      <DataValueMember Name="AtuneUseGains" DataType="BOOL" Value="0" />
+      <DataValueMember Name="AtuneAbort" DataType="BOOL" Value="0" />
+      <DataValueMember Name="AtuneUnacquire" DataType="BOOL" Value="0" />
+      <DataValueMember Name="EnableOut" DataType="BOOL" Radix="Decimal" Value="1" />
+      <DataValueMember Name="CVEU" DataType="REAL" Radix="Float" Value="0.0" />
+      <DataValueMember Name="CV" DataType="REAL" Radix="Float" Value="0.0" />
+      <DataValueMember Name="CVInitializing" DataType="BOOL" Value="0" />
+      <DataValueMember Name="CVHAlarm" DataType="BOOL" Value="0" />
+      <DataValueMember Name="CVLAlarm" DataType="BOOL" Value="0" />
+      <DataValueMember Name="CVROCAlarm" DataType="BOOL" Value="0" />
+      <DataValueMember Name="SP" DataType="REAL" Radix="Float" Value="0.0" />
+      <DataValueMember Name="SPPercent" DataType="REAL" Radix="Float" Value="0.0" />
+      <DataValueMember Name="SPHAlarm" DataType="BOOL" Value="0" />
+      <DataValueMember Name="SPLAlarm" DataType="BOOL" Value="0" />
+      <DataValueMember Name="PVPercent" DataType="REAL" Radix="Float" Value="0.0" />
+      <DataValueMember Name="E" DataType="REAL" Radix="Float" Value="0.0" />
+      <DataValueMember Name="EPercent" DataType="REAL" Radix="Float" Value="0.0" />
+      <DataValueMember Name="InitPrimary" DataType="BOOL" Value="1" />
+      <DataValueMember Name="WindupHOut" DataType="BOOL" Value="0" />
+      <DataValueMember Name="WindupLOut" DataType="BOOL" Value="0" />
+      <DataValueMember Name="Ratio" DataType="REAL" Radix="Float" Value="1.0" />
+      <DataValueMember Name="RatioHAlarm" DataType="BOOL" Value="0" />
+      <DataValueMember Name="RatioLAlarm" DataType="BOOL" Value="0" />
+      <DataValueMember Name="ZCDeadbandOn" DataType="BOOL" Value="0" />
+      <DataValueMember Name="PVHHAlarm" DataType="BOOL" Value="0" />
+      <DataValueMember Name="PVHAlarm" DataType="BOOL" Value="0" />
+      <DataValueMember Name="PVLAlarm" DataType="BOOL" Value="0" />
+      <DataValueMember Name="PVLLAlarm" DataType="BOOL" Value="0" />
+      <DataValueMember Name="PVROCPosAlarm" DataType="BOOL" Value="0" />
+      <DataValueMember Name="PVROCNegAlarm" DataType="BOOL" Value="0" />
+      <DataValueMember Name="DevHHAlarm" DataType="BOOL" Value="0" />
+      <DataValueMember Name="DevHAlarm" DataType="BOOL" Value="0" />
+      <DataValueMember Name="DevLAlarm" DataType="BOOL" Value="0" />
+      <DataValueMember Name="DevLLAlarm" DataType="BOOL" Value="0" />
+      <DataValueMember Name="ProgOper" DataType="BOOL" Value="0" />
+      <DataValueMember Name="CasRat" DataType="BOOL" Value="0" />
+      <DataValueMember Name="Auto" DataType="BOOL" Value="0" />
+      <DataValueMember Name="Manual" DataType="BOOL" Value="1" />
+      <DataValueMember Name="Override" DataType="BOOL" Value="0" />
+      <DataValueMember Name="Hand" DataType="BOOL" Value="0" />
+      <DataValueMember Name="DeltaT" DataType="REAL" Radix="Float" Value="0.05" />
+      <DataValueMember Name="AtuneReady" DataType="BOOL" Value="0" />
+      <DataValueMember Name="AtuneOn" DataType="BOOL" Value="0" />
+      <DataValueMember Name="AtuneDone" DataType="BOOL" Value="0" />
+      <DataValueMember Name="AtuneAborted" DataType="BOOL" Value="0" />
+      <DataValueMember Name="AtuneBusy" DataType="BOOL" Value="0" />
+      <DataValueMember Name="Status1" DataType="DINT" Radix="Hex" Value="16#0000_0000" />
+      <DataValueMember Name="Status2" DataType="DINT" Radix="Hex" Value="16#0000_0000" />
+      <DataValueMember Name="InstructFault" DataType="BOOL" Value="0" />
+      <DataValueMember Name="PVFaulted" DataType="BOOL" Value="0" />
+      <DataValueMember Name="CVFaulted" DataType="BOOL" Value="0" />
+      <DataValueMember Name="HandFBFaulted" DataType="BOOL" Value="0" />
+      <DataValueMember Name="PVSpanInv" DataType="BOOL" Value="0" />
+      <DataValueMember Name="SPProgInv" DataType="BOOL" Value="0" />
+      <DataValueMember Name="SPOperInv" DataType="BOOL" Value="0" />
+      <DataValueMember Name="SPCascadeInv" DataType="BOOL" Value="0" />
+      <DataValueMember Name="SPLimitsInv" DataType="BOOL" Value="0" />
+      <DataValueMember Name="RatioProgInv" DataType="BOOL" Value="0" />
+      <DataValueMember Name="RatioOperInv" DataType="BOOL" Value="0" />
+      <DataValueMember Name="RatioLimitsInv" DataType="BOOL" Value="0" />
+      <DataValueMember Name="CVProgInv" DataType="BOOL" Value="0" />
+      <DataValueMember Name="CVOperInv" DataType="BOOL" Value="0" />
+      <DataValueMember Name="CVOverrideInv" DataType="BOOL" Value="0" />
+      <DataValueMember Name="CVPreviousInv" DataType="BOOL" Value="0" />
+      <DataValueMember Name="CVEUSpanInv" DataType="BOOL" Value="0" />
+      <DataValueMember Name="CVLimitsInv" DataType="BOOL" Value="0" />
+      <DataValueMember Name="CVROCLimitInv" DataType="BOOL" Value="0" />
+      <DataValueMember Name="FFInv" DataType="BOOL" Value="0" />
+      <DataValueMember Name="FFPreviousInv" DataType="BOOL" Value="0" />
+      <DataValueMember Name="HandFBInv" DataType="BOOL" Value="0" />
+      <DataValueMember Name="PGainInv" DataType="BOOL" Value="0" />
+      <DataValueMember Name="IGainInv" DataType="BOOL" Value="0" />
+      <DataValueMember Name="DGainInv" DataType="BOOL" Value="0" />
+      <DataValueMember Name="ZCDeadbandInv" DataType="BOOL" Value="0" />
+      <DataValueMember Name="PVDeadbandInv" DataType="BOOL" Value="0" />
+      <DataValueMember Name="PVROCLimitsInv" DataType="BOOL" Value="0" />
+      <DataValueMember Name="DevHLLimitsInv" DataType="BOOL" Value="0" />
+      <DataValueMember Name="DevDeadbandInv" DataType="BOOL" Value="0" />
+      <DataValueMember Name="AtuneDataInv" DataType="BOOL" Value="0" />
+      <DataValueMember Name="TimingModeInv" DataType="BOOL" Value="0" />
+      <DataValueMember Name="RTSMissed" DataType="BOOL" Value="0" />
+      <DataValueMember Name="RTSTimeInv" DataType="BOOL" Value="0" />
+      <DataValueMember Name="RTSTimeStampInv" DataType="BOOL" Value="0" />
+      <DataValueMember Name="DeltaTInv" DataType="BOOL" Value="0" />
+    </Structure>
+  </Data>
+</Tag>

@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Tag Name="Val_Conductivity" TagType="Base" DataType="REAL" Radix="Float" Usage="Output" Constant="false" ExternalAccess="Read Only" OpcUaAccess="None">
+  <EngineeringUnits>
+    <EngineeringUnit><![CDATA[umhos]]></EngineeringUnit>
+  </EngineeringUnits>
+  <Data Format="L5K"><![CDATA[1.00000000e+002]]></Data>
+  <Data Format="Decorated">
+    <DataValue DataType="REAL" Radix="Float" Value="100.0" />
+  </Data>
+</Tag>

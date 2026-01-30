@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Routine Name="a_Init" Type="RLL">
+  <RLLContent>
+    <Rung Type="N">
+      <Text><![CDATA[SIZE(wrkBuffer.Step[0],0,wrkStepArraySize)SUB(wrkStepArraySize,1,wrkStepArrayMax);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[SIZE(RecipeList[0],0,wrkListArraySize)SUB(wrkListArraySize,1,wrkListArrayMax);]]></Text>
+    </Rung>
+  </RLLContent>
+</Routine>

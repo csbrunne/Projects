@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Routine Name="_RcpClearSteps" Type="RLL">
+  <RLLContent>
+    <Rung Type="N">
+      <Text><![CDATA[[XIC(wrkClrAll) OTL(wrkLastStepFound) ,XIO(wrkClrAll) OTU(wrkLastStepFound) ];]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[CLR(idx);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[LBL(Loop)LE(idx,wrkStepArrayMax)[XIO(wrkLastStepFound) [[XIO(wrkBuffer.Step[idx].PreWash) ,XIO(wrkBuffer.Step[idx].CausticWash) ,XIO(wrkBuffer.Step[idx].AcidWash) ,XIO(wrkBuffer.Step[idx].Rinse) ] OTE(wrkTemp) ,XIC(wrkTemp) OTL(wrkLastStepFound) ] ,XIC(wrkLastStepFound) COP(wrkNull.Step[0],wrkBuffer.Step[idx],1) ,JMP(Loop) ];]]></Text>
+    </Rung>
+  </RLLContent>
+</Routine>

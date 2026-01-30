@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Tag Name="EM_Intlk" TagType="Base" DataType="raM_Opr_PermIntlk" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+  <CustomProperties>
+    <Provider ID="ACM" Ext="Origin_0">
+      <OriginHeader xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Maj="1" Min="0" OExt="-1" UExt="1" />
+    </Provider>
+    <Provider ID="ACM" Ext="Origin_1">
+      <Data xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Maj="3" Min="0" OExt="-1">
+        <Val><![CDATA[<Origin xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Owners>
+    <OwnedBy InstName="EM_Intlk" LGuid="43D30692-8E14-4B87-82A2-FD73B8A41883" />
+  </Owners>
+</Origin>]]></Val>
+      </Data>
+    </Provider>
+  </CustomProperties>
+  <Description><![CDATA[Permissive - Interlock]]></Description>
+  <Comments>
+    <Comment Operand=".INF_TAG"><![CDATA[EM_Intlk]]></Comment>
+    <Comment Operand=".INF_LABEL"><![CDATA[Permissive - Interlock]]></Comment>
+    <Comment Operand=".INP_00"><![CDATA[Drain Valve Device Fault]]></Comment>
+    <Comment Operand=".INP_01"><![CDATA[Drain Valve I/O Fault]]></Comment>
+    <Comment Operand=".INP_02"><![CDATA[Recovery Tank Valve Device Fault]]></Comment>
+    <Comment Operand=".INP_03"><![CDATA[Recovery Tank Valve I/O Fault]]></Comment>
+    <Comment Operand=".INP_04"><![CDATA[Caustic Tank Valve Device Fault]]></Comment>
+    <Comment Operand=".INP_05"><![CDATA[Caustic Tank Valve I/O Fault]]></Comment>
+    <Comment Operand=".INP_06"><![CDATA[Input06]]></Comment>
+    <Comment Operand=".INP_07"><![CDATA[Input07]]></Comment>
+    <Comment Operand=".INP_08"><![CDATA[Input08]]></Comment>
+    <Comment Operand=".INP_09"><![CDATA[Input09]]></Comment>
+    <Comment Operand=".INP_10"><![CDATA[Input10]]></Comment>
+    <Comment Operand=".INP_11"><![CDATA[Input11]]></Comment>
+    <Comment Operand=".INP_12"><![CDATA[Input12]]></Comment>
+    <Comment Operand=".INP_13"><![CDATA[Input13]]></Comment>
+    <Comment Operand=".INP_14"><![CDATA[Input14]]></Comment>
+    <Comment Operand=".INP_15"><![CDATA[Input15]]></Comment>
+    <Comment Operand=".INP_16"><![CDATA[Input16]]></Comment>
+    <Comment Operand=".INP_17"><![CDATA[Input17]]></Comment>
+    <Comment Operand=".INP_18"><![CDATA[Input18]]></Comment>
+    <Comment Operand=".INP_19"><![CDATA[Input19]]></Comment>
+    <Comment Operand=".INP_20"><![CDATA[Input20]]></Comment>
+    <Comment Operand=".INP_21"><![CDATA[Input21]]></Comment>
+    <Comment Operand=".INP_22"><![CDATA[Input22]]></Comment>
+    <Comment Operand=".INP_23"><![CDATA[Input23]]></Comment>
+    <Comment Operand=".INP_24"><![CDATA[Input24]]></Comment>
+    <Comment Operand=".INP_25"><![CDATA[Input25]]></Comment>
+    <Comment Operand=".INP_26"><![CDATA[Input26]]></Comment>
+    <Comment Operand=".INP_27"><![CDATA[Input27]]></Comment>
+    <Comment Operand=".INP_28"><![CDATA[Input28]]></Comment>
+    <Comment Operand=".INP_29"><![CDATA[Input29]]></Comment>
+    <Comment Operand=".INP_30"><![CDATA[Input30]]></Comment>
+    <Comment Operand=".INP_31"><![CDATA[Input31]]></Comment>
+  </Comments>
+  <Data Format="L5K"><![CDATA[[2696243,63,63,-1,0,63,0,0,[17,'raM_Opr_PermIntlk$00$00$00$00$00$00$00'],255,0,-48,63,0,0]]]></Data>
+  <Data Format="Decorated">
+    <Structure DataType="raM_Opr_PermIntlk">
+      <DataValueMember Name="EnableIn" DataType="BOOL" Value="1" />
+      <DataValueMember Name="EnableOut" DataType="BOOL" Value="1" />
+      <DataValueMember Name="Inp_ArmFirstOut" DataType="BOOL" Value="0" />
+      <DataValueMember Name="Inp_Maint" DataType="BOOL" Value="0" />
+      <DataValueMember Name="Inp_00" DataType="BOOL" Value="1" />
+      <DataValueMember Name="Inp_01" DataType="BOOL" Value="1" />
+      <DataValueMember Name="Inp_02" DataType="BOOL" Value="1" />
+      <DataValueMember Name="Inp_03" DataType="BOOL" Value="1" />
+      <DataValueMember Name="Inp_04" DataType="BOOL" Value="1" />
+      <DataValueMember Name="Inp_05" DataType="BOOL" Value="1" />
+      <DataValueMember Name="Inp_06" DataType="BOOL" Value="1" />
+      <DataValueMember Name="Inp_07" DataType="BOOL" Value="1" />
+      <DataValueMember Name="Inp_08" DataType="BOOL" Value="0" />
+      <DataValueMember Name="Inp_09" DataType="BOOL" Value="0" />
+      <DataValueMember Name="Inp_10" DataType="BOOL" Value="0" />
+      <DataValueMember Name="Inp_11" DataType="BOOL" Value="0" />
+      <DataValueMember Name="Inp_12" DataType="BOOL" Value="0" />
+      <DataValueMember Name="Inp_13" DataType="BOOL" Value="0" />
+      <DataValueMember Name="Inp_14" DataType="BOOL" Value="0" />
+      <DataValueMember Name="Inp_15" DataType="BOOL" Value="0" />
+      <DataValueMember Name="Inp_16" DataType="BOOL" Value="0" />
+      <DataValueMember Name="Inp_17" DataType="BOOL" Value="0" />
+      <DataValueMember Name="Inp_18" DataType="BOOL" Value="0" />
+      <DataValueMember Name="Inp_19" DataType="BOOL" Value="0" />
+      <DataValueMember Name="Inp_20" DataType="BOOL" Value="0" />
+      <DataValueMember Name="Inp_21" DataType="BOOL" Value="0" />
+      <DataValueMember Name="Inp_22" DataType="BOOL" Value="0" />
+      <DataValueMember Name="Inp_23" DataType="BOOL" Value="0" />
+      <DataValueMember Name="Inp_24" DataType="BOOL" Value="0" />
+      <DataValueMember Name="Inp_25" DataType="BOOL" Value="0" />
+      <DataValueMember Name="Inp_26" DataType="BOOL" Value="0" />
+      <DataValueMember Name="Inp_27" DataType="BOOL" Value="0" />
+      <DataValueMember Name="Inp_28" DataType="BOOL" Value="0" />
+      <DataValueMember Name="Inp_29" DataType="BOOL" Value="0" />
+      <DataValueMember Name="Inp_30" DataType="BOOL" Value="0" />
+      <DataValueMember Name="Inp_31" DataType="BOOL" Value="0" />
+      <DataValueMember Name="Cfg_AllowBypass" DataType="DINT" Radix="Hex" Value="16#0000_003f" />
+      <DataValueMember Name="Cfg_FirstOut" DataType="BOOL" Value="1" />
+      <DataValueMember Name="Cfg_InpEnable" DataType="DINT" Radix="Hex" Value="16#0000_003f" />
+      <DataValueMember Name="Cfg_InpOK" DataType="DINT" Radix="Hex" Value="16#ffff_ffff" />
+      <DataValueMember Name="Cfg_ResetReqd" DataType="BOOL" Value="1" />
+      <DataValueMember Name="MSet_BypassSel" DataType="DINT" Radix="Hex" Value="16#0000_0000" />
+      <DataValueMember Name="OCmd_Reset" DataType="BOOL" Value="0" />
+      <DataValueMember Name="PCmd_Reset" DataType="BOOL" Value="0" />
+      <DataValueMember Name="MCmd_BypassReq" DataType="BOOL" Value="0" />
+      <DataValueMember Name="MCmd_NormalReq" DataType="BOOL" Value="0" />
+      <DataValueMember Name="Out_OK" DataType="BOOL" Value="1" />
+      <DataValueMember Name="Sts_Input" DataType="DINT" Radix="Hex" Value="16#0000_003f" />
+      <DataValueMember Name="Sts_InpBypassed" DataType="DINT" Radix="Hex" Value="16#0000_0000" />
+      <DataValueMember Name="Sts_FirstOut" DataType="DINT" Radix="Hex" Value="16#0000_0000" />
+      <DataValueMember Name="Sts_Bypassed" DataType="BOOL" Value="0" />
+      <DataValueMember Name="Sts_Triggered" DataType="BOOL" Value="0" />
+      <DataValueMember Name="raM_Opr_PermIntlk" DataType="BOOL" Value="1" />
+      <DataValueMember Name="Inf_Tag" DataType="BOOL" Value="0" />
+      <DataValueMember Name="Inf_Label" DataType="BOOL" Value="0" />
+    </Structure>
+  </Data>
+</Tag>

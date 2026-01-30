@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Routine Name="a_Intlk" Type="RLL">
+  <CustomProperties>
+    <Provider ID="ACM" Ext="Origin_0">
+      <OriginHeader xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Maj="1" Min="0" OExt="-1" UExt="1" />
+    </Provider>
+    <Provider ID="ACM" Ext="Origin_1">
+      <Data xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Maj="3" Min="0" OExt="-1">
+        <Val><![CDATA[<Origin xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Owners>
+    <OwnedBy InstName="EM_ReturnHeader3" LGuid="EE90A165-390A-4B4D-BCCE-F6CB44FC336C" />
+    <OwnedBy InstName="EM_Intlk" LGuid="43D30692-8E14-4B87-82A2-FD73B8A41883" />
+  </Owners>
+</Origin>]]></Val>
+      </Data>
+    </Provider>
+  </CustomProperties>
+  <RLLContent>
+    <Rung Type="N">
+      <Text><![CDATA[XIO(DrainValve.FaultAlarm)OTE(EM_Intlk.Inp_00);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIO(DI_DrainValveClsdLS.Sts_Fault)XIO(DI_DrainValveOpenLS.Sts_Fault)XIO(DO_DrainValveSV.Sts_Fault)OTE(EM_Intlk.Inp_01);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIO(RecoveryTankValve.FaultAlarm)OTE(EM_Intlk.Inp_02);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIO(DI_RecoveryTankValveClsdLS.Sts_Fault)XIO(DI_RecoveryTankValveOpenLS.Sts_Fault)XIO(DO_RecoveryTankValveSV.Sts_Fault)OTE(EM_Intlk.Inp_03);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIO(CausticTankValve.FaultAlarm)OTE(EM_Intlk.Inp_04);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIO(DI_CausticTankValveClsdLS.Sts_Fault)XIO(DI_CausticTankValveOpenLS.Sts_Fault)XIO(DO_CausticTankValveSV.Sts_Fault)OTE(EM_Intlk.Inp_05);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <CustomProperties>
+        <Provider ID="ACM" Ext="Origin_0">
+          <OriginHeader xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Maj="1" Min="0" OExt="-1" UExt="1" />
+        </Provider>
+        <Provider ID="ACM" Ext="Origin_1">
+          <Data xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Maj="3" Min="0" OExt="-1">
+            <Val><![CDATA[<Origin xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Owners>
+    <OwnedBy InstName="EM_ReturnHeader3" LGuid="EE90A165-390A-4B4D-BCCE-F6CB44FC336C" />
+  </Owners>
+</Origin>]]></Val>
+          </Data>
+        </Provider>
+      </CustomProperties>
+      <Text><![CDATA[[LIMIT(3,EM.Out_eState,8) OTE(EM_Intlk.Inp_ArmFirstOut) ,XIC(EM.Out_FaultReset) OTE(EM_Intlk.PCmd_Reset) ,XIC(EM.Sts_Maint) OTE(EM_Intlk.Inp_Maint) ,raM_Opr_PermIntlk(EM_Intlk) ,XIO(EM_Intlk.Out_OK) OTE(EM.Inp_Ovrd) ];]]></Text>
+    </Rung>
+  </RLLContent>
+</Routine>

@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Tag Name="ALM_Level" TagType="Base" DataType="ALARM" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+  <Data Format="L5K"><![CDATA[[1,1.98499813e+001,3.40282347e+038,9.50000000e+001,-3.40282347e+038,-3.40282347e+038,0.00000000e+000
+		,0.00000000e+000,0.00000000e+000,0.00000000e+000,1,0.00000000e+000,0,0.00000000e+000,1.40129846e-045
+		,0.00000000e+000,0.00000000e+000,1.98499813e+001,0.00000000e+000,0.00000000e+000,7.00649232e-044
+		,4.08011029e-039,7.89211295e-042,5.00000000e-002]]]></Data>
+  <Data Format="Decorated">
+    <Structure DataType="ALARM">
+      <DataValueMember Name="EnableIn" DataType="BOOL" Value="1" />
+      <DataValueMember Name="In" DataType="REAL" Radix="Float" Value="19.849981" />
+      <DataValueMember Name="HHLimit" DataType="REAL" Radix="Float" Value="3.40282347e+038" />
+      <DataValueMember Name="HLimit" DataType="REAL" Radix="Float" Value="95.0" />
+      <DataValueMember Name="LLimit" DataType="REAL" Radix="Float" Value="-3.40282347e+038" />
+      <DataValueMember Name="LLLimit" DataType="REAL" Radix="Float" Value="-3.40282347e+038" />
+      <DataValueMember Name="Deadband" DataType="REAL" Radix="Float" Value="0.0" />
+      <DataValueMember Name="ROCPosLimit" DataType="REAL" Radix="Float" Value="0.0" />
+      <DataValueMember Name="ROCNegLimit" DataType="REAL" Radix="Float" Value="0.0" />
+      <DataValueMember Name="ROCPeriod" DataType="REAL" Radix="Float" Value="0.0" />
+      <DataValueMember Name="EnableOut" DataType="BOOL" Value="1" />
+      <DataValueMember Name="HHAlarm" DataType="BOOL" Value="0" />
+      <DataValueMember Name="HAlarm" DataType="BOOL" Value="0" />
+      <DataValueMember Name="LAlarm" DataType="BOOL" Value="0" />
+      <DataValueMember Name="LLAlarm" DataType="BOOL" Value="0" />
+      <DataValueMember Name="ROCPosAlarm" DataType="BOOL" Value="0" />
+      <DataValueMember Name="ROCNegAlarm" DataType="BOOL" Value="0" />
+      <DataValueMember Name="ROC" DataType="REAL" Radix="Float" Value="0.0" />
+      <DataValueMember Name="Status" DataType="DINT" Radix="Hex" Value="16#0000_0000" />
+      <DataValueMember Name="InstructFault" DataType="BOOL" Value="0" />
+      <DataValueMember Name="DeadbandInv" DataType="BOOL" Value="0" />
+      <DataValueMember Name="ROCPosLimitInv" DataType="BOOL" Value="0" />
+      <DataValueMember Name="ROCNegLimitInv" DataType="BOOL" Value="0" />
+      <DataValueMember Name="ROCPeriodInv" DataType="BOOL" Value="0" />
+    </Structure>
+  </Data>
+</Tag>

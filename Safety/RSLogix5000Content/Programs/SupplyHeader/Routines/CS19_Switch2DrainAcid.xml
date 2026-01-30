@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Routine Name="CS19_Switch2DrainAcid" Type="RLL">
+  <CustomProperties>
+    <Provider ID="ACM" Ext="Origin_0">
+      <OriginHeader xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Maj="1" Min="0" OExt="-1" UExt="1" />
+    </Provider>
+    <Provider ID="ACM" Ext="Origin_1">
+      <Data xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Maj="3" Min="0" OExt="-1">
+        <Val><![CDATA[<Origin xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Owners>
+    <OwnedBy InstName="EM_ReturnHeader3" LGuid="EE90A165-390A-4B4D-BCCE-F6CB44FC336C" />
+  </Owners>
+</Origin>]]></Val>
+      </Data>
+    </Provider>
+  </CustomProperties>
+  <RLLContent>
+    <Rung Type="N">
+      <CustomProperties>
+        <Provider ID="ACM" Ext="Origin_0">
+          <OriginHeader xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Maj="1" Min="0" OExt="-1" UExt="1" />
+        </Provider>
+        <Provider ID="ACM" Ext="Origin_1">
+          <Data xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Maj="3" Min="0" OExt="-1">
+            <Val><![CDATA[<Origin xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Owners>
+    <OwnedBy InstName="EM_ReturnHeader3" LGuid="EE90A165-390A-4B4D-BCCE-F6CB44FC336C" />
+  </Owners>
+</Origin>]]></Val>
+          </Data>
+        </Provider>
+      </CustomProperties>
+      <Comment><![CDATA[===========================================================================
+State 19 Command Sequence - Switch to Acid Tank Drain
+===========================================================================
+Open the Supply Header Drain Valve and once confirmed open,
+open the Acid Tank Supply Valve and close the other header valves.
+
+Note - Step 999 is defined as Last Step, providing for one final scan
+       of this routine before setting Cmd_StateComplete.]]></Comment>
+      <Text><![CDATA[EQ(EM.Sts_eStep,999)OTL(EM.Cmd_StateComplete);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <CustomProperties>
+        <Provider ID="ACM" Ext="Origin_0">
+          <OriginHeader xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Maj="1" Min="0" OExt="-1" UExt="1" />
+        </Provider>
+        <Provider ID="ACM" Ext="Origin_1">
+          <Data xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Maj="3" Min="0" OExt="-1">
+            <Val><![CDATA[<Origin xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Owners>
+    <OwnedBy InstName="EM_ReturnHeader3" LGuid="EE90A165-390A-4B4D-BCCE-F6CB44FC336C" />
+  </Owners>
+</Origin>]]></Val>
+          </Data>
+        </Provider>
+      </CustomProperties>
+      <Text><![CDATA[EQ(EM.Sts_eStep,191)[OTL(wrkAcquire) ,XIC(wrkOwned) ADD(1,EM.Sts_eStep,EM.Sts_eStep) ];]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <CustomProperties>
+        <Provider ID="ACM" Ext="Origin_0">
+          <OriginHeader xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Maj="1" Min="0" OExt="-1" UExt="1" />
+        </Provider>
+        <Provider ID="ACM" Ext="Origin_1">
+          <Data xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Maj="3" Min="0" OExt="-1">
+            <Val><![CDATA[<Origin xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Owners>
+    <OwnedBy InstName="EM_ReturnHeader3" LGuid="EE90A165-390A-4B4D-BCCE-F6CB44FC336C" />
+  </Owners>
+</Origin>]]></Val>
+          </Data>
+        </Provider>
+      </CustomProperties>
+      <Text><![CDATA[EQ(EM.Sts_eStep,192)[OTL(DrainValve.Prog1Command) ,XIC(DrainValve.Device1State) ADD(1,EM.Sts_eStep,EM.Sts_eStep) ];]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <CustomProperties>
+        <Provider ID="ACM" Ext="Origin_0">
+          <OriginHeader xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Maj="1" Min="0" OExt="-1" UExt="1" />
+        </Provider>
+        <Provider ID="ACM" Ext="Origin_1">
+          <Data xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Maj="3" Min="0" OExt="-1">
+            <Val><![CDATA[<Origin xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Owners>
+    <OwnedBy InstName="EM_ReturnHeader3" LGuid="EE90A165-390A-4B4D-BCCE-F6CB44FC336C" />
+  </Owners>
+</Origin>]]></Val>
+          </Data>
+        </Provider>
+      </CustomProperties>
+      <Text><![CDATA[EQ(EM.Sts_eStep,193)[OTL(RinseTankValve.Prog0Command) OTL(RecoveryTankValve.Prog0Command) OTL(CausticTankValve.Prog0Command) OTL(AcidTankValve.Prog1Command) ,XIC(RinseTankValve.Device0State) XIC(RecoveryTankValve.Device0State) XIC(CausticTankValve.Device0State) XIC(AcidTankValve.Device1State) ADD(1,EM.Sts_eStep,EM.Sts_eStep) ];]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[EQ(EM.Sts_eStep,194)MOVE(999,EM.Sts_eStep);]]></Text>
+    </Rung>
+  </RLLContent>
+</Routine>

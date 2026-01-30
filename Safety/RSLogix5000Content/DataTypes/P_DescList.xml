@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<DataType Name="P_DescList" Family="NoFamily" Class="User">
+  <Description><![CDATA[Code / Description List Entry]]></Description>
+  <Members>
+    <Member Name="Code" DataType="DINT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[Code for which to look up Description]]></Description>
+    </Member>
+    <Member Name="Desc" DataType="STRING_40" Dimension="0" Radix="NullType" Hidden="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[Description for given Code]]></Description>
+    </Member>
+  </Members>
+  <Dependencies>
+    <Dependency Type="DataType" Name="STRING_40" />
+  </Dependencies>
+</DataType>

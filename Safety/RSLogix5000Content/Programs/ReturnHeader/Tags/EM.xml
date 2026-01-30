@@ -1,0 +1,314 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Tag Name="EM" TagType="Base" DataType="raM_Opr_CfgStateModel" Usage="Output" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+  <CustomProperties>
+    <Provider ID="ACM" Ext="Origin_0">
+      <OriginHeader xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Maj="1" Min="0" OExt="-1" UExt="1" />
+    </Provider>
+    <Provider ID="ACM" Ext="Origin_1">
+      <Data xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Maj="3" Min="0" OExt="-1">
+        <Val><![CDATA[<Origin xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Owners>
+    <OwnedBy InstName="EM" LGuid="62D4F4E3-1458-44A4-BAC4-8234B0A74E6B" />
+  </Owners>
+</Origin>]]></Val>
+      </Data>
+    </Provider>
+  </CustomProperties>
+  <Description><![CDATA[Configurable state model]]></Description>
+  <Comments>
+    <Comment Operand=".INF_LABEL"><![CDATA[Return Header]]></Comment>
+    <Comment Operand=".INF_TAG"><![CDATA[HDR_Return]]></Comment>
+    <Comment Operand=".PCMD_BSTATEREQ.0"><![CDATA[Cmd St00]]></Comment>
+    <Comment Operand=".PCMD_BSTATEREQ.1"><![CDATA[STOP]]></Comment>
+    <Comment Operand=".PCMD_BSTATEREQ.2"><![CDATA[Cmd St02]]></Comment>
+    <Comment Operand=".PCMD_BSTATEREQ.3"><![CDATA[RETURN TO DRAIN]]></Comment>
+    <Comment Operand=".PCMD_BSTATEREQ.4"><![CDATA[Cmd St04]]></Comment>
+    <Comment Operand=".PCMD_BSTATEREQ.5"><![CDATA[RETURN TO RECOVERY]]></Comment>
+    <Comment Operand=".PCMD_BSTATEREQ.6"><![CDATA[Cmd St06]]></Comment>
+    <Comment Operand=".PCMD_BSTATEREQ.7"><![CDATA[RETURN TO CAUSTIC]]></Comment>
+    <Comment Operand=".PCMD_BSTATEREQ.8"><![CDATA[Cmd St08]]></Comment>
+    <Comment Operand=".PCMD_BSTATEREQ.9"><![CDATA[RETURN TO ACID]]></Comment>
+    <Comment Operand=".PCMD_BSTATEREQ.10"><![CDATA[Cmd St10]]></Comment>
+    <Comment Operand=".PCMD_BSTATEREQ.11"><![CDATA[Cmd St11]]></Comment>
+    <Comment Operand=".PCMD_BSTATEREQ.12"><![CDATA[Cmd St12]]></Comment>
+    <Comment Operand=".PCMD_BSTATEREQ.13"><![CDATA[Cmd St13]]></Comment>
+    <Comment Operand=".PCMD_BSTATEREQ.14"><![CDATA[Cmd St14]]></Comment>
+    <Comment Operand=".PCMD_BSTATEREQ.15"><![CDATA[Cmd St15]]></Comment>
+    <Comment Operand=".PCMD_BSTATEREQ.16"><![CDATA[Cmd St16]]></Comment>
+    <Comment Operand=".PCMD_BSTATEREQ.17"><![CDATA[Cmd St17]]></Comment>
+    <Comment Operand=".PCMD_BSTATEREQ.18"><![CDATA[Cmd St18]]></Comment>
+    <Comment Operand=".PCMD_BSTATEREQ.19"><![CDATA[Cmd St19]]></Comment>
+    <Comment Operand=".PCMD_BSTATEREQ.20"><![CDATA[Cmd St20]]></Comment>
+    <Comment Operand=".PCMD_BSTATEREQ.21"><![CDATA[Cmd St21]]></Comment>
+    <Comment Operand=".PCMD_BSTATEREQ.22"><![CDATA[Cmd St22]]></Comment>
+    <Comment Operand=".PCMD_BSTATEREQ.23"><![CDATA[Cmd St23]]></Comment>
+    <Comment Operand=".PCMD_BSTATEREQ.24"><![CDATA[Cmd St24]]></Comment>
+    <Comment Operand=".PCMD_BSTATEREQ.25"><![CDATA[Cmd St25]]></Comment>
+    <Comment Operand=".PCMD_BSTATEREQ.26"><![CDATA[Cmd St26]]></Comment>
+    <Comment Operand=".PCMD_BSTATEREQ.27"><![CDATA[Cmd St27]]></Comment>
+    <Comment Operand=".PCMD_BSTATEREQ.28"><![CDATA[Cmd St28]]></Comment>
+    <Comment Operand=".PCMD_BSTATEREQ.29"><![CDATA[Cmd St29]]></Comment>
+    <Comment Operand=".PCMD_BSTATEREQ.30"><![CDATA[Cmd St30]]></Comment>
+    <Comment Operand=".PCMD_BSTATEREQ.31"><![CDATA[Cmd St31]]></Comment>
+    <Comment Operand=".STS_BSTATECURRENT.0"><![CDATA[Initializing]]></Comment>
+    <Comment Operand=".STS_BSTATECURRENT.1"><![CDATA[Stopping]]></Comment>
+    <Comment Operand=".STS_BSTATECURRENT.2"><![CDATA[Idle]]></Comment>
+    <Comment Operand=".STS_BSTATECURRENT.3"><![CDATA[Switching to Drain Return]]></Comment>
+    <Comment Operand=".STS_BSTATECURRENT.4"><![CDATA[Return to Drain]]></Comment>
+    <Comment Operand=".STS_BSTATECURRENT.5"><![CDATA[Switching to Recovery Return]]></Comment>
+    <Comment Operand=".STS_BSTATECURRENT.6"><![CDATA[Return to Recovery Tank]]></Comment>
+    <Comment Operand=".STS_BSTATECURRENT.7"><![CDATA[Switching to Caustic Tank Return]]></Comment>
+    <Comment Operand=".STS_BSTATECURRENT.8"><![CDATA[Return to Caustic Tank]]></Comment>
+    <Comment Operand=".STS_BSTATECURRENT.9"><![CDATA[Switching to Acid Tank Return]]></Comment>
+    <Comment Operand=".STS_BSTATECURRENT.10"><![CDATA[Return to Acid Tank]]></Comment>
+    <Comment Operand=".STS_BSTATECURRENT.11"><![CDATA[State 11]]></Comment>
+    <Comment Operand=".STS_BSTATECURRENT.12"><![CDATA[State 12]]></Comment>
+    <Comment Operand=".STS_BSTATECURRENT.13"><![CDATA[State 13]]></Comment>
+    <Comment Operand=".STS_BSTATECURRENT.14"><![CDATA[State 14]]></Comment>
+    <Comment Operand=".STS_BSTATECURRENT.15"><![CDATA[State 15]]></Comment>
+    <Comment Operand=".STS_BSTATECURRENT.16"><![CDATA[State 16]]></Comment>
+    <Comment Operand=".STS_BSTATECURRENT.17"><![CDATA[State 17]]></Comment>
+    <Comment Operand=".STS_BSTATECURRENT.18"><![CDATA[State 18]]></Comment>
+    <Comment Operand=".STS_BSTATECURRENT.19"><![CDATA[State 19]]></Comment>
+    <Comment Operand=".STS_BSTATECURRENT.20"><![CDATA[State 20]]></Comment>
+    <Comment Operand=".STS_BSTATECURRENT.21"><![CDATA[State 21]]></Comment>
+    <Comment Operand=".STS_BSTATECURRENT.22"><![CDATA[State 22]]></Comment>
+    <Comment Operand=".STS_BSTATECURRENT.23"><![CDATA[State 23]]></Comment>
+    <Comment Operand=".STS_BSTATECURRENT.24"><![CDATA[State 24]]></Comment>
+    <Comment Operand=".STS_BSTATECURRENT.25"><![CDATA[State 25]]></Comment>
+    <Comment Operand=".STS_BSTATECURRENT.26"><![CDATA[State 26]]></Comment>
+    <Comment Operand=".STS_BSTATECURRENT.27"><![CDATA[State 27]]></Comment>
+    <Comment Operand=".STS_BSTATECURRENT.28"><![CDATA[State 28]]></Comment>
+    <Comment Operand=".STS_BSTATECURRENT.29"><![CDATA[State 29]]></Comment>
+    <Comment Operand=".STS_BSTATECURRENT.30"><![CDATA[State 30]]></Comment>
+    <Comment Operand=".STS_BSTATECURRENT.31"><![CDATA[State 31]]></Comment>
+    <Comment Operand=".CFG_ESTINITNEXTSTATE"><![CDATA[State00]]></Comment>
+    <Comment Operand=".CFG_EST01NEXTSTATE"><![CDATA[Stopping]]></Comment>
+    <Comment Operand=".CFG_EST02NEXTSTATE"><![CDATA[Idle]]></Comment>
+    <Comment Operand=".CFG_EST03NEXTSTATE"><![CDATA[Switch to
+Drain]]></Comment>
+    <Comment Operand=".CFG_EST04NEXTSTATE"><![CDATA[Return to Drain]]></Comment>
+    <Comment Operand=".CFG_EST05NEXTSTATE"><![CDATA[Switch to Recovery Tank]]></Comment>
+    <Comment Operand=".CFG_EST06NEXTSTATE"><![CDATA[Return to Recovery Tank]]></Comment>
+    <Comment Operand=".CFG_EST07NEXTSTATE"><![CDATA[Switch to Caustic Tank]]></Comment>
+    <Comment Operand=".CFG_EST08NEXTSTATE"><![CDATA[Return to Caustic Tank]]></Comment>
+    <Comment Operand=".CFG_EST09NEXTSTATE"><![CDATA[Switch to Acid Tank]]></Comment>
+    <Comment Operand=".CFG_EST10NEXTSTATE"><![CDATA[Return to Acid Tank]]></Comment>
+    <Comment Operand=".CFG_EST11NEXTSTATE"><![CDATA[State11]]></Comment>
+    <Comment Operand=".CFG_EST12NEXTSTATE"><![CDATA[State12]]></Comment>
+    <Comment Operand=".CFG_EST13NEXTSTATE"><![CDATA[State31]]></Comment>
+    <Comment Operand=".CFG_EST14NEXTSTATE"><![CDATA[State14]]></Comment>
+    <Comment Operand=".CFG_EST15NEXTSTATE"><![CDATA[State15]]></Comment>
+    <Comment Operand=".CFG_EST16NEXTSTATE"><![CDATA[State16]]></Comment>
+    <Comment Operand=".CFG_EST17NEXTSTATE"><![CDATA[State17]]></Comment>
+    <Comment Operand=".CFG_EST18NEXTSTATE"><![CDATA[State18]]></Comment>
+    <Comment Operand=".CFG_EST19NEXTSTATE"><![CDATA[State19]]></Comment>
+    <Comment Operand=".CFG_EST20NEXTSTATE"><![CDATA[State20]]></Comment>
+    <Comment Operand=".CFG_EST21NEXTSTATE"><![CDATA[State21]]></Comment>
+    <Comment Operand=".CFG_EST22NEXTSTATE"><![CDATA[State22]]></Comment>
+    <Comment Operand=".CFG_EST23NEXTSTATE"><![CDATA[State23]]></Comment>
+    <Comment Operand=".CFG_EST24NEXTSTATE"><![CDATA[State24]]></Comment>
+    <Comment Operand=".CFG_EST25NEXTSTATE"><![CDATA[State25]]></Comment>
+    <Comment Operand=".CFG_EST26NEXTSTATE"><![CDATA[State26]]></Comment>
+    <Comment Operand=".CFG_EST27NEXTSTATE"><![CDATA[State27]]></Comment>
+    <Comment Operand=".CFG_EST28NEXTSTATE"><![CDATA[State28]]></Comment>
+    <Comment Operand=".CFG_EST29NEXTSTATE"><![CDATA[State29]]></Comment>
+    <Comment Operand=".CFG_EST30NEXTSTATE"><![CDATA[State30]]></Comment>
+    <Comment Operand=".CFG_EST31NEXTSTATE"><![CDATA[State31]]></Comment>
+    <Comment Operand=".CFG_EST01STARTSTEP"><![CDATA[STOP]]></Comment>
+    <Comment Operand=".CFG_EST02STARTSTEP"><![CDATA[Command02]]></Comment>
+    <Comment Operand=".CFG_EST03STARTSTEP"><![CDATA[DRAIN]]></Comment>
+    <Comment Operand=".CFG_EST04STARTSTEP"><![CDATA[Command04]]></Comment>
+    <Comment Operand=".CFG_EST05STARTSTEP"><![CDATA[RECOVER]]></Comment>
+    <Comment Operand=".CFG_EST06STARTSTEP"><![CDATA[Command06]]></Comment>
+    <Comment Operand=".CFG_EST07STARTSTEP"><![CDATA[CAUSTIC]]></Comment>
+    <Comment Operand=".CFG_EST08STARTSTEP"><![CDATA[Command08]]></Comment>
+    <Comment Operand=".CFG_EST09STARTSTEP"><![CDATA[ACID]]></Comment>
+    <Comment Operand=".CFG_EST10STARTSTEP"><![CDATA[Command10]]></Comment>
+    <Comment Operand=".CFG_EST11STARTSTEP"><![CDATA[Command11]]></Comment>
+    <Comment Operand=".CFG_EST12STARTSTEP"><![CDATA[Command12]]></Comment>
+    <Comment Operand=".CFG_EST13STARTSTEP"><![CDATA[Command13]]></Comment>
+    <Comment Operand=".CFG_EST14STARTSTEP"><![CDATA[Command14]]></Comment>
+    <Comment Operand=".CFG_EST15STARTSTEP"><![CDATA[Command15]]></Comment>
+    <Comment Operand=".CFG_EST16STARTSTEP"><![CDATA[Command16]]></Comment>
+    <Comment Operand=".CFG_EST17STARTSTEP"><![CDATA[Command17]]></Comment>
+    <Comment Operand=".CFG_EST18STARTSTEP"><![CDATA[Command18]]></Comment>
+    <Comment Operand=".CFG_EST19STARTSTEP"><![CDATA[Command19]]></Comment>
+    <Comment Operand=".CFG_EST20STARTSTEP"><![CDATA[Command20]]></Comment>
+    <Comment Operand=".CFG_EST21STARTSTEP"><![CDATA[Command21]]></Comment>
+    <Comment Operand=".CFG_EST22STARTSTEP"><![CDATA[Command22]]></Comment>
+    <Comment Operand=".CFG_EST23STARTSTEP"><![CDATA[Command23]]></Comment>
+    <Comment Operand=".CFG_EST24STARTSTEP"><![CDATA[Command24]]></Comment>
+    <Comment Operand=".CFG_EST25STARTSTEP"><![CDATA[Command25]]></Comment>
+    <Comment Operand=".CFG_EST26STARTSTEP"><![CDATA[Command26]]></Comment>
+    <Comment Operand=".CFG_EST27STARTSTEP"><![CDATA[Command27]]></Comment>
+    <Comment Operand=".CFG_EST28STARTSTEP"><![CDATA[Command28]]></Comment>
+    <Comment Operand=".CFG_EST29STARTSTEP"><![CDATA[Command29]]></Comment>
+    <Comment Operand=".CFG_EST30STARTSTEP"><![CDATA[Command30]]></Comment>
+    <Comment Operand=".CFG_EST31STARTSTEP"><![CDATA[Command31]]></Comment>
+  </Comments>
+  <Data Format="L5K"><![CDATA[[4497415,-1,1,2.00000000e+000,2047,0,0,0,0,2,0,0,0,2047,4,2047,6.33799011e+002,0.00000000e+000,0,0,[21,'raM_Opr_CfgStateModel$00$00$00'
+		],0,[1,2,0,4,0,6,0,8,0,10,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[1,11,0,31,0,51,0,71,0,91,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[511,4,682,690
+		,674,714,650,298,554,1194,170,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,-1],[10195,66,512,1543541896,[0,'P_CmdSrc$00$00$00$00'
+		],[0,'RA-BAS$00$00']],0,0,2,30,682,[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[2910861,2000,2000],[-1070830963
+		,2147483647,633799],[2276912,2147483647,0],[511,4,682,690,674,714,650,298,554,1194,170,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+		,0,0,0,0,0,-1],[1,11,0,31,0,51,0,71,0,91,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[1,2,0,4,0,6,0,8,0,10,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],1364
+		,0,0,-684,0,2,0,0,0,0,2047,1,1,683,0,0,31]]]></Data>
+  <Data Format="Decorated">
+    <Structure DataType="raM_Opr_CfgStateModel">
+      <DataValueMember Name="EnableIn" DataType="BOOL" Value="1" />
+      <DataValueMember Name="EnableOut" DataType="BOOL" Value="1" />
+      <DataValueMember Name="Inp_Ovrd" DataType="BOOL" Value="0" />
+      <DataValueMember Name="Inp_bStatePerm" DataType="DINT" Radix="Hex" Value="16#ffff_ffff" />
+      <DataValueMember Name="Cfg_eOwner" DataType="DINT" Radix="Decimal" Value="1" />
+      <DataValueMember Name="Cfg_ResetTime" DataType="REAL" Radix="Float" Value="2.0" />
+      <DataValueMember Name="Cfg_LoadOn1stScan" DataType="BOOL" Value="1" />
+      <DataValueMember Name="Cfg_bEnabled" DataType="DINT" Radix="Hex" Value="16#0000_07ff" />
+      <DataValueMember Name="Cfg_eOvrdState" DataType="DINT" Radix="Decimal" Value="0" />
+      <DataValueMember Name="Cfg_eStInitNextState" DataType="SINT" Radix="Decimal" Value="1" />
+      <DataValueMember Name="Cfg_eStInitStartStep" DataType="INT" Radix="Decimal" Value="1" />
+      <DataValueMember Name="Cfg_eSt01NextState" DataType="SINT" Radix="Decimal" Value="2" />
+      <DataValueMember Name="Cfg_eSt01StartStep" DataType="INT" Radix="Decimal" Value="11" />
+      <DataValueMember Name="Cfg_bSt01ValidTrx" DataType="DINT" Radix="Decimal" Value="4" />
+      <DataValueMember Name="Cfg_eSt02NextState" DataType="SINT" Radix="Decimal" Value="0" />
+      <DataValueMember Name="Cfg_eSt02StartStep" DataType="INT" Radix="Decimal" Value="0" />
+      <DataValueMember Name="Cfg_bSt02ValidTrx" DataType="DINT" Radix="Decimal" Value="682" />
+      <DataValueMember Name="Cfg_eSt03NextState" DataType="SINT" Radix="Decimal" Value="4" />
+      <DataValueMember Name="Cfg_eSt03StartStep" DataType="INT" Radix="Decimal" Value="31" />
+      <DataValueMember Name="Cfg_bSt03ValidTrx" DataType="DINT" Radix="Decimal" Value="690" />
+      <DataValueMember Name="Cfg_eSt04NextState" DataType="SINT" Radix="Decimal" Value="0" />
+      <DataValueMember Name="Cfg_eSt04StartStep" DataType="INT" Radix="Decimal" Value="0" />
+      <DataValueMember Name="Cfg_bSt04ValidTrx" DataType="DINT" Radix="Decimal" Value="674" />
+      <DataValueMember Name="Cfg_eSt05NextState" DataType="SINT" Radix="Decimal" Value="6" />
+      <DataValueMember Name="Cfg_eSt05StartStep" DataType="INT" Radix="Decimal" Value="51" />
+      <DataValueMember Name="Cfg_bSt05ValidTrx" DataType="DINT" Radix="Decimal" Value="714" />
+      <DataValueMember Name="Cfg_eSt06NextState" DataType="SINT" Radix="Decimal" Value="0" />
+      <DataValueMember Name="Cfg_eSt06StartStep" DataType="INT" Radix="Decimal" Value="0" />
+      <DataValueMember Name="Cfg_bSt06ValidTrx" DataType="DINT" Radix="Decimal" Value="650" />
+      <DataValueMember Name="Cfg_eSt07NextState" DataType="SINT" Radix="Decimal" Value="8" />
+      <DataValueMember Name="Cfg_eSt07StartStep" DataType="INT" Radix="Decimal" Value="71" />
+      <DataValueMember Name="Cfg_bSt07ValidTrx" DataType="DINT" Radix="Decimal" Value="298" />
+      <DataValueMember Name="Cfg_eSt08NextState" DataType="SINT" Radix="Decimal" Value="0" />
+      <DataValueMember Name="Cfg_eSt08StartStep" DataType="INT" Radix="Decimal" Value="0" />
+      <DataValueMember Name="Cfg_bSt08ValidTrx" DataType="DINT" Radix="Decimal" Value="554" />
+      <DataValueMember Name="Cfg_eSt09NextState" DataType="SINT" Radix="Decimal" Value="10" />
+      <DataValueMember Name="Cfg_eSt09StartStep" DataType="INT" Radix="Decimal" Value="91" />
+      <DataValueMember Name="Cfg_bSt09ValidTrx" DataType="DINT" Radix="Decimal" Value="1194" />
+      <DataValueMember Name="Cfg_eSt10NextState" DataType="SINT" Radix="Decimal" Value="0" />
+      <DataValueMember Name="Cfg_eSt10StartStep" DataType="INT" Radix="Decimal" Value="0" />
+      <DataValueMember Name="Cfg_bSt10ValidTrx" DataType="DINT" Radix="Decimal" Value="170" />
+      <DataValueMember Name="Cfg_eSt11NextState" DataType="SINT" Radix="Decimal" Value="0" />
+      <DataValueMember Name="Cfg_eSt11StartStep" DataType="INT" Radix="Decimal" Value="0" />
+      <DataValueMember Name="Cfg_bSt11ValidTrx" DataType="DINT" Radix="Decimal" Value="0" />
+      <DataValueMember Name="Cfg_eSt12NextState" DataType="SINT" Radix="Decimal" Value="0" />
+      <DataValueMember Name="Cfg_eSt12StartStep" DataType="INT" Radix="Decimal" Value="0" />
+      <DataValueMember Name="Cfg_bSt12ValidTrx" DataType="DINT" Radix="Decimal" Value="0" />
+      <DataValueMember Name="Cfg_eSt13NextState" DataType="SINT" Radix="Decimal" Value="0" />
+      <DataValueMember Name="Cfg_eSt13StartStep" DataType="INT" Radix="Decimal" Value="0" />
+      <DataValueMember Name="Cfg_bSt13ValidTrx" DataType="DINT" Radix="Decimal" Value="0" />
+      <DataValueMember Name="Cfg_eSt14NextState" DataType="SINT" Radix="Decimal" Value="0" />
+      <DataValueMember Name="Cfg_eSt14StartStep" DataType="INT" Radix="Decimal" Value="0" />
+      <DataValueMember Name="Cfg_bSt14ValidTrx" DataType="DINT" Radix="Decimal" Value="0" />
+      <DataValueMember Name="Cfg_eSt15NextState" DataType="SINT" Radix="Decimal" Value="0" />
+      <DataValueMember Name="Cfg_eSt15StartStep" DataType="INT" Radix="Decimal" Value="0" />
+      <DataValueMember Name="Cfg_bSt15ValidTrx" DataType="DINT" Radix="Decimal" Value="0" />
+      <DataValueMember Name="Cfg_eSt16NextState" DataType="SINT" Radix="Decimal" Value="0" />
+      <DataValueMember Name="Cfg_eSt16StartStep" DataType="INT" Radix="Decimal" Value="0" />
+      <DataValueMember Name="Cfg_bSt16ValidTrx" DataType="DINT" Radix="Decimal" Value="0" />
+      <DataValueMember Name="Cfg_eSt17NextState" DataType="SINT" Radix="Decimal" Value="0" />
+      <DataValueMember Name="Cfg_eSt17StartStep" DataType="INT" Radix="Decimal" Value="0" />
+      <DataValueMember Name="Cfg_bSt17ValidTrx" DataType="DINT" Radix="Decimal" Value="0" />
+      <DataValueMember Name="Cfg_eSt18NextState" DataType="SINT" Radix="Decimal" Value="0" />
+      <DataValueMember Name="Cfg_eSt18StartStep" DataType="INT" Radix="Decimal" Value="0" />
+      <DataValueMember Name="Cfg_bSt18ValidTrx" DataType="DINT" Radix="Decimal" Value="0" />
+      <DataValueMember Name="Cfg_eSt19NextState" DataType="SINT" Radix="Decimal" Value="0" />
+      <DataValueMember Name="Cfg_eSt19StartStep" DataType="INT" Radix="Decimal" Value="0" />
+      <DataValueMember Name="Cfg_bSt19ValidTrx" DataType="DINT" Radix="Decimal" Value="0" />
+      <DataValueMember Name="Cfg_eSt20NextState" DataType="SINT" Radix="Decimal" Value="0" />
+      <DataValueMember Name="Cfg_eSt20StartStep" DataType="INT" Radix="Decimal" Value="0" />
+      <DataValueMember Name="Cfg_bSt20ValidTrx" DataType="DINT" Radix="Decimal" Value="0" />
+      <DataValueMember Name="Cfg_eSt21NextState" DataType="SINT" Radix="Decimal" Value="0" />
+      <DataValueMember Name="Cfg_eSt21StartStep" DataType="INT" Radix="Decimal" Value="0" />
+      <DataValueMember Name="Cfg_bSt21ValidTrx" DataType="DINT" Radix="Decimal" Value="0" />
+      <DataValueMember Name="Cfg_eSt22NextState" DataType="SINT" Radix="Decimal" Value="0" />
+      <DataValueMember Name="Cfg_eSt22StartStep" DataType="INT" Radix="Decimal" Value="0" />
+      <DataValueMember Name="Cfg_bSt22ValidTrx" DataType="DINT" Radix="Decimal" Value="0" />
+      <DataValueMember Name="Cfg_eSt23NextState" DataType="SINT" Radix="Decimal" Value="0" />
+      <DataValueMember Name="Cfg_eSt23StartStep" DataType="INT" Radix="Decimal" Value="0" />
+      <DataValueMember Name="Cfg_bSt23ValidTrx" DataType="DINT" Radix="Decimal" Value="0" />
+      <DataValueMember Name="Cfg_eSt24NextState" DataType="SINT" Radix="Decimal" Value="0" />
+      <DataValueMember Name="Cfg_eSt24StartStep" DataType="INT" Radix="Decimal" Value="0" />
+      <DataValueMember Name="Cfg_bSt24ValidTrx" DataType="DINT" Radix="Decimal" Value="0" />
+      <DataValueMember Name="Cfg_eSt25NextState" DataType="SINT" Radix="Decimal" Value="0" />
+      <DataValueMember Name="Cfg_eSt25StartStep" DataType="INT" Radix="Decimal" Value="0" />
+      <DataValueMember Name="Cfg_bSt25ValidTrx" DataType="DINT" Radix="Decimal" Value="0" />
+      <DataValueMember Name="Cfg_eSt26NextState" DataType="SINT" Radix="Decimal" Value="0" />
+      <DataValueMember Name="Cfg_eSt26StartStep" DataType="INT" Radix="Decimal" Value="0" />
+      <DataValueMember Name="Cfg_bSt26ValidTrx" DataType="DINT" Radix="Decimal" Value="0" />
+      <DataValueMember Name="Cfg_eSt27NextState" DataType="SINT" Radix="Decimal" Value="0" />
+      <DataValueMember Name="Cfg_eSt27StartStep" DataType="INT" Radix="Decimal" Value="0" />
+      <DataValueMember Name="Cfg_bSt27ValidTrx" DataType="DINT" Radix="Decimal" Value="0" />
+      <DataValueMember Name="Cfg_eSt28NextState" DataType="SINT" Radix="Decimal" Value="0" />
+      <DataValueMember Name="Cfg_eSt28StartStep" DataType="INT" Radix="Decimal" Value="0" />
+      <DataValueMember Name="Cfg_bSt28ValidTrx" DataType="DINT" Radix="Decimal" Value="0" />
+      <DataValueMember Name="Cfg_eSt29NextState" DataType="SINT" Radix="Decimal" Value="0" />
+      <DataValueMember Name="Cfg_eSt29StartStep" DataType="INT" Radix="Decimal" Value="0" />
+      <DataValueMember Name="Cfg_bSt29ValidTrx" DataType="DINT" Radix="Decimal" Value="0" />
+      <DataValueMember Name="Cfg_eSt30NextState" DataType="SINT" Radix="Decimal" Value="0" />
+      <DataValueMember Name="Cfg_eSt30StartStep" DataType="INT" Radix="Decimal" Value="0" />
+      <DataValueMember Name="Cfg_bSt30ValidTrx" DataType="DINT" Radix="Decimal" Value="0" />
+      <DataValueMember Name="Cfg_eSt31NextState" DataType="SINT" Radix="Decimal" Value="0" />
+      <DataValueMember Name="Cfg_eSt31StartStep" DataType="INT" Radix="Decimal" Value="0" />
+      <DataValueMember Name="Cfg_bSt31ValidTrx" DataType="DINT" Radix="Decimal" Value="-1" />
+      <DataValueMember Name="Cmd_StateComplete" DataType="BOOL" Value="0" />
+      <DataValueMember Name="MCmd_CfgCancel" DataType="BOOL" Value="0" />
+      <DataValueMember Name="MCmd_CfgEnable" DataType="BOOL" Value="0" />
+      <DataValueMember Name="MCmd_InitState" DataType="BOOL" Value="0" />
+      <DataValueMember Name="MCmd_Reset" DataType="BOOL" Value="0" />
+      <DataValueMember Name="MCmd_bStateReq" DataType="DINT" Radix="Decimal" Value="0" />
+      <DataValueMember Name="MCmd_OoS" DataType="BOOL" Value="0" />
+      <DataValueMember Name="MCmd_IS" DataType="BOOL" Value="0" />
+      <DataValueMember Name="OCmd_Oper" DataType="BOOL" Value="0" />
+      <DataValueMember Name="OCmd_Unlock" DataType="BOOL" Value="0" />
+      <DataValueMember Name="OCmd_Prog" DataType="BOOL" Value="0" />
+      <DataValueMember Name="OCmd_Lock" DataType="BOOL" Value="0" />
+      <DataValueMember Name="OCmd_Reset" DataType="BOOL" Value="0" />
+      <DataValueMember Name="OCmd_bStateReq" DataType="DINT" Radix="Decimal" Value="0" />
+      <DataValueMember Name="PCmd_Reset" DataType="BOOL" Value="0" />
+      <DataValueMember Name="PCmd_bStateReq" DataType="DINT" Radix="Decimal" Value="0" />
+      <DataValueMember Name="PCmd_Prog" DataType="BOOL" Value="0" />
+      <DataValueMember Name="PCmd_Oper" DataType="BOOL" Value="0" />
+      <DataValueMember Name="PCmd_Lock" DataType="BOOL" Value="0" />
+      <DataValueMember Name="PCmd_Unlock" DataType="BOOL" Value="0" />
+      <DataValueMember Name="Out_eState" DataType="SINT" Radix="Decimal" Value="2" />
+      <DataValueMember Name="Out_FaultReset" DataType="BOOL" Value="0" />
+      <DataValueMember Name="Sts_ER" DataType="BOOL" Value="0" />
+      <DataValueMember Name="Sts_eERR" DataType="DINT" Radix="Decimal" Value="0" />
+      <DataValueMember Name="Sts_bEXERR" DataType="DINT" Radix="Decimal" Value="0" />
+      <DataValueMember Name="Sts_bCfgOvrdState" DataType="DINT" Radix="Hex" Value="16#0000_0000" />
+      <DataValueMember Name="Sts_Config" DataType="BOOL" Value="0" />
+      <DataValueMember Name="Sts_InitDone" DataType="BOOL" Value="1" />
+      <DataValueMember Name="Sts_StateComplete" DataType="BOOL" Value="0" />
+      <DataValueMember Name="Sts_bStateCfgOK" DataType="DINT" Radix="Hex" Value="16#0000_07ff" />
+      <DataValueMember Name="Sts_bStateCurrent" DataType="DINT" Radix="Binary" Value="2#0000_0000_0000_0000_0000_0000_0000_0100" />
+      <DataValueMember Name="Sts_bStatePerm" DataType="DINT" Radix="Hex" Value="16#0000_07ff" />
+      <DataValueMember Name="Sts_StateTime" DataType="REAL" Radix="Float" Value="633.799" />
+      <DataValueMember Name="Sts_StepTime" DataType="REAL" Radix="Float" Value="0.0" />
+      <DataValueMember Name="Sts_OoS" DataType="BOOL" Value="0" />
+      <DataValueMember Name="Sts_Maint" DataType="BOOL" Value="0" />
+      <DataValueMember Name="Sts_Prog" DataType="BOOL" Value="0" />
+      <DataValueMember Name="Sts_Oper" DataType="BOOL" Value="1" />
+      <DataValueMember Name="Sts_Ovrd" DataType="BOOL" Value="0" />
+      <DataValueMember Name="Sts_eStep" DataType="DINT" Radix="Decimal" Value="0" />
+      <DataValueMember Name="Sts_eSrc" DataType="SINT" Radix="Decimal" Value="66" />
+      <DataValueMember Name="Sts_bSrc" DataType="INT" Radix="Decimal" Value="512" />
+      <DataValueMember Name="Sts_ProgLocked" DataType="BOOL" Value="0" />
+      <DataValueMember Name="Sts_NormalReqInh" DataType="BOOL" Value="0" />
+      <DataValueMember Name="Sts_OperLocked" DataType="BOOL" Value="0" />
+      <DataValueMember Name="Sts_Normal" DataType="BOOL" Value="1" />
+      <DataValueMember Name="raM_Opr_CfgStateModel" DataType="BOOL" Value="1" />
+      <DataValueMember Name="Inf_Label" DataType="BOOL" Value="0" />
+      <DataValueMember Name="Inf_Tag" DataType="BOOL" Value="0" />
+    </Structure>
+  </Data>
+</Tag>

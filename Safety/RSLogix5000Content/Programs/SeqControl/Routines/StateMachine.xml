@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Routine Name="StateMachine" Type="RLL">
+  <RLLContent>
+    <Rung Type="N">
+      <Text><![CDATA[EQ(State,0)MOVE(5,State);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[EQ(State,5)MOVE(10,State);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[EQ(State,10)MOVE(15,State);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[EQ(State,15)MOVE(20,State);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[EQ(State,20)MOVE(25,State);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[EQ(State,25)MOVE(30,State);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[EQ(State,30)MOVE(35,State);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[EQ(State,35)MOVE(40,State);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[EQ(State,40)MOVE(45,State);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[EQ(State,45)MOVE(50,State);]]></Text>
+    </Rung>
+  </RLLContent>
+</Routine>

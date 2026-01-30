@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Routine Name="Running" Type="RLL">
+  <RLLContent>
+    <Rung Type="N">
+      <Text><![CDATA[MUL(Set_Time,60000,tmrRunning.PRE);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[OTE(wrkSupplyEnable);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[[XIO(wrkSupplyEnable) XIO(\CirculationPump.EM.Sts_bStateCurrent.3) XIO(\CirculationPump.EM.Sts_bStateCurrent.4) OTL(\CirculationPump.EM.PCmd_bStateReq.3) ,XIC(wrkSupplyEnable) XIO(\CirculationPump.EM.Sts_bStateCurrent.5) XIO(\CirculationPump.EM.Sts_bStateCurrent.6) OTL(\CirculationPump.EM.PCmd_bStateReq.5) ];]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(\CirculationPump.Sts_ProcessFlowOK)OTE(Sts_FlowConfirmed);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(Sts_FlowConfirmed)[RTO(tmrRunning,?,?) ,DIV(tmrRunning.ACC,60000.0,Val_TimeAtTemp) ];]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[SUB(tmrRunning.PRE,tmrRunning.ACC,Val_SecRemaining)DIV(Val_SecRemaining,1000,Val_SecRemaining)LT(Val_SecRemaining,0)CLR(Val_SecRemaining);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[MOVE(Set_Conductivity,Val_ConductivitySP)MOVE(Set_Temperature,Val_TemperatureSP)MOVE(Set_Time,Val_TimeSP);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[MOVE(Set_Conductivity,Val_Conductivity)ADD(Set_Temperature,5.0,Val_MaxTemp)SUB(Set_Temperature,5.0,Val_MinTemp);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIO(tmrRunning.DN)[XIO(\SupplyHeader.EM.Sts_bStateCurrent.8) XIO(\SupplyHeader.EM.Sts_bStateCurrent.7) OTL(\SupplyHeader.EM.PCmd_bStateReq.7) ,XIC(Inp_ReturnToDrain) XIO(\ReturnHeader.EM.Sts_bStateCurrent.4) XIO(\ReturnHeader.EM.Sts_bStateCurrent.3) OTL(\ReturnHeader.EM.PCmd_bStateReq.3) ,XIO(Inp_ReturnToDrain) XIO(\ReturnHeader.EM.Sts_bStateCurrent.8) XIO(\ReturnHeader.EM.Sts_bStateCurrent.7) OTL(\ReturnHeader.EM.PCmd_bStateReq.7) ,XIO(\TankCaustic.EM.Sts_bStateCurrent.3) OTL(\TankCaustic.EM.PCmd_bStateReq.3) ];]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(tmrRunning.DN)OTL(pSeqComplete);]]></Text>
+    </Rung>
+  </RLLContent>
+</Routine>

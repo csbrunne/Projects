@@ -1,0 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Tag Name="Cmd_TglRinse" TagType="Alias" Radix="Decimal" AliasFor="wrkEditCmds.3" ExternalAccess="Read/Write" OpcUaAccess="None" DataExchangeId="{B4778667-493F-4EE8-A376-263B4E7D6E7B}">
+  <Description><![CDATA[Set Rinse and clear all other phases, or Clear Rinse]]></Description>
+</Tag>

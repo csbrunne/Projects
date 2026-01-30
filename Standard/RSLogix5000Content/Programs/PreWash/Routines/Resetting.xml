@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Routine Name="Resetting" Type="RLL">
+  <RLLContent>
+    <Rung Type="N">
+      <Text><![CDATA[RES(tmrRunning)RES(tmrPreCirc)CLR(ons_bits);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[CLR(Val_SecRemaining);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[OTL(pSeqComplete);]]></Text>
+    </Rung>
+  </RLLContent>
+</Routine>

@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<DataType Name="UDT_Recipe" Family="NoFamily" Class="User">
+  <Members>
+    <Member Name="Name" DataType="STRING" Dimension="0" Radix="NullType" Hidden="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[Recipe Name]]></Description>
+    </Member>
+    <Member Name="ID" DataType="DINT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[Recipe ID]]></Description>
+    </Member>
+    <Member Name="Delay" DataType="REAL" Dimension="0" Radix="Float" Hidden="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[Process Delay from Pump Supply to Return Header]]></Description>
+    </Member>
+    <Member Name="DeltaTemperature" DataType="REAL" Dimension="0" Radix="Float" Hidden="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[Expected Temperature Drop from Supply to Return]]></Description>
+    </Member>
+    <Member Name="CurrentStep" DataType="DINT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[Active Step for Current CIP Cycle]]></Description>
+    </Member>
+    <Member Name="Step" DataType="UDT_RecipeStep" Dimension="50" Radix="NullType" Hidden="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[CIP Cycle Step List]]></Description>
+    </Member>
+    <Member Name="ZZZZZZZZZZUDT_Recipe6" DataType="SINT" Dimension="0" Radix="Decimal" Hidden="true" ExternalAccess="Read/Write" />
+    <Member Name="Running" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZUDT_Recipe6" BitNumber="0" ExternalAccess="Read/Write">
+      <Description><![CDATA[CIP Cycle Running]]></Description>
+    </Member>
+    <Member Name="Complete" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZUDT_Recipe6" BitNumber="1" ExternalAccess="Read/Write">
+      <Description><![CDATA[CIP Cycle Completed Successfully]]></Description>
+    </Member>
+    <Member Name="Aborted" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZUDT_Recipe6" BitNumber="2" ExternalAccess="Read/Write">
+      <Description><![CDATA[CIP Cycle Stopped or Aborted Prior to Completion]]></Description>
+    </Member>
+    <Member Name="Holding" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZUDT_Recipe6" BitNumber="3" ExternalAccess="Read/Write">
+      <Description><![CDATA[CIP Cycle In Process is Holding]]></Description>
+    </Member>
+  </Members>
+  <Dependencies>
+    <Dependency Type="DataType" Name="UDT_RecipeStep" />
+  </Dependencies>
+</DataType>

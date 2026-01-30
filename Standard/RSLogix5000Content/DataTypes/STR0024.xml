@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<DataType Name="STR0024" Family="StringFamily" Class="User">
+  <CustomProperties>
+    <Provider ID="ACM" Ext="Origin_0">
+      <OriginHeader xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Maj="1" Min="0" OExt="-1" UExt="1" />
+    </Provider>
+    <Provider ID="ACM" Ext="Origin_1">
+      <Data xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Maj="3" Min="0" OExt="-1">
+        <Val><![CDATA[<Origin xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Owners>
+    <OwnedBy InstName="EM" LGuid="62D4F4E3-1458-44A4-BAC4-8234B0A74E6B" />
+    <OwnedBy InstName="EM_ReturnHeader3" LGuid="EE90A165-390A-4B4D-BCCE-F6CB44FC336C" />
+    <OwnedBy InstName="EM_Intlk" LGuid="43D30692-8E14-4B87-82A2-FD73B8A41883" />
+  </Owners>
+</Origin>]]></Val>
+      </Data>
+    </Provider>
+  </CustomProperties>
+  <Members>
+    <Member Name="LEN" DataType="DINT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write" />
+    <Member Name="DATA" DataType="SINT" Dimension="24" Radix="ASCII" Hidden="false" ExternalAccess="Read/Write" />
+  </Members>
+</DataType>

@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Task Name="CIP_System" Type="PERIODIC" Rate="100" Priority="10" Watchdog="500" DisableUpdateOutputs="false" InhibitTask="false" SynchronizeRedundancyDataDisabled="false">
+  <ScheduledPrograms>
+    <ScheduledProgram Name="CirculationPump" />
+    <ScheduledProgram Name="PreWash" />
+    <ScheduledProgram Name="RecipeLoad" />
+    <ScheduledProgram Name="RecipeMgmt" />
+    <ScheduledProgram Name="ReturnHeader" />
+    <ScheduledProgram Name="Rinse" />
+    <ScheduledProgram Name="SeqControl" />
+    <ScheduledProgram Name="SupplyHeader" />
+    <ScheduledProgram Name="TankAcid" />
+    <ScheduledProgram Name="TankCaustic" />
+    <ScheduledProgram Name="TankRecover" />
+    <ScheduledProgram Name="TankRinse" />
+    <ScheduledProgram Name="WashAcid" />
+    <ScheduledProgram Name="WashCaustic" />
+  </ScheduledPrograms>
+</Task>

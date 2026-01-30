@@ -1,0 +1,752 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Tag Name="ActiveRecipe" TagType="Base" DataType="UDT_Recipe" Usage="Public" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+  <Data Format="L5K"><![CDATA[[[15,'My First Recipe$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00'
+		],1,0.00000000e+000,0.00000000e+000,0,[[17,1.50000000e+002,1.00000000e-001,1.00000000e+002,0,0
+		],[2,1.60000000e+002,2.00000000e-001,1.01000000e+002,0,0],[24,1.65000000e+002,3.00000000e-001,1.02000000e+002
+		,0,0],[4,1.70000000e+002,2.00000000e-001,1.03000000e+002,0,0],[24,1.80000000e+002,3.00000000e-001
+		,5.00000000e+001,0,0],[8,1.85000000e+002,1.00000000e+000,5.50000000e+001,0,0],[0,0.00000000e+000
+		,0.00000000e+000,0.00000000e+000,0,0],[0,0.00000000e+000,0.00000000e+000,0.00000000e+000,0,0],[0
+		,0.00000000e+000,0.00000000e+000,0.00000000e+000,0,0],[0,0.00000000e+000,0.00000000e+000,0.00000000e+000
+		,0,0],[0,0.00000000e+000,0.00000000e+000,0.00000000e+000,0,0],[0,0.00000000e+000,0.00000000e+000
+		,0.00000000e+000,0,0],[0,0.00000000e+000,0.00000000e+000,0.00000000e+000,0,0],[0,0.00000000e+000
+		,0.00000000e+000,0.00000000e+000,0,0],[0,0.00000000e+000,0.00000000e+000,0.00000000e+000,0,0],[0
+		,0.00000000e+000,0.00000000e+000,0.00000000e+000,0,0],[0,0.00000000e+000,0.00000000e+000,0.00000000e+000
+		,0,0],[0,0.00000000e+000,0.00000000e+000,0.00000000e+000,0,0],[0,0.00000000e+000,0.00000000e+000
+		,0.00000000e+000,0,0],[0,0.00000000e+000,0.00000000e+000,0.00000000e+000,0,0],[0,0.00000000e+000
+		,0.00000000e+000,0.00000000e+000,0,0],[0,0.00000000e+000,0.00000000e+000,0.00000000e+000,0,0],[0
+		,0.00000000e+000,0.00000000e+000,0.00000000e+000,0,0],[0,0.00000000e+000,0.00000000e+000,0.00000000e+000
+		,0,0],[0,0.00000000e+000,0.00000000e+000,0.00000000e+000,0,0],[0,0.00000000e+000,0.00000000e+000
+		,0.00000000e+000,0,0],[0,0.00000000e+000,0.00000000e+000,0.00000000e+000,0,0],[0,0.00000000e+000
+		,0.00000000e+000,0.00000000e+000,0,0],[0,0.00000000e+000,0.00000000e+000,0.00000000e+000,0,0],[0
+		,0.00000000e+000,0.00000000e+000,0.00000000e+000,0,0],[0,0.00000000e+000,0.00000000e+000,0.00000000e+000
+		,0,0],[0,0.00000000e+000,0.00000000e+000,0.00000000e+000,0,0],[0,0.00000000e+000,0.00000000e+000
+		,0.00000000e+000,0,0],[0,0.00000000e+000,0.00000000e+000,0.00000000e+000,0,0],[0,0.00000000e+000
+		,0.00000000e+000,0.00000000e+000,0,0],[0,0.00000000e+000,0.00000000e+000,0.00000000e+000,0,0],[0
+		,0.00000000e+000,0.00000000e+000,0.00000000e+000,0,0],[0,0.00000000e+000,0.00000000e+000,0.00000000e+000
+		,0,0],[0,0.00000000e+000,0.00000000e+000,0.00000000e+000,0,0],[0,0.00000000e+000,0.00000000e+000
+		,0.00000000e+000,0,0],[0,0.00000000e+000,0.00000000e+000,0.00000000e+000,0,0],[0,0.00000000e+000
+		,0.00000000e+000,0.00000000e+000,0,0],[0,0.00000000e+000,0.00000000e+000,0.00000000e+000,0,0],[0
+		,0.00000000e+000,0.00000000e+000,0.00000000e+000,0,0],[0,0.00000000e+000,0.00000000e+000,0.00000000e+000
+		,0,0],[0,0.00000000e+000,0.00000000e+000,0.00000000e+000,0,0],[0,0.00000000e+000,0.00000000e+000
+		,0.00000000e+000,0,0],[0,0.00000000e+000,0.00000000e+000,0.00000000e+000,0,0],[0,0.00000000e+000
+		,0.00000000e+000,0.00000000e+000,0,0],[0,0.00000000e+000,0.00000000e+000,0.00000000e+000,0,0]],0
+		]]]></Data>
+  <Data Format="Decorated">
+    <Structure DataType="UDT_Recipe">
+      <StructureMember Name="Name" DataType="STRING">
+        <DataValueMember Name="LEN" DataType="DINT" Radix="Decimal" Value="15" />
+        <DataValueMember Name="DATA" DataType="STRING" Radix="ASCII"><![CDATA['My First Recipe']]></DataValueMember>
+      </StructureMember>
+      <DataValueMember Name="ID" DataType="DINT" Radix="Decimal" Value="1" />
+      <DataValueMember Name="Delay" DataType="REAL" Radix="Float" Value="0.0" />
+      <DataValueMember Name="DeltaTemperature" DataType="REAL" Radix="Float" Value="0.0" />
+      <DataValueMember Name="CurrentStep" DataType="DINT" Radix="Decimal" Value="0" />
+      <ArrayMember Name="Step" DataType="UDT_RecipeStep" Dimensions="50">
+        <Element Index="[0]">
+          <Structure DataType="UDT_RecipeStep">
+            <DataValueMember Name="PreWash" DataType="BOOL" Value="1" />
+            <DataValueMember Name="CausticWash" DataType="BOOL" Value="0" />
+            <DataValueMember Name="AcidWash" DataType="BOOL" Value="0" />
+            <DataValueMember Name="Rinse" DataType="BOOL" Value="0" />
+            <DataValueMember Name="ReturnToDrain" DataType="BOOL" Value="1" />
+            <DataValueMember Name="Set_Temperature" DataType="REAL" Radix="Float" Value="150.0" />
+            <DataValueMember Name="Set_Time" DataType="REAL" Radix="Float" Value="0.1" />
+            <DataValueMember Name="Set_Conductivity" DataType="REAL" Radix="Float" Value="100.0" />
+            <DataValueMember Name="Val_MinLeft" DataType="INT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Val_SecLeft" DataType="INT" Radix="Decimal" Value="0" />
+          </Structure>
+        </Element>
+        <Element Index="[1]">
+          <Structure DataType="UDT_RecipeStep">
+            <DataValueMember Name="PreWash" DataType="BOOL" Value="0" />
+            <DataValueMember Name="CausticWash" DataType="BOOL" Value="1" />
+            <DataValueMember Name="AcidWash" DataType="BOOL" Value="0" />
+            <DataValueMember Name="Rinse" DataType="BOOL" Value="0" />
+            <DataValueMember Name="ReturnToDrain" DataType="BOOL" Value="0" />
+            <DataValueMember Name="Set_Temperature" DataType="REAL" Radix="Float" Value="160.0" />
+            <DataValueMember Name="Set_Time" DataType="REAL" Radix="Float" Value="0.2" />
+            <DataValueMember Name="Set_Conductivity" DataType="REAL" Radix="Float" Value="101.0" />
+            <DataValueMember Name="Val_MinLeft" DataType="INT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Val_SecLeft" DataType="INT" Radix="Decimal" Value="0" />
+          </Structure>
+        </Element>
+        <Element Index="[2]">
+          <Structure DataType="UDT_RecipeStep">
+            <DataValueMember Name="PreWash" DataType="BOOL" Value="0" />
+            <DataValueMember Name="CausticWash" DataType="BOOL" Value="0" />
+            <DataValueMember Name="AcidWash" DataType="BOOL" Value="0" />
+            <DataValueMember Name="Rinse" DataType="BOOL" Value="1" />
+            <DataValueMember Name="ReturnToDrain" DataType="BOOL" Value="1" />
+            <DataValueMember Name="Set_Temperature" DataType="REAL" Radix="Float" Value="165.0" />
+            <DataValueMember Name="Set_Time" DataType="REAL" Radix="Float" Value="0.3" />
+            <DataValueMember Name="Set_Conductivity" DataType="REAL" Radix="Float" Value="102.0" />
+            <DataValueMember Name="Val_MinLeft" DataType="INT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Val_SecLeft" DataType="INT" Radix="Decimal" Value="0" />
+          </Structure>
+        </Element>
+        <Element Index="[3]">
+          <Structure DataType="UDT_RecipeStep">
+            <DataValueMember Name="PreWash" DataType="BOOL" Value="0" />
+            <DataValueMember Name="CausticWash" DataType="BOOL" Value="0" />
+            <DataValueMember Name="AcidWash" DataType="BOOL" Value="1" />
+            <DataValueMember Name="Rinse" DataType="BOOL" Value="0" />
+            <DataValueMember Name="ReturnToDrain" DataType="BOOL" Value="0" />
+            <DataValueMember Name="Set_Temperature" DataType="REAL" Radix="Float" Value="170.0" />
+            <DataValueMember Name="Set_Time" DataType="REAL" Radix="Float" Value="0.2" />
+            <DataValueMember Name="Set_Conductivity" DataType="REAL" Radix="Float" Value="103.0" />
+            <DataValueMember Name="Val_MinLeft" DataType="INT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Val_SecLeft" DataType="INT" Radix="Decimal" Value="0" />
+          </Structure>
+        </Element>
+        <Element Index="[4]">
+          <Structure DataType="UDT_RecipeStep">
+            <DataValueMember Name="PreWash" DataType="BOOL" Value="0" />
+            <DataValueMember Name="CausticWash" DataType="BOOL" Value="0" />
+            <DataValueMember Name="AcidWash" DataType="BOOL" Value="0" />
+            <DataValueMember Name="Rinse" DataType="BOOL" Value="1" />
+            <DataValueMember Name="ReturnToDrain" DataType="BOOL" Value="1" />
+            <DataValueMember Name="Set_Temperature" DataType="REAL" Radix="Float" Value="180.0" />
+            <DataValueMember Name="Set_Time" DataType="REAL" Radix="Float" Value="0.3" />
+            <DataValueMember Name="Set_Conductivity" DataType="REAL" Radix="Float" Value="50.0" />
+            <DataValueMember Name="Val_MinLeft" DataType="INT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Val_SecLeft" DataType="INT" Radix="Decimal" Value="0" />
+          </Structure>
+        </Element>
+        <Element Index="[5]">
+          <Structure DataType="UDT_RecipeStep">
+            <DataValueMember Name="PreWash" DataType="BOOL" Value="0" />
+            <DataValueMember Name="CausticWash" DataType="BOOL" Value="0" />
+            <DataValueMember Name="AcidWash" DataType="BOOL" Value="0" />
+            <DataValueMember Name="Rinse" DataType="BOOL" Value="1" />
+            <DataValueMember Name="ReturnToDrain" DataType="BOOL" Value="0" />
+            <DataValueMember Name="Set_Temperature" DataType="REAL" Radix="Float" Value="185.0" />
+            <DataValueMember Name="Set_Time" DataType="REAL" Radix="Float" Value="1.0" />
+            <DataValueMember Name="Set_Conductivity" DataType="REAL" Radix="Float" Value="55.0" />
+            <DataValueMember Name="Val_MinLeft" DataType="INT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Val_SecLeft" DataType="INT" Radix="Decimal" Value="0" />
+          </Structure>
+        </Element>
+        <Element Index="[6]">
+          <Structure DataType="UDT_RecipeStep">
+            <DataValueMember Name="PreWash" DataType="BOOL" Value="0" />
+            <DataValueMember Name="CausticWash" DataType="BOOL" Value="0" />
+            <DataValueMember Name="AcidWash" DataType="BOOL" Value="0" />
+            <DataValueMember Name="Rinse" DataType="BOOL" Value="0" />
+            <DataValueMember Name="ReturnToDrain" DataType="BOOL" Value="0" />
+            <DataValueMember Name="Set_Temperature" DataType="REAL" Radix="Float" Value="0.0" />
+            <DataValueMember Name="Set_Time" DataType="REAL" Radix="Float" Value="0.0" />
+            <DataValueMember Name="Set_Conductivity" DataType="REAL" Radix="Float" Value="0.0" />
+            <DataValueMember Name="Val_MinLeft" DataType="INT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Val_SecLeft" DataType="INT" Radix="Decimal" Value="0" />
+          </Structure>
+        </Element>
+        <Element Index="[7]">
+          <Structure DataType="UDT_RecipeStep">
+            <DataValueMember Name="PreWash" DataType="BOOL" Value="0" />
+            <DataValueMember Name="CausticWash" DataType="BOOL" Value="0" />
+            <DataValueMember Name="AcidWash" DataType="BOOL" Value="0" />
+            <DataValueMember Name="Rinse" DataType="BOOL" Value="0" />
+            <DataValueMember Name="ReturnToDrain" DataType="BOOL" Value="0" />
+            <DataValueMember Name="Set_Temperature" DataType="REAL" Radix="Float" Value="0.0" />
+            <DataValueMember Name="Set_Time" DataType="REAL" Radix="Float" Value="0.0" />
+            <DataValueMember Name="Set_Conductivity" DataType="REAL" Radix="Float" Value="0.0" />
+            <DataValueMember Name="Val_MinLeft" DataType="INT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Val_SecLeft" DataType="INT" Radix="Decimal" Value="0" />
+          </Structure>
+        </Element>
+        <Element Index="[8]">
+          <Structure DataType="UDT_RecipeStep">
+            <DataValueMember Name="PreWash" DataType="BOOL" Value="0" />
+            <DataValueMember Name="CausticWash" DataType="BOOL" Value="0" />
+            <DataValueMember Name="AcidWash" DataType="BOOL" Value="0" />
+            <DataValueMember Name="Rinse" DataType="BOOL" Value="0" />
+            <DataValueMember Name="ReturnToDrain" DataType="BOOL" Value="0" />
+            <DataValueMember Name="Set_Temperature" DataType="REAL" Radix="Float" Value="0.0" />
+            <DataValueMember Name="Set_Time" DataType="REAL" Radix="Float" Value="0.0" />
+            <DataValueMember Name="Set_Conductivity" DataType="REAL" Radix="Float" Value="0.0" />
+            <DataValueMember Name="Val_MinLeft" DataType="INT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Val_SecLeft" DataType="INT" Radix="Decimal" Value="0" />
+          </Structure>
+        </Element>
+        <Element Index="[9]">
+          <Structure DataType="UDT_RecipeStep">
+            <DataValueMember Name="PreWash" DataType="BOOL" Value="0" />
+            <DataValueMember Name="CausticWash" DataType="BOOL" Value="0" />
+            <DataValueMember Name="AcidWash" DataType="BOOL" Value="0" />
+            <DataValueMember Name="Rinse" DataType="BOOL" Value="0" />
+            <DataValueMember Name="ReturnToDrain" DataType="BOOL" Value="0" />
+            <DataValueMember Name="Set_Temperature" DataType="REAL" Radix="Float" Value="0.0" />
+            <DataValueMember Name="Set_Time" DataType="REAL" Radix="Float" Value="0.0" />
+            <DataValueMember Name="Set_Conductivity" DataType="REAL" Radix="Float" Value="0.0" />
+            <DataValueMember Name="Val_MinLeft" DataType="INT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Val_SecLeft" DataType="INT" Radix="Decimal" Value="0" />
+          </Structure>
+        </Element>
+        <Element Index="[10]">
+          <Structure DataType="UDT_RecipeStep">
+            <DataValueMember Name="PreWash" DataType="BOOL" Value="0" />
+            <DataValueMember Name="CausticWash" DataType="BOOL" Value="0" />
+            <DataValueMember Name="AcidWash" DataType="BOOL" Value="0" />
+            <DataValueMember Name="Rinse" DataType="BOOL" Value="0" />
+            <DataValueMember Name="ReturnToDrain" DataType="BOOL" Value="0" />
+            <DataValueMember Name="Set_Temperature" DataType="REAL" Radix="Float" Value="0.0" />
+            <DataValueMember Name="Set_Time" DataType="REAL" Radix="Float" Value="0.0" />
+            <DataValueMember Name="Set_Conductivity" DataType="REAL" Radix="Float" Value="0.0" />
+            <DataValueMember Name="Val_MinLeft" DataType="INT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Val_SecLeft" DataType="INT" Radix="Decimal" Value="0" />
+          </Structure>
+        </Element>
+        <Element Index="[11]">
+          <Structure DataType="UDT_RecipeStep">
+            <DataValueMember Name="PreWash" DataType="BOOL" Value="0" />
+            <DataValueMember Name="CausticWash" DataType="BOOL" Value="0" />
+            <DataValueMember Name="AcidWash" DataType="BOOL" Value="0" />
+            <DataValueMember Name="Rinse" DataType="BOOL" Value="0" />
+            <DataValueMember Name="ReturnToDrain" DataType="BOOL" Value="0" />
+            <DataValueMember Name="Set_Temperature" DataType="REAL" Radix="Float" Value="0.0" />
+            <DataValueMember Name="Set_Time" DataType="REAL" Radix="Float" Value="0.0" />
+            <DataValueMember Name="Set_Conductivity" DataType="REAL" Radix="Float" Value="0.0" />
+            <DataValueMember Name="Val_MinLeft" DataType="INT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Val_SecLeft" DataType="INT" Radix="Decimal" Value="0" />
+          </Structure>
+        </Element>
+        <Element Index="[12]">
+          <Structure DataType="UDT_RecipeStep">
+            <DataValueMember Name="PreWash" DataType="BOOL" Value="0" />
+            <DataValueMember Name="CausticWash" DataType="BOOL" Value="0" />
+            <DataValueMember Name="AcidWash" DataType="BOOL" Value="0" />
+            <DataValueMember Name="Rinse" DataType="BOOL" Value="0" />
+            <DataValueMember Name="ReturnToDrain" DataType="BOOL" Value="0" />
+            <DataValueMember Name="Set_Temperature" DataType="REAL" Radix="Float" Value="0.0" />
+            <DataValueMember Name="Set_Time" DataType="REAL" Radix="Float" Value="0.0" />
+            <DataValueMember Name="Set_Conductivity" DataType="REAL" Radix="Float" Value="0.0" />
+            <DataValueMember Name="Val_MinLeft" DataType="INT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Val_SecLeft" DataType="INT" Radix="Decimal" Value="0" />
+          </Structure>
+        </Element>
+        <Element Index="[13]">
+          <Structure DataType="UDT_RecipeStep">
+            <DataValueMember Name="PreWash" DataType="BOOL" Value="0" />
+            <DataValueMember Name="CausticWash" DataType="BOOL" Value="0" />
+            <DataValueMember Name="AcidWash" DataType="BOOL" Value="0" />
+            <DataValueMember Name="Rinse" DataType="BOOL" Value="0" />
+            <DataValueMember Name="ReturnToDrain" DataType="BOOL" Value="0" />
+            <DataValueMember Name="Set_Temperature" DataType="REAL" Radix="Float" Value="0.0" />
+            <DataValueMember Name="Set_Time" DataType="REAL" Radix="Float" Value="0.0" />
+            <DataValueMember Name="Set_Conductivity" DataType="REAL" Radix="Float" Value="0.0" />
+            <DataValueMember Name="Val_MinLeft" DataType="INT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Val_SecLeft" DataType="INT" Radix="Decimal" Value="0" />
+          </Structure>
+        </Element>
+        <Element Index="[14]">
+          <Structure DataType="UDT_RecipeStep">
+            <DataValueMember Name="PreWash" DataType="BOOL" Value="0" />
+            <DataValueMember Name="CausticWash" DataType="BOOL" Value="0" />
+            <DataValueMember Name="AcidWash" DataType="BOOL" Value="0" />
+            <DataValueMember Name="Rinse" DataType="BOOL" Value="0" />
+            <DataValueMember Name="ReturnToDrain" DataType="BOOL" Value="0" />
+            <DataValueMember Name="Set_Temperature" DataType="REAL" Radix="Float" Value="0.0" />
+            <DataValueMember Name="Set_Time" DataType="REAL" Radix="Float" Value="0.0" />
+            <DataValueMember Name="Set_Conductivity" DataType="REAL" Radix="Float" Value="0.0" />
+            <DataValueMember Name="Val_MinLeft" DataType="INT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Val_SecLeft" DataType="INT" Radix="Decimal" Value="0" />
+          </Structure>
+        </Element>
+        <Element Index="[15]">
+          <Structure DataType="UDT_RecipeStep">
+            <DataValueMember Name="PreWash" DataType="BOOL" Value="0" />
+            <DataValueMember Name="CausticWash" DataType="BOOL" Value="0" />
+            <DataValueMember Name="AcidWash" DataType="BOOL" Value="0" />
+            <DataValueMember Name="Rinse" DataType="BOOL" Value="0" />
+            <DataValueMember Name="ReturnToDrain" DataType="BOOL" Value="0" />
+            <DataValueMember Name="Set_Temperature" DataType="REAL" Radix="Float" Value="0.0" />
+            <DataValueMember Name="Set_Time" DataType="REAL" Radix="Float" Value="0.0" />
+            <DataValueMember Name="Set_Conductivity" DataType="REAL" Radix="Float" Value="0.0" />
+            <DataValueMember Name="Val_MinLeft" DataType="INT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Val_SecLeft" DataType="INT" Radix="Decimal" Value="0" />
+          </Structure>
+        </Element>
+        <Element Index="[16]">
+          <Structure DataType="UDT_RecipeStep">
+            <DataValueMember Name="PreWash" DataType="BOOL" Value="0" />
+            <DataValueMember Name="CausticWash" DataType="BOOL" Value="0" />
+            <DataValueMember Name="AcidWash" DataType="BOOL" Value="0" />
+            <DataValueMember Name="Rinse" DataType="BOOL" Value="0" />
+            <DataValueMember Name="ReturnToDrain" DataType="BOOL" Value="0" />
+            <DataValueMember Name="Set_Temperature" DataType="REAL" Radix="Float" Value="0.0" />
+            <DataValueMember Name="Set_Time" DataType="REAL" Radix="Float" Value="0.0" />
+            <DataValueMember Name="Set_Conductivity" DataType="REAL" Radix="Float" Value="0.0" />
+            <DataValueMember Name="Val_MinLeft" DataType="INT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Val_SecLeft" DataType="INT" Radix="Decimal" Value="0" />
+          </Structure>
+        </Element>
+        <Element Index="[17]">
+          <Structure DataType="UDT_RecipeStep">
+            <DataValueMember Name="PreWash" DataType="BOOL" Value="0" />
+            <DataValueMember Name="CausticWash" DataType="BOOL" Value="0" />
+            <DataValueMember Name="AcidWash" DataType="BOOL" Value="0" />
+            <DataValueMember Name="Rinse" DataType="BOOL" Value="0" />
+            <DataValueMember Name="ReturnToDrain" DataType="BOOL" Value="0" />
+            <DataValueMember Name="Set_Temperature" DataType="REAL" Radix="Float" Value="0.0" />
+            <DataValueMember Name="Set_Time" DataType="REAL" Radix="Float" Value="0.0" />
+            <DataValueMember Name="Set_Conductivity" DataType="REAL" Radix="Float" Value="0.0" />
+            <DataValueMember Name="Val_MinLeft" DataType="INT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Val_SecLeft" DataType="INT" Radix="Decimal" Value="0" />
+          </Structure>
+        </Element>
+        <Element Index="[18]">
+          <Structure DataType="UDT_RecipeStep">
+            <DataValueMember Name="PreWash" DataType="BOOL" Value="0" />
+            <DataValueMember Name="CausticWash" DataType="BOOL" Value="0" />
+            <DataValueMember Name="AcidWash" DataType="BOOL" Value="0" />
+            <DataValueMember Name="Rinse" DataType="BOOL" Value="0" />
+            <DataValueMember Name="ReturnToDrain" DataType="BOOL" Value="0" />
+            <DataValueMember Name="Set_Temperature" DataType="REAL" Radix="Float" Value="0.0" />
+            <DataValueMember Name="Set_Time" DataType="REAL" Radix="Float" Value="0.0" />
+            <DataValueMember Name="Set_Conductivity" DataType="REAL" Radix="Float" Value="0.0" />
+            <DataValueMember Name="Val_MinLeft" DataType="INT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Val_SecLeft" DataType="INT" Radix="Decimal" Value="0" />
+          </Structure>
+        </Element>
+        <Element Index="[19]">
+          <Structure DataType="UDT_RecipeStep">
+            <DataValueMember Name="PreWash" DataType="BOOL" Value="0" />
+            <DataValueMember Name="CausticWash" DataType="BOOL" Value="0" />
+            <DataValueMember Name="AcidWash" DataType="BOOL" Value="0" />
+            <DataValueMember Name="Rinse" DataType="BOOL" Value="0" />
+            <DataValueMember Name="ReturnToDrain" DataType="BOOL" Value="0" />
+            <DataValueMember Name="Set_Temperature" DataType="REAL" Radix="Float" Value="0.0" />
+            <DataValueMember Name="Set_Time" DataType="REAL" Radix="Float" Value="0.0" />
+            <DataValueMember Name="Set_Conductivity" DataType="REAL" Radix="Float" Value="0.0" />
+            <DataValueMember Name="Val_MinLeft" DataType="INT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Val_SecLeft" DataType="INT" Radix="Decimal" Value="0" />
+          </Structure>
+        </Element>
+        <Element Index="[20]">
+          <Structure DataType="UDT_RecipeStep">
+            <DataValueMember Name="PreWash" DataType="BOOL" Value="0" />
+            <DataValueMember Name="CausticWash" DataType="BOOL" Value="0" />
+            <DataValueMember Name="AcidWash" DataType="BOOL" Value="0" />
+            <DataValueMember Name="Rinse" DataType="BOOL" Value="0" />
+            <DataValueMember Name="ReturnToDrain" DataType="BOOL" Value="0" />
+            <DataValueMember Name="Set_Temperature" DataType="REAL" Radix="Float" Value="0.0" />
+            <DataValueMember Name="Set_Time" DataType="REAL" Radix="Float" Value="0.0" />
+            <DataValueMember Name="Set_Conductivity" DataType="REAL" Radix="Float" Value="0.0" />
+            <DataValueMember Name="Val_MinLeft" DataType="INT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Val_SecLeft" DataType="INT" Radix="Decimal" Value="0" />
+          </Structure>
+        </Element>
+        <Element Index="[21]">
+          <Structure DataType="UDT_RecipeStep">
+            <DataValueMember Name="PreWash" DataType="BOOL" Value="0" />
+            <DataValueMember Name="CausticWash" DataType="BOOL" Value="0" />
+            <DataValueMember Name="AcidWash" DataType="BOOL" Value="0" />
+            <DataValueMember Name="Rinse" DataType="BOOL" Value="0" />
+            <DataValueMember Name="ReturnToDrain" DataType="BOOL" Value="0" />
+            <DataValueMember Name="Set_Temperature" DataType="REAL" Radix="Float" Value="0.0" />
+            <DataValueMember Name="Set_Time" DataType="REAL" Radix="Float" Value="0.0" />
+            <DataValueMember Name="Set_Conductivity" DataType="REAL" Radix="Float" Value="0.0" />
+            <DataValueMember Name="Val_MinLeft" DataType="INT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Val_SecLeft" DataType="INT" Radix="Decimal" Value="0" />
+          </Structure>
+        </Element>
+        <Element Index="[22]">
+          <Structure DataType="UDT_RecipeStep">
+            <DataValueMember Name="PreWash" DataType="BOOL" Value="0" />
+            <DataValueMember Name="CausticWash" DataType="BOOL" Value="0" />
+            <DataValueMember Name="AcidWash" DataType="BOOL" Value="0" />
+            <DataValueMember Name="Rinse" DataType="BOOL" Value="0" />
+            <DataValueMember Name="ReturnToDrain" DataType="BOOL" Value="0" />
+            <DataValueMember Name="Set_Temperature" DataType="REAL" Radix="Float" Value="0.0" />
+            <DataValueMember Name="Set_Time" DataType="REAL" Radix="Float" Value="0.0" />
+            <DataValueMember Name="Set_Conductivity" DataType="REAL" Radix="Float" Value="0.0" />
+            <DataValueMember Name="Val_MinLeft" DataType="INT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Val_SecLeft" DataType="INT" Radix="Decimal" Value="0" />
+          </Structure>
+        </Element>
+        <Element Index="[23]">
+          <Structure DataType="UDT_RecipeStep">
+            <DataValueMember Name="PreWash" DataType="BOOL" Value="0" />
+            <DataValueMember Name="CausticWash" DataType="BOOL" Value="0" />
+            <DataValueMember Name="AcidWash" DataType="BOOL" Value="0" />
+            <DataValueMember Name="Rinse" DataType="BOOL" Value="0" />
+            <DataValueMember Name="ReturnToDrain" DataType="BOOL" Value="0" />
+            <DataValueMember Name="Set_Temperature" DataType="REAL" Radix="Float" Value="0.0" />
+            <DataValueMember Name="Set_Time" DataType="REAL" Radix="Float" Value="0.0" />
+            <DataValueMember Name="Set_Conductivity" DataType="REAL" Radix="Float" Value="0.0" />
+            <DataValueMember Name="Val_MinLeft" DataType="INT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Val_SecLeft" DataType="INT" Radix="Decimal" Value="0" />
+          </Structure>
+        </Element>
+        <Element Index="[24]">
+          <Structure DataType="UDT_RecipeStep">
+            <DataValueMember Name="PreWash" DataType="BOOL" Value="0" />
+            <DataValueMember Name="CausticWash" DataType="BOOL" Value="0" />
+            <DataValueMember Name="AcidWash" DataType="BOOL" Value="0" />
+            <DataValueMember Name="Rinse" DataType="BOOL" Value="0" />
+            <DataValueMember Name="ReturnToDrain" DataType="BOOL" Value="0" />
+            <DataValueMember Name="Set_Temperature" DataType="REAL" Radix="Float" Value="0.0" />
+            <DataValueMember Name="Set_Time" DataType="REAL" Radix="Float" Value="0.0" />
+            <DataValueMember Name="Set_Conductivity" DataType="REAL" Radix="Float" Value="0.0" />
+            <DataValueMember Name="Val_MinLeft" DataType="INT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Val_SecLeft" DataType="INT" Radix="Decimal" Value="0" />
+          </Structure>
+        </Element>
+        <Element Index="[25]">
+          <Structure DataType="UDT_RecipeStep">
+            <DataValueMember Name="PreWash" DataType="BOOL" Value="0" />
+            <DataValueMember Name="CausticWash" DataType="BOOL" Value="0" />
+            <DataValueMember Name="AcidWash" DataType="BOOL" Value="0" />
+            <DataValueMember Name="Rinse" DataType="BOOL" Value="0" />
+            <DataValueMember Name="ReturnToDrain" DataType="BOOL" Value="0" />
+            <DataValueMember Name="Set_Temperature" DataType="REAL" Radix="Float" Value="0.0" />
+            <DataValueMember Name="Set_Time" DataType="REAL" Radix="Float" Value="0.0" />
+            <DataValueMember Name="Set_Conductivity" DataType="REAL" Radix="Float" Value="0.0" />
+            <DataValueMember Name="Val_MinLeft" DataType="INT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Val_SecLeft" DataType="INT" Radix="Decimal" Value="0" />
+          </Structure>
+        </Element>
+        <Element Index="[26]">
+          <Structure DataType="UDT_RecipeStep">
+            <DataValueMember Name="PreWash" DataType="BOOL" Value="0" />
+            <DataValueMember Name="CausticWash" DataType="BOOL" Value="0" />
+            <DataValueMember Name="AcidWash" DataType="BOOL" Value="0" />
+            <DataValueMember Name="Rinse" DataType="BOOL" Value="0" />
+            <DataValueMember Name="ReturnToDrain" DataType="BOOL" Value="0" />
+            <DataValueMember Name="Set_Temperature" DataType="REAL" Radix="Float" Value="0.0" />
+            <DataValueMember Name="Set_Time" DataType="REAL" Radix="Float" Value="0.0" />
+            <DataValueMember Name="Set_Conductivity" DataType="REAL" Radix="Float" Value="0.0" />
+            <DataValueMember Name="Val_MinLeft" DataType="INT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Val_SecLeft" DataType="INT" Radix="Decimal" Value="0" />
+          </Structure>
+        </Element>
+        <Element Index="[27]">
+          <Structure DataType="UDT_RecipeStep">
+            <DataValueMember Name="PreWash" DataType="BOOL" Value="0" />
+            <DataValueMember Name="CausticWash" DataType="BOOL" Value="0" />
+            <DataValueMember Name="AcidWash" DataType="BOOL" Value="0" />
+            <DataValueMember Name="Rinse" DataType="BOOL" Value="0" />
+            <DataValueMember Name="ReturnToDrain" DataType="BOOL" Value="0" />
+            <DataValueMember Name="Set_Temperature" DataType="REAL" Radix="Float" Value="0.0" />
+            <DataValueMember Name="Set_Time" DataType="REAL" Radix="Float" Value="0.0" />
+            <DataValueMember Name="Set_Conductivity" DataType="REAL" Radix="Float" Value="0.0" />
+            <DataValueMember Name="Val_MinLeft" DataType="INT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Val_SecLeft" DataType="INT" Radix="Decimal" Value="0" />
+          </Structure>
+        </Element>
+        <Element Index="[28]">
+          <Structure DataType="UDT_RecipeStep">
+            <DataValueMember Name="PreWash" DataType="BOOL" Value="0" />
+            <DataValueMember Name="CausticWash" DataType="BOOL" Value="0" />
+            <DataValueMember Name="AcidWash" DataType="BOOL" Value="0" />
+            <DataValueMember Name="Rinse" DataType="BOOL" Value="0" />
+            <DataValueMember Name="ReturnToDrain" DataType="BOOL" Value="0" />
+            <DataValueMember Name="Set_Temperature" DataType="REAL" Radix="Float" Value="0.0" />
+            <DataValueMember Name="Set_Time" DataType="REAL" Radix="Float" Value="0.0" />
+            <DataValueMember Name="Set_Conductivity" DataType="REAL" Radix="Float" Value="0.0" />
+            <DataValueMember Name="Val_MinLeft" DataType="INT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Val_SecLeft" DataType="INT" Radix="Decimal" Value="0" />
+          </Structure>
+        </Element>
+        <Element Index="[29]">
+          <Structure DataType="UDT_RecipeStep">
+            <DataValueMember Name="PreWash" DataType="BOOL" Value="0" />
+            <DataValueMember Name="CausticWash" DataType="BOOL" Value="0" />
+            <DataValueMember Name="AcidWash" DataType="BOOL" Value="0" />
+            <DataValueMember Name="Rinse" DataType="BOOL" Value="0" />
+            <DataValueMember Name="ReturnToDrain" DataType="BOOL" Value="0" />
+            <DataValueMember Name="Set_Temperature" DataType="REAL" Radix="Float" Value="0.0" />
+            <DataValueMember Name="Set_Time" DataType="REAL" Radix="Float" Value="0.0" />
+            <DataValueMember Name="Set_Conductivity" DataType="REAL" Radix="Float" Value="0.0" />
+            <DataValueMember Name="Val_MinLeft" DataType="INT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Val_SecLeft" DataType="INT" Radix="Decimal" Value="0" />
+          </Structure>
+        </Element>
+        <Element Index="[30]">
+          <Structure DataType="UDT_RecipeStep">
+            <DataValueMember Name="PreWash" DataType="BOOL" Value="0" />
+            <DataValueMember Name="CausticWash" DataType="BOOL" Value="0" />
+            <DataValueMember Name="AcidWash" DataType="BOOL" Value="0" />
+            <DataValueMember Name="Rinse" DataType="BOOL" Value="0" />
+            <DataValueMember Name="ReturnToDrain" DataType="BOOL" Value="0" />
+            <DataValueMember Name="Set_Temperature" DataType="REAL" Radix="Float" Value="0.0" />
+            <DataValueMember Name="Set_Time" DataType="REAL" Radix="Float" Value="0.0" />
+            <DataValueMember Name="Set_Conductivity" DataType="REAL" Radix="Float" Value="0.0" />
+            <DataValueMember Name="Val_MinLeft" DataType="INT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Val_SecLeft" DataType="INT" Radix="Decimal" Value="0" />
+          </Structure>
+        </Element>
+        <Element Index="[31]">
+          <Structure DataType="UDT_RecipeStep">
+            <DataValueMember Name="PreWash" DataType="BOOL" Value="0" />
+            <DataValueMember Name="CausticWash" DataType="BOOL" Value="0" />
+            <DataValueMember Name="AcidWash" DataType="BOOL" Value="0" />
+            <DataValueMember Name="Rinse" DataType="BOOL" Value="0" />
+            <DataValueMember Name="ReturnToDrain" DataType="BOOL" Value="0" />
+            <DataValueMember Name="Set_Temperature" DataType="REAL" Radix="Float" Value="0.0" />
+            <DataValueMember Name="Set_Time" DataType="REAL" Radix="Float" Value="0.0" />
+            <DataValueMember Name="Set_Conductivity" DataType="REAL" Radix="Float" Value="0.0" />
+            <DataValueMember Name="Val_MinLeft" DataType="INT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Val_SecLeft" DataType="INT" Radix="Decimal" Value="0" />
+          </Structure>
+        </Element>
+        <Element Index="[32]">
+          <Structure DataType="UDT_RecipeStep">
+            <DataValueMember Name="PreWash" DataType="BOOL" Value="0" />
+            <DataValueMember Name="CausticWash" DataType="BOOL" Value="0" />
+            <DataValueMember Name="AcidWash" DataType="BOOL" Value="0" />
+            <DataValueMember Name="Rinse" DataType="BOOL" Value="0" />
+            <DataValueMember Name="ReturnToDrain" DataType="BOOL" Value="0" />
+            <DataValueMember Name="Set_Temperature" DataType="REAL" Radix="Float" Value="0.0" />
+            <DataValueMember Name="Set_Time" DataType="REAL" Radix="Float" Value="0.0" />
+            <DataValueMember Name="Set_Conductivity" DataType="REAL" Radix="Float" Value="0.0" />
+            <DataValueMember Name="Val_MinLeft" DataType="INT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Val_SecLeft" DataType="INT" Radix="Decimal" Value="0" />
+          </Structure>
+        </Element>
+        <Element Index="[33]">
+          <Structure DataType="UDT_RecipeStep">
+            <DataValueMember Name="PreWash" DataType="BOOL" Value="0" />
+            <DataValueMember Name="CausticWash" DataType="BOOL" Value="0" />
+            <DataValueMember Name="AcidWash" DataType="BOOL" Value="0" />
+            <DataValueMember Name="Rinse" DataType="BOOL" Value="0" />
+            <DataValueMember Name="ReturnToDrain" DataType="BOOL" Value="0" />
+            <DataValueMember Name="Set_Temperature" DataType="REAL" Radix="Float" Value="0.0" />
+            <DataValueMember Name="Set_Time" DataType="REAL" Radix="Float" Value="0.0" />
+            <DataValueMember Name="Set_Conductivity" DataType="REAL" Radix="Float" Value="0.0" />
+            <DataValueMember Name="Val_MinLeft" DataType="INT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Val_SecLeft" DataType="INT" Radix="Decimal" Value="0" />
+          </Structure>
+        </Element>
+        <Element Index="[34]">
+          <Structure DataType="UDT_RecipeStep">
+            <DataValueMember Name="PreWash" DataType="BOOL" Value="0" />
+            <DataValueMember Name="CausticWash" DataType="BOOL" Value="0" />
+            <DataValueMember Name="AcidWash" DataType="BOOL" Value="0" />
+            <DataValueMember Name="Rinse" DataType="BOOL" Value="0" />
+            <DataValueMember Name="ReturnToDrain" DataType="BOOL" Value="0" />
+            <DataValueMember Name="Set_Temperature" DataType="REAL" Radix="Float" Value="0.0" />
+            <DataValueMember Name="Set_Time" DataType="REAL" Radix="Float" Value="0.0" />
+            <DataValueMember Name="Set_Conductivity" DataType="REAL" Radix="Float" Value="0.0" />
+            <DataValueMember Name="Val_MinLeft" DataType="INT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Val_SecLeft" DataType="INT" Radix="Decimal" Value="0" />
+          </Structure>
+        </Element>
+        <Element Index="[35]">
+          <Structure DataType="UDT_RecipeStep">
+            <DataValueMember Name="PreWash" DataType="BOOL" Value="0" />
+            <DataValueMember Name="CausticWash" DataType="BOOL" Value="0" />
+            <DataValueMember Name="AcidWash" DataType="BOOL" Value="0" />
+            <DataValueMember Name="Rinse" DataType="BOOL" Value="0" />
+            <DataValueMember Name="ReturnToDrain" DataType="BOOL" Value="0" />
+            <DataValueMember Name="Set_Temperature" DataType="REAL" Radix="Float" Value="0.0" />
+            <DataValueMember Name="Set_Time" DataType="REAL" Radix="Float" Value="0.0" />
+            <DataValueMember Name="Set_Conductivity" DataType="REAL" Radix="Float" Value="0.0" />
+            <DataValueMember Name="Val_MinLeft" DataType="INT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Val_SecLeft" DataType="INT" Radix="Decimal" Value="0" />
+          </Structure>
+        </Element>
+        <Element Index="[36]">
+          <Structure DataType="UDT_RecipeStep">
+            <DataValueMember Name="PreWash" DataType="BOOL" Value="0" />
+            <DataValueMember Name="CausticWash" DataType="BOOL" Value="0" />
+            <DataValueMember Name="AcidWash" DataType="BOOL" Value="0" />
+            <DataValueMember Name="Rinse" DataType="BOOL" Value="0" />
+            <DataValueMember Name="ReturnToDrain" DataType="BOOL" Value="0" />
+            <DataValueMember Name="Set_Temperature" DataType="REAL" Radix="Float" Value="0.0" />
+            <DataValueMember Name="Set_Time" DataType="REAL" Radix="Float" Value="0.0" />
+            <DataValueMember Name="Set_Conductivity" DataType="REAL" Radix="Float" Value="0.0" />
+            <DataValueMember Name="Val_MinLeft" DataType="INT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Val_SecLeft" DataType="INT" Radix="Decimal" Value="0" />
+          </Structure>
+        </Element>
+        <Element Index="[37]">
+          <Structure DataType="UDT_RecipeStep">
+            <DataValueMember Name="PreWash" DataType="BOOL" Value="0" />
+            <DataValueMember Name="CausticWash" DataType="BOOL" Value="0" />
+            <DataValueMember Name="AcidWash" DataType="BOOL" Value="0" />
+            <DataValueMember Name="Rinse" DataType="BOOL" Value="0" />
+            <DataValueMember Name="ReturnToDrain" DataType="BOOL" Value="0" />
+            <DataValueMember Name="Set_Temperature" DataType="REAL" Radix="Float" Value="0.0" />
+            <DataValueMember Name="Set_Time" DataType="REAL" Radix="Float" Value="0.0" />
+            <DataValueMember Name="Set_Conductivity" DataType="REAL" Radix="Float" Value="0.0" />
+            <DataValueMember Name="Val_MinLeft" DataType="INT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Val_SecLeft" DataType="INT" Radix="Decimal" Value="0" />
+          </Structure>
+        </Element>
+        <Element Index="[38]">
+          <Structure DataType="UDT_RecipeStep">
+            <DataValueMember Name="PreWash" DataType="BOOL" Value="0" />
+            <DataValueMember Name="CausticWash" DataType="BOOL" Value="0" />
+            <DataValueMember Name="AcidWash" DataType="BOOL" Value="0" />
+            <DataValueMember Name="Rinse" DataType="BOOL" Value="0" />
+            <DataValueMember Name="ReturnToDrain" DataType="BOOL" Value="0" />
+            <DataValueMember Name="Set_Temperature" DataType="REAL" Radix="Float" Value="0.0" />
+            <DataValueMember Name="Set_Time" DataType="REAL" Radix="Float" Value="0.0" />
+            <DataValueMember Name="Set_Conductivity" DataType="REAL" Radix="Float" Value="0.0" />
+            <DataValueMember Name="Val_MinLeft" DataType="INT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Val_SecLeft" DataType="INT" Radix="Decimal" Value="0" />
+          </Structure>
+        </Element>
+        <Element Index="[39]">
+          <Structure DataType="UDT_RecipeStep">
+            <DataValueMember Name="PreWash" DataType="BOOL" Value="0" />
+            <DataValueMember Name="CausticWash" DataType="BOOL" Value="0" />
+            <DataValueMember Name="AcidWash" DataType="BOOL" Value="0" />
+            <DataValueMember Name="Rinse" DataType="BOOL" Value="0" />
+            <DataValueMember Name="ReturnToDrain" DataType="BOOL" Value="0" />
+            <DataValueMember Name="Set_Temperature" DataType="REAL" Radix="Float" Value="0.0" />
+            <DataValueMember Name="Set_Time" DataType="REAL" Radix="Float" Value="0.0" />
+            <DataValueMember Name="Set_Conductivity" DataType="REAL" Radix="Float" Value="0.0" />
+            <DataValueMember Name="Val_MinLeft" DataType="INT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Val_SecLeft" DataType="INT" Radix="Decimal" Value="0" />
+          </Structure>
+        </Element>
+        <Element Index="[40]">
+          <Structure DataType="UDT_RecipeStep">
+            <DataValueMember Name="PreWash" DataType="BOOL" Value="0" />
+            <DataValueMember Name="CausticWash" DataType="BOOL" Value="0" />
+            <DataValueMember Name="AcidWash" DataType="BOOL" Value="0" />
+            <DataValueMember Name="Rinse" DataType="BOOL" Value="0" />
+            <DataValueMember Name="ReturnToDrain" DataType="BOOL" Value="0" />
+            <DataValueMember Name="Set_Temperature" DataType="REAL" Radix="Float" Value="0.0" />
+            <DataValueMember Name="Set_Time" DataType="REAL" Radix="Float" Value="0.0" />
+            <DataValueMember Name="Set_Conductivity" DataType="REAL" Radix="Float" Value="0.0" />
+            <DataValueMember Name="Val_MinLeft" DataType="INT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Val_SecLeft" DataType="INT" Radix="Decimal" Value="0" />
+          </Structure>
+        </Element>
+        <Element Index="[41]">
+          <Structure DataType="UDT_RecipeStep">
+            <DataValueMember Name="PreWash" DataType="BOOL" Value="0" />
+            <DataValueMember Name="CausticWash" DataType="BOOL" Value="0" />
+            <DataValueMember Name="AcidWash" DataType="BOOL" Value="0" />
+            <DataValueMember Name="Rinse" DataType="BOOL" Value="0" />
+            <DataValueMember Name="ReturnToDrain" DataType="BOOL" Value="0" />
+            <DataValueMember Name="Set_Temperature" DataType="REAL" Radix="Float" Value="0.0" />
+            <DataValueMember Name="Set_Time" DataType="REAL" Radix="Float" Value="0.0" />
+            <DataValueMember Name="Set_Conductivity" DataType="REAL" Radix="Float" Value="0.0" />
+            <DataValueMember Name="Val_MinLeft" DataType="INT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Val_SecLeft" DataType="INT" Radix="Decimal" Value="0" />
+          </Structure>
+        </Element>
+        <Element Index="[42]">
+          <Structure DataType="UDT_RecipeStep">
+            <DataValueMember Name="PreWash" DataType="BOOL" Value="0" />
+            <DataValueMember Name="CausticWash" DataType="BOOL" Value="0" />
+            <DataValueMember Name="AcidWash" DataType="BOOL" Value="0" />
+            <DataValueMember Name="Rinse" DataType="BOOL" Value="0" />
+            <DataValueMember Name="ReturnToDrain" DataType="BOOL" Value="0" />
+            <DataValueMember Name="Set_Temperature" DataType="REAL" Radix="Float" Value="0.0" />
+            <DataValueMember Name="Set_Time" DataType="REAL" Radix="Float" Value="0.0" />
+            <DataValueMember Name="Set_Conductivity" DataType="REAL" Radix="Float" Value="0.0" />
+            <DataValueMember Name="Val_MinLeft" DataType="INT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Val_SecLeft" DataType="INT" Radix="Decimal" Value="0" />
+          </Structure>
+        </Element>
+        <Element Index="[43]">
+          <Structure DataType="UDT_RecipeStep">
+            <DataValueMember Name="PreWash" DataType="BOOL" Value="0" />
+            <DataValueMember Name="CausticWash" DataType="BOOL" Value="0" />
+            <DataValueMember Name="AcidWash" DataType="BOOL" Value="0" />
+            <DataValueMember Name="Rinse" DataType="BOOL" Value="0" />
+            <DataValueMember Name="ReturnToDrain" DataType="BOOL" Value="0" />
+            <DataValueMember Name="Set_Temperature" DataType="REAL" Radix="Float" Value="0.0" />
+            <DataValueMember Name="Set_Time" DataType="REAL" Radix="Float" Value="0.0" />
+            <DataValueMember Name="Set_Conductivity" DataType="REAL" Radix="Float" Value="0.0" />
+            <DataValueMember Name="Val_MinLeft" DataType="INT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Val_SecLeft" DataType="INT" Radix="Decimal" Value="0" />
+          </Structure>
+        </Element>
+        <Element Index="[44]">
+          <Structure DataType="UDT_RecipeStep">
+            <DataValueMember Name="PreWash" DataType="BOOL" Value="0" />
+            <DataValueMember Name="CausticWash" DataType="BOOL" Value="0" />
+            <DataValueMember Name="AcidWash" DataType="BOOL" Value="0" />
+            <DataValueMember Name="Rinse" DataType="BOOL" Value="0" />
+            <DataValueMember Name="ReturnToDrain" DataType="BOOL" Value="0" />
+            <DataValueMember Name="Set_Temperature" DataType="REAL" Radix="Float" Value="0.0" />
+            <DataValueMember Name="Set_Time" DataType="REAL" Radix="Float" Value="0.0" />
+            <DataValueMember Name="Set_Conductivity" DataType="REAL" Radix="Float" Value="0.0" />
+            <DataValueMember Name="Val_MinLeft" DataType="INT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Val_SecLeft" DataType="INT" Radix="Decimal" Value="0" />
+          </Structure>
+        </Element>
+        <Element Index="[45]">
+          <Structure DataType="UDT_RecipeStep">
+            <DataValueMember Name="PreWash" DataType="BOOL" Value="0" />
+            <DataValueMember Name="CausticWash" DataType="BOOL" Value="0" />
+            <DataValueMember Name="AcidWash" DataType="BOOL" Value="0" />
+            <DataValueMember Name="Rinse" DataType="BOOL" Value="0" />
+            <DataValueMember Name="ReturnToDrain" DataType="BOOL" Value="0" />
+            <DataValueMember Name="Set_Temperature" DataType="REAL" Radix="Float" Value="0.0" />
+            <DataValueMember Name="Set_Time" DataType="REAL" Radix="Float" Value="0.0" />
+            <DataValueMember Name="Set_Conductivity" DataType="REAL" Radix="Float" Value="0.0" />
+            <DataValueMember Name="Val_MinLeft" DataType="INT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Val_SecLeft" DataType="INT" Radix="Decimal" Value="0" />
+          </Structure>
+        </Element>
+        <Element Index="[46]">
+          <Structure DataType="UDT_RecipeStep">
+            <DataValueMember Name="PreWash" DataType="BOOL" Value="0" />
+            <DataValueMember Name="CausticWash" DataType="BOOL" Value="0" />
+            <DataValueMember Name="AcidWash" DataType="BOOL" Value="0" />
+            <DataValueMember Name="Rinse" DataType="BOOL" Value="0" />
+            <DataValueMember Name="ReturnToDrain" DataType="BOOL" Value="0" />
+            <DataValueMember Name="Set_Temperature" DataType="REAL" Radix="Float" Value="0.0" />
+            <DataValueMember Name="Set_Time" DataType="REAL" Radix="Float" Value="0.0" />
+            <DataValueMember Name="Set_Conductivity" DataType="REAL" Radix="Float" Value="0.0" />
+            <DataValueMember Name="Val_MinLeft" DataType="INT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Val_SecLeft" DataType="INT" Radix="Decimal" Value="0" />
+          </Structure>
+        </Element>
+        <Element Index="[47]">
+          <Structure DataType="UDT_RecipeStep">
+            <DataValueMember Name="PreWash" DataType="BOOL" Value="0" />
+            <DataValueMember Name="CausticWash" DataType="BOOL" Value="0" />
+            <DataValueMember Name="AcidWash" DataType="BOOL" Value="0" />
+            <DataValueMember Name="Rinse" DataType="BOOL" Value="0" />
+            <DataValueMember Name="ReturnToDrain" DataType="BOOL" Value="0" />
+            <DataValueMember Name="Set_Temperature" DataType="REAL" Radix="Float" Value="0.0" />
+            <DataValueMember Name="Set_Time" DataType="REAL" Radix="Float" Value="0.0" />
+            <DataValueMember Name="Set_Conductivity" DataType="REAL" Radix="Float" Value="0.0" />
+            <DataValueMember Name="Val_MinLeft" DataType="INT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Val_SecLeft" DataType="INT" Radix="Decimal" Value="0" />
+          </Structure>
+        </Element>
+        <Element Index="[48]">
+          <Structure DataType="UDT_RecipeStep">
+            <DataValueMember Name="PreWash" DataType="BOOL" Value="0" />
+            <DataValueMember Name="CausticWash" DataType="BOOL" Value="0" />
+            <DataValueMember Name="AcidWash" DataType="BOOL" Value="0" />
+            <DataValueMember Name="Rinse" DataType="BOOL" Value="0" />
+            <DataValueMember Name="ReturnToDrain" DataType="BOOL" Value="0" />
+            <DataValueMember Name="Set_Temperature" DataType="REAL" Radix="Float" Value="0.0" />
+            <DataValueMember Name="Set_Time" DataType="REAL" Radix="Float" Value="0.0" />
+            <DataValueMember Name="Set_Conductivity" DataType="REAL" Radix="Float" Value="0.0" />
+            <DataValueMember Name="Val_MinLeft" DataType="INT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Val_SecLeft" DataType="INT" Radix="Decimal" Value="0" />
+          </Structure>
+        </Element>
+        <Element Index="[49]">
+          <Structure DataType="UDT_RecipeStep">
+            <DataValueMember Name="PreWash" DataType="BOOL" Value="0" />
+            <DataValueMember Name="CausticWash" DataType="BOOL" Value="0" />
+            <DataValueMember Name="AcidWash" DataType="BOOL" Value="0" />
+            <DataValueMember Name="Rinse" DataType="BOOL" Value="0" />
+            <DataValueMember Name="ReturnToDrain" DataType="BOOL" Value="0" />
+            <DataValueMember Name="Set_Temperature" DataType="REAL" Radix="Float" Value="0.0" />
+            <DataValueMember Name="Set_Time" DataType="REAL" Radix="Float" Value="0.0" />
+            <DataValueMember Name="Set_Conductivity" DataType="REAL" Radix="Float" Value="0.0" />
+            <DataValueMember Name="Val_MinLeft" DataType="INT" Radix="Decimal" Value="0" />
+            <DataValueMember Name="Val_SecLeft" DataType="INT" Radix="Decimal" Value="0" />
+          </Structure>
+        </Element>
+      </ArrayMember>
+      <DataValueMember Name="Running" DataType="BOOL" Value="0" />
+      <DataValueMember Name="Complete" DataType="BOOL" Value="0" />
+      <DataValueMember Name="Aborted" DataType="BOOL" Value="0" />
+      <DataValueMember Name="Holding" DataType="BOOL" Value="0" />
+    </Structure>
+  </Data>
+</Tag>

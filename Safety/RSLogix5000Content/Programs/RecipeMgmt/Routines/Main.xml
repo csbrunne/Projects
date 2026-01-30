@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Routine Name="Main" Type="RLL">
+  <RLLContent>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(S:FS)OTU(wrkInitDone);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIO(wrkInitDone)JSR(a_Init,0);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[JSR(RcpMgmt,0);]]></Text>
+    </Rung>
+  </RLLContent>
+</Routine>

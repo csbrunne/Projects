@@ -1,0 +1,2 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Tag Name="Cmd_UpdTimeSet" TagType="Alias" Radix="Decimal" AliasFor="wrkEditCmds.7" ExternalAccess="Read/Write" OpcUaAccess="None" DataExchangeId="{871CEC2B-0880-432A-8C5B-F1EDA85E700B}" />

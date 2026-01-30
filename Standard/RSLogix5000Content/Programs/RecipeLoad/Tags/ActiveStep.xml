@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Tag Name="ActiveStep" TagType="Base" DataType="UDT_RecipeStep" Usage="Public" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+  <Data Format="L5K"><![CDATA[[17,1.50000000e+002,1.00000000e-001,1.00000000e+002,0,0]]]></Data>
+  <Data Format="Decorated">
+    <Structure DataType="UDT_RecipeStep">
+      <DataValueMember Name="PreWash" DataType="BOOL" Value="1" />
+      <DataValueMember Name="CausticWash" DataType="BOOL" Value="0" />
+      <DataValueMember Name="AcidWash" DataType="BOOL" Value="0" />
+      <DataValueMember Name="Rinse" DataType="BOOL" Value="0" />
+      <DataValueMember Name="ReturnToDrain" DataType="BOOL" Value="1" />
+      <DataValueMember Name="Set_Temperature" DataType="REAL" Radix="Float" Value="150.0" />
+      <DataValueMember Name="Set_Time" DataType="REAL" Radix="Float" Value="0.1" />
+      <DataValueMember Name="Set_Conductivity" DataType="REAL" Radix="Float" Value="100.0" />
+      <DataValueMember Name="Val_MinLeft" DataType="INT" Radix="Decimal" Value="0" />
+      <DataValueMember Name="Val_SecLeft" DataType="INT" Radix="Decimal" Value="0" />
+    </Structure>
+  </Data>
+</Tag>

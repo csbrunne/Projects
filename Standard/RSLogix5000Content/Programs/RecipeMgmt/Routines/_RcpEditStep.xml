@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Routine Name="_RcpEditStep" Type="RLL">
+  <RLLContent>
+    <Rung Type="N">
+      <Comment><![CDATA[===========================================================================
+Step Edit
+===========================================================================
+Copy the selected step into the step edit buffer, make changes, and copy back
+into the buffered recipe.]]></Comment>
+      <Text><![CDATA[SBR(wrkEditStep)NOP();]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(Cmd_UpdCondSet)MOVE(Set_CondEdit,wrkEditStep.Set_Conductivity)OTU(Cmd_UpdCondSet);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(Cmd_UpdTempSet)MOVE(Set_TempEdit,wrkEditStep.Set_Temperature)OTU(Cmd_UpdTempSet);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(Cmd_UpdTimeSet)MOVE(Set_TimeEdit,wrkEditStep.Set_Time)OTU(Cmd_UpdTimeSet);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Comment><![CDATA[********************************************************
+Toggle Acid Wash Phase Selector, and clear all other phase selections.]]></Comment>
+      <Text><![CDATA[XIC(Cmd_TglAcidWash)XIO(wrkEditStep.AcidWash)OTL(wrkEditStep.AcidWash)OTU(wrkEditStep.CausticWash)OTU(wrkEditStep.PreWash)OTU(wrkEditStep.Rinse)OTU(Cmd_TglAcidWash);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(Cmd_TglAcidWash)XIC(wrkEditStep.AcidWash)OTU(wrkEditStep.AcidWash)OTU(wrkEditStep.CausticWash)OTU(wrkEditStep.PreWash)OTU(wrkEditStep.Rinse)OTU(Cmd_TglAcidWash);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Comment><![CDATA[********************************************************
+Toggle Caustic Wash Phase Selector, and clear all other phase selections.]]></Comment>
+      <Text><![CDATA[XIC(Cmd_TglCausticWash)XIO(wrkEditStep.CausticWash)OTU(wrkEditStep.AcidWash)OTL(wrkEditStep.CausticWash)OTU(wrkEditStep.PreWash)OTU(wrkEditStep.Rinse)OTU(Cmd_TglCausticWash);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(Cmd_TglCausticWash)XIC(wrkEditStep.CausticWash)OTU(wrkEditStep.AcidWash)OTU(wrkEditStep.CausticWash)OTU(wrkEditStep.PreWash)OTU(wrkEditStep.Rinse)OTU(Cmd_TglCausticWash);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Comment><![CDATA[********************************************************
+Toggle PreWash Phase Selector, and clear all other phase selections.]]></Comment>
+      <Text><![CDATA[XIC(Cmd_TglPreWash)XIO(wrkEditStep.PreWash)OTU(wrkEditStep.AcidWash)OTU(wrkEditStep.CausticWash)OTL(wrkEditStep.PreWash)OTU(wrkEditStep.Rinse)OTU(Cmd_TglPreWash);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(Cmd_TglPreWash)XIC(wrkEditStep.PreWash)OTU(wrkEditStep.AcidWash)OTU(wrkEditStep.CausticWash)OTU(wrkEditStep.PreWash)OTU(wrkEditStep.Rinse)OTU(Cmd_TglPreWash);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Comment><![CDATA[********************************************************
+Toggle Rinse Phase Selector, and clear all other phase selections.]]></Comment>
+      <Text><![CDATA[XIC(Cmd_TglRinse)XIO(wrkEditStep.Rinse)OTU(wrkEditStep.AcidWash)OTU(wrkEditStep.CausticWash)OTU(wrkEditStep.PreWash)OTL(wrkEditStep.Rinse)OTU(Cmd_TglRinse);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(Cmd_TglRinse)XIC(wrkEditStep.Rinse)OTU(wrkEditStep.AcidWash)OTU(wrkEditStep.CausticWash)OTU(wrkEditStep.PreWash)OTU(wrkEditStep.Rinse)OTU(Cmd_TglRinse);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Comment><![CDATA[********************************************************
+Toggle Return-to-Drain Selector]]></Comment>
+      <Text><![CDATA[XIC(Cmd_TglDrain)XIO(wrkEditStep.ReturnToDrain)OTL(wrkEditStep.ReturnToDrain)OTU(Cmd_TglDrain);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(Cmd_TglDrain)XIC(wrkEditStep.ReturnToDrain)OTU(wrkEditStep.ReturnToDrain)OTU(Cmd_TglDrain);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Comment><![CDATA[********************************************************
+Return the edited step to the buffered recipe.]]></Comment>
+      <Text><![CDATA[RET(wrkEditStep);]]></Text>
+    </Rung>
+  </RLLContent>
+</Routine>

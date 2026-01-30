@@ -1,0 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Tag Name="Cmd_TglAcidWash" TagType="Alias" Radix="Decimal" AliasFor="wrkEditCmds.2" ExternalAccess="Read/Write" OpcUaAccess="None" DataExchangeId="{5ACFDFC6-9981-44A8-A0B2-708C67AC949C}">
+  <Description><![CDATA[Set AcidWash and clear all other phases, or Clear AcidWash]]></Description>
+</Tag>

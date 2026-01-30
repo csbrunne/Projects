@@ -1,0 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Tag Name="Cmd_TglDrain" TagType="Alias" Radix="Decimal" AliasFor="wrkEditCmds.4" ExternalAccess="Read/Write" OpcUaAccess="None" DataExchangeId="{0577FDC7-7CAD-493D-845F-AA1FBB900C7A}">
+  <Description><![CDATA[Toggle Return-to-Drain]]></Description>
+</Tag>

@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Tag Name="DO_SupplyValveSV" TagType="Base" DataType="raM_Dvc_DigitalChannel" Usage="Public" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+  <Description><![CDATA[Make-up Water Fill Valve Output]]></Description>
+  <Data Format="L5K"><![CDATA[[5546019,0,0,0,[22,'raM_Dvc_DigitalChannel$00$00'],[0,0,0],[0,0,0]]]]></Data>
+  <Data Format="Decorated">
+    <Structure DataType="raM_Dvc_DigitalChannel">
+      <DataValueMember Name="EnableIn" DataType="BOOL" Value="1" />
+      <DataValueMember Name="EnableOut" DataType="BOOL" Value="1" />
+      <DataValueMember Name="Inp_Data" DataType="BOOL" Value="0" />
+      <DataValueMember Name="Inp_Fault" DataType="BOOL" Value="0" />
+      <DataValueMember Name="Inp_Uncertain" DataType="BOOL" Value="0" />
+      <DataValueMember Name="Inp_Virtual" DataType="BOOL" Value="1" />
+      <DataValueMember Name="Cfg_ChType" DataType="BOOL" Value="0" />
+      <DataValueMember Name="Cfg_DelayOn" DataType="DINT" Radix="Decimal" Value="0" />
+      <DataValueMember Name="Cfg_DelayOff" DataType="DINT" Radix="Decimal" Value="0" />
+      <DataValueMember Name="MSet_Subst" DataType="BOOL" Value="0" />
+      <DataValueMember Name="MCmd_Subst" DataType="BOOL" Value="0" />
+      <DataValueMember Name="MCmd_EndSubst" DataType="BOOL" Value="0" />
+      <DataValueMember Name="Out_Data" DataType="BOOL" Value="0" />
+      <DataValueMember Name="Sts_Fault" DataType="BOOL" Value="0" />
+      <DataValueMember Name="Sts_Uncertain" DataType="BOOL" Value="0" />
+      <DataValueMember Name="Sts_Virtual" DataType="BOOL" Value="1" />
+      <DataValueMember Name="Sts_Subst" DataType="BOOL" Value="0" />
+      <DataValueMember Name="raM_Dvc_DigitalChannel" DataType="BOOL" Value="1" />
+      <DataValueMember Name="Inf_Tag" DataType="BOOL" Value="0" />
+      <DataValueMember Name="Inf_Label" DataType="BOOL" Value="0" />
+    </Structure>
+  </Data>
+</Tag>

@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Routine Name="Holding" Type="RLL">
+  <RLLContent>
+    <Rung Type="N">
+      <Text><![CDATA[RTO(tmrPreCirc,?,?)RTO(tmrRunning,?,?);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[OTL(\CirculationPump.EM.PCmd_bStateReq.1)OTL(\SupplyHeader.EM.PCmd_bStateReq.1)OTL(\ReturnHeader.EM.PCmd_bStateReq.1);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[[XIC(\CirculationPump.EM.Sts_bStateCurrent.1) ,XIC(\CirculationPump.EM.Sts_bStateCurrent.2) ][XIC(\SupplyHeader.EM.Sts_bStateCurrent.1) ,XIC(\SupplyHeader.EM.Sts_bStateCurrent.2) ][XIC(\ReturnHeader.EM.Sts_bStateCurrent.1) ,XIC(\ReturnHeader.EM.Sts_bStateCurrent.2) ]OTL(pSeqComplete);]]></Text>
+    </Rung>
+  </RLLContent>
+</Routine>

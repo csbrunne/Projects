@@ -1,0 +1,2 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Tag Name="Alm_LevelLo" TagType="Alias" Radix="Decimal" AliasFor="ALM_Level.LAlarm" Usage="Output" ExternalAccess="Read/Write" OpcUaAccess="None" DataExchangeId="{9D8AF698-1882-4E81-B9EE-DC1F9FB23A80}" />

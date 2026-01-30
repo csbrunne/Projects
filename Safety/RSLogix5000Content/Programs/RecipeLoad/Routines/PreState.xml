@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Routine Name="PreState" Type="RLL">
+  <RLLContent>
+    <Rung Type="N">
+      <Comment><![CDATA[==========================================================================
+Set Limits on Step Number
+==========================================================================
+In order to prevent processor faults, set the step number limit to one less
+than the recipe step array size. This is the largest index value allowed.]]></Comment>
+      <Text><![CDATA[SIZE(ActiveRecipe.Step[0],0,wrkStepIndexLimit)SUB(wrkStepIndexLimit,1,wrkStepIndexLimit)[LT(ActiveRecipe.CurrentStep,0) CLR(ActiveRecipe.CurrentStep) ,GT(ActiveRecipe.CurrentStep,wrkStepIndexLimit) MOVE(wrkStepIndexLimit,ActiveRecipe.CurrentStep) ];]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Comment><![CDATA[===========================================================================
+Active Recipe Detail Step Display
+===========================================================================
+Only 10 steps are displayed on the HMI at a time. This logic copies the
+appropriate 10 steps into the display array.]]></Comment>
+      <Text><![CDATA[[LIMIT(0,ActiveRecipe.CurrentStep,9) COP(ActiveRecipe.Step[0],wrkStepDisplay[0],10) ,LIMIT(10,ActiveRecipe.CurrentStep,19) COP(ActiveRecipe.Step[10],wrkStepDisplay[0],10) ,LIMIT(20,ActiveRecipe.CurrentStep,29) COP(ActiveRecipe.Step[20],wrkStepDisplay[0],10) ,LIMIT(30,ActiveRecipe.CurrentStep,39) COP(ActiveRecipe.Step[30],wrkStepDisplay[0],10) ,LIMIT(40,ActiveRecipe.CurrentStep,49) COP(ActiveRecipe.Step[40],wrkStepDisplay[0],10) ];]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Comment><![CDATA[===========================================================================
+Sequence Held
+===========================================================================
+Because each pahse has its own timer that needs to stop while held, each phase
+has its own Holding Phase State Routine. Note that active tanks are not affected.
+
+The ActiveRecipe Holding flag is updated.]]></Comment>
+      <Text><![CDATA[[XIC(\SeqControl.Holding) ,XIC(\SeqControl.Held) ]OTL(ActiveRecipe.Holding);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Comment><![CDATA[===========================================================================
+Sequence Stop or Abort States
+===========================================================================
+Rather than duplicating this logic in Phase State Routines for each phase, this
+rung stops all EMs when the SeqMgr is in Stopped or Aborted States.
+
+The ActiveRecipe status flags are also set to indicate the Cycle has been aborted.]]></Comment>
+      <Text><![CDATA[[XIC(\SeqControl.Stopped) ,XIC(\SeqControl.Aborted) ]OTU(ActiveRecipe.Running)OTU(ActiveRecipe.Holding)OTU(ActiveRecipe.Complete)OTE(ActiveRecipe.Aborted);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Comment><![CDATA[===========================================================================
+Step Time Remaining Value Transfer
+===========================================================================
+Transfer the step time remaining from the active phase to ActiveStep.
+
+If no phases active, zero the values in ActiveStep.]]></Comment>
+      <Text><![CDATA[XIO(ActiveStep.PreWash)XIO(ActiveStep.CausticWash)XIO(ActiveStep.AcidWash)XIO(ActiveStep.Rinse)[CLR(ActiveStep.Val_MinLeft) ,CLR(ActiveStep.Val_SecLeft) ];]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Comment><![CDATA[*********************************************************
+PreWash Phase time remaining value transfer.]]></Comment>
+      <Text><![CDATA[XIC(ActiveStep.PreWash)DIV(\PreWash.Val_SecRemaining,60,ActiveStep.Val_MinLeft)MOD(\PreWash.Val_SecRemaining,60,ActiveStep.Val_SecLeft);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Comment><![CDATA[*********************************************************
+Caustic Wash Phase time remaining value transfer.]]></Comment>
+      <Text><![CDATA[XIC(ActiveStep.CausticWash)DIV(\WashCaustic.Val_SecRemaining,60,ActiveStep.Val_MinLeft)MOD(\WashCaustic.Val_SecRemaining,60,ActiveStep.Val_SecLeft);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Comment><![CDATA[*********************************************************
+Acid Wash Phase time remaining value transfer.]]></Comment>
+      <Text><![CDATA[XIC(ActiveStep.AcidWash)DIV(\WashAcid.Val_SecRemaining,60,ActiveStep.Val_MinLeft)MOD(\WashAcid.Val_SecRemaining,60,ActiveStep.Val_SecLeft);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Comment><![CDATA[*********************************************************
+Rinse Phase time remaining value transfer.]]></Comment>
+      <Text><![CDATA[XIC(ActiveStep.Rinse)DIV(\Rinse.Val_SecRemaining,60,ActiveStep.Val_MinLeft)MOD(\Rinse.Val_SecRemaining,60,ActiveStep.Val_SecLeft);]]></Text>
+    </Rung>
+  </RLLContent>
+</Routine>

@@ -1,0 +1,2 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Tag Name="Cmd_UpdTempSet" TagType="Alias" Radix="Decimal" AliasFor="wrkEditCmds.5" ExternalAccess="Read/Write" OpcUaAccess="None" DataExchangeId="{8F783FC9-07EA-46DC-A920-8B5290D1FD4B}" />

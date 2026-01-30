@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Tag Name="wrkStepIndexLimit" TagType="Base" DataType="DINT" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+  <Data Format="L5K"><![CDATA[49]]></Data>
+  <Data Format="Decorated">
+    <DataValue DataType="DINT" Radix="Decimal" Value="49" />
+  </Data>
+</Tag>

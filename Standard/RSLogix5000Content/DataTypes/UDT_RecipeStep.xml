@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<DataType Name="UDT_RecipeStep" Family="NoFamily" Class="User">
+  <Members>
+    <Member Name="ZZZZZZZZZZUDT_Recipe0" DataType="SINT" Dimension="0" Radix="Decimal" Hidden="true" ExternalAccess="Read/Write" />
+    <Member Name="PreWash" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZUDT_Recipe0" BitNumber="0" ExternalAccess="Read/Write">
+      <Description><![CDATA[Execute PreWash Phase]]></Description>
+    </Member>
+    <Member Name="CausticWash" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZUDT_Recipe0" BitNumber="1" ExternalAccess="Read/Write">
+      <Description><![CDATA[Execute Caustic Wash Phase]]></Description>
+    </Member>
+    <Member Name="AcidWash" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZUDT_Recipe0" BitNumber="2" ExternalAccess="Read/Write">
+      <Description><![CDATA[Execucte Acid Wash Phase]]></Description>
+    </Member>
+    <Member Name="Rinse" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZUDT_Recipe0" BitNumber="3" ExternalAccess="Read/Write">
+      <Description><![CDATA[Execute Rinse Phase]]></Description>
+    </Member>
+    <Member Name="ReturnToDrain" DataType="BIT" Dimension="0" Radix="Decimal" Hidden="false" Target="ZZZZZZZZZZUDT_Recipe0" BitNumber="4" ExternalAccess="Read/Write">
+      <Description><![CDATA[Send Return Water to Drain]]></Description>
+    </Member>
+    <Member Name="Set_Temperature" DataType="REAL" Dimension="0" Radix="Float" Hidden="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[Return Temperature Set Point]]></Description>
+    </Member>
+    <Member Name="Set_Time" DataType="REAL" Dimension="0" Radix="Float" Hidden="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[Circulation Time (minutes)]]></Description>
+    </Member>
+    <Member Name="Set_Conductivity" DataType="REAL" Dimension="0" Radix="Float" Hidden="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[Supply Conductivity Target]]></Description>
+    </Member>
+    <Member Name="Val_MinLeft" DataType="INT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[Step Time
+Minutes Left]]></Description>
+    </Member>
+    <Member Name="Val_SecLeft" DataType="INT" Dimension="0" Radix="Decimal" Hidden="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[Step Time
+Seconds Left]]></Description>
+    </Member>
+  </Members>
+</DataType>

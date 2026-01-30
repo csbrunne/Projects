@@ -1,0 +1,2 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Tag Name="Cmd_UpdCondSet" TagType="Alias" Radix="Decimal" AliasFor="wrkEditCmds.6" ExternalAccess="Read/Write" OpcUaAccess="None" DataExchangeId="{D490AE39-FAE1-46BC-9E07-40BF10E52A57}" />

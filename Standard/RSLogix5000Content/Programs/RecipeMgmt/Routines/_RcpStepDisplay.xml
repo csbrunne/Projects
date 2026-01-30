@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Routine Name="_RcpStepDisplay" Type="RLL">
+  <RLLContent>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(Cmd_NextStep)OTU(Cmd_NextStep)LT(ptrStep,wrkStepArrayMax)ADD(ptrStep,1,ptrStep);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(Cmd_PrevStep)OTU(Cmd_PrevStep)GT(ptrStep,0)SUB(ptrStep,1,ptrStep);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(Cmd_NextPage)OTU(Cmd_NextPage)LT(ptrStep,wrkStepArrayMax)ADD(ptrStep,10,ptrStep);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(Cmd_PrevPage)OTU(Cmd_PrevPage)GT(ptrStep,0)SUB(ptrStep,10,ptrStep);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[[GT(ptrStep,wrkStepArrayMax) MOVE(wrkStepArrayMax,ptrStep) ,LT(ptrStep,0) CLR(ptrStep) ];]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(Cmd_ClearStep)OTU(Cmd_ClearStep)COP(wrkNull.Step[0],wrkBuffer.Step[ptrStep],1);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[[LIMIT(0,ptrStep,9) COP(wrkBuffer.Step[0],wrkStepDisplay[0],10) ,LIMIT(10,ptrStep,19) COP(wrkBuffer.Step[10],wrkStepDisplay[0],10) ,LIMIT(20,ptrStep,29) COP(wrkBuffer.Step[20],wrkStepDisplay[0],10) ,LIMIT(30,ptrStep,39) COP(wrkBuffer.Step[30],wrkStepDisplay[0],10) ,LIMIT(40,ptrStep,49) COP(wrkBuffer.Step[40],wrkStepDisplay[0],10) ,MOD(ptrStep,10,wrkStepHilite) ];]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[JSR(_RcpEditStep,1,wrkBuffer.Step[ptrStep],wrkBuffer.Step[ptrStep]);]]></Text>
+    </Rung>
+  </RLLContent>
+</Routine>

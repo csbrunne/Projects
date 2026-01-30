@@ -1,0 +1,2 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Tag Name="Set_LevelLLLim" TagType="Alias" Radix="Float" AliasFor="ALM_Level.LLLimit" Usage="Input" ExternalAccess="Read/Write" OpcUaAccess="None" DataExchangeId="{36C57CF0-C078-4A0B-9DC6-C9B83B204056}" />

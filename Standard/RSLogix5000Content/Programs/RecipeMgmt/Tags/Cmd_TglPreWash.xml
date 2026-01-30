@@ -1,0 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Tag Name="Cmd_TglPreWash" TagType="Alias" Radix="Decimal" AliasFor="wrkEditCmds.0" ExternalAccess="Read/Write" OpcUaAccess="None" DataExchangeId="{A4673CEE-1AED-4FF8-9D25-4E112F06BB9F}">
+  <Description><![CDATA[Set PreWash and clear all other phases, or Clear PreWash]]></Description>
+</Tag>

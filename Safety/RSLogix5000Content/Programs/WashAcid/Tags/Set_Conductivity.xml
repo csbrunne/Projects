@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Tag Name="Set_Conductivity" TagType="Base" DataType="REAL" Radix="Float" Usage="Input" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+  <Data Format="L5K"><![CDATA[1.03000000e+002]]></Data>
+  <Data Format="Decorated">
+    <DataValue DataType="REAL" Radix="Float" Value="103.0" />
+  </Data>
+</Tag>

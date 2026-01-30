@@ -1,0 +1,942 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<AddOnInstructionDefinition Name="O_VFD" Revision="0.2" RevisionExtension="DEVELOPMENT ONLY" Vendor="RA-OEM" ExecutePrescan="false" ExecutePostscan="false" ExecuteEnableInFalse="true" CreatedDate="2008-03-27T19:50:50.098Z" CreatedBy="Not Available" EditedDate="2022-09-28T20:51:54.567Z" EditedBy="DESKTOP-G3BOSQ9\Chad" SoftwareRevision="v34.01">
+  <Description><![CDATA[Variable Speed Drive]]></Description>
+  <RevisionNote><![CDATA[Not intended for use. Initial design and development only. Updates 05/18/17]]></RevisionNote>
+  <AdditionalHelpText><![CDATA[Copyright © Rockwell Automation, Inc.  All Rights Reserved.
+
+This Instruction controls and monitors a Variable-Speed (AC or DC) Drive
+and provides:
+
+*  Starting drive, stopping drive, jogging drive, setting speed reference and setting direction
+*  Monitoring of run feedback, display of actual drive status, including accel, decel, direction, speed
+*  Detection of Failure to Start, Failure to Stop, Drive Fault/Not Ready
+*  Monitoring of Permissive conditions to allow starting
+*  Monitoring of Interlock conditions to stop drive or prevent starting
+*  Simulation, providing feedback of a working drive while disabling outputs
+*  Monitoring of I/O communication faults
+*  Alarms for Fail to Start, Fail to Stop, Interlock Trip, Drive Fault/Not Ready, I/O Fault
+*  Operation in Hand, Maintenance, Override, Program and Operator Modes
+*  "Available" status for use by automation logic to know whether drive
+      can be controlled by other objects.
+
+Ownership is provided by an O_Owner AOI instance.
+Possible Owners: Operator, Program, Hand, with Maintenance Ownership Override
+
+]]></AdditionalHelpText>
+  <Parameters>
+    <Parameter Name="EnableIn" TagType="Base" DataType="BOOL" Usage="Input" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read Only">
+      <Description><![CDATA[Enable Input - System Defined Parameter]]></Description>
+    </Parameter>
+    <Parameter Name="EnableOut" TagType="Base" DataType="BOOL" Usage="Output" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read Only">
+      <Description><![CDATA[Enable Output - System Defined Parameter]]></Description>
+    </Parameter>
+    <Parameter Name="Ref_FltCodeList" TagType="Base" DataType="P_DescList" Dimensions="1" Usage="InOut" Required="true" Visible="true" Constant="false">
+      <Description><![CDATA[VFD Fault Code List]]></Description>
+    </Parameter>
+    <Parameter Name="Inp_SpdFdbkIO" TagType="Base" DataType="REAL" Usage="Input" Radix="Float" Required="false" Visible="false" ExternalAccess="Read Only">
+      <Description><![CDATA[Speed Feedback in Drive I/O Units]]></Description>
+      <DefaultData Format="L5K"><![CDATA[0.00000000e+000]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="REAL" Radix="Float" Value="0.0" />
+      </DefaultData>
+    </Parameter>
+    <Parameter Name="Inp_DrvRdy" TagType="Base" DataType="BOOL" Usage="Input" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read Only">
+      <Description><![CDATA[1=Drive is ready to run]]></Description>
+      <DefaultData Format="L5K"><![CDATA[1]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="BOOL" Radix="Decimal" Value="1" />
+      </DefaultData>
+    </Parameter>
+    <Parameter Name="Inp_DrvRun" TagType="Base" DataType="BOOL" Usage="Input" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read Only">
+      <Description><![CDATA[1=Drive is Running (active)]]></Description>
+      <DefaultData Format="L5K"><![CDATA[0]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="BOOL" Radix="Decimal" Value="0" />
+      </DefaultData>
+    </Parameter>
+    <Parameter Name="Inp_DrvRev" TagType="Base" DataType="BOOL" Usage="Input" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read Only">
+      <Description><![CDATA[1=Drive direction is Reverse]]></Description>
+      <DefaultData Format="L5K"><![CDATA[0]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="BOOL" Radix="Decimal" Value="0" />
+      </DefaultData>
+    </Parameter>
+    <Parameter Name="Inp_DrvAtSpd" TagType="Base" DataType="BOOL" Usage="Input" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read Only">
+      <Description><![CDATA[1=Drive is at commanded speed]]></Description>
+      <DefaultData Format="L5K"><![CDATA[0]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="BOOL" Radix="Decimal" Value="0" />
+      </DefaultData>
+    </Parameter>
+    <Parameter Name="Inp_DrvFlt" TagType="Base" DataType="BOOL" Usage="Input" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read Only">
+      <Description><![CDATA[1=Drive has Faulted (see drive display or manual)]]></Description>
+      <DefaultData Format="L5K"><![CDATA[0]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="BOOL" Radix="Decimal" Value="0" />
+      </DefaultData>
+    </Parameter>
+    <Parameter Name="Inp_IOFault" TagType="Base" DataType="BOOL" Usage="Input" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read Only">
+      <Description><![CDATA[Drive I/O Communication Status 0=OK, 1=fail]]></Description>
+      <DefaultData Format="L5K"><![CDATA[0]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="BOOL" Radix="Decimal" Value="0" />
+      </DefaultData>
+    </Parameter>
+    <Parameter Name="Inp_PermOKFwd" TagType="Base" DataType="BOOL" Usage="Input" Radix="Decimal" Required="false" Visible="true" ExternalAccess="Read/Write">
+      <Description><![CDATA[1=Permissives OK, drive can start Forward]]></Description>
+      <DefaultData Format="L5K"><![CDATA[1]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="BOOL" Radix="Decimal" Value="1" />
+      </DefaultData>
+    </Parameter>
+    <Parameter Name="Inp_PermOKRev" TagType="Base" DataType="BOOL" Usage="Input" Radix="Decimal" Required="false" Visible="true" ExternalAccess="Read/Write">
+      <Description><![CDATA[1=Permissives OK, drive can start Reverse]]></Description>
+      <DefaultData Format="L5K"><![CDATA[1]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="BOOL" Radix="Decimal" Value="1" />
+      </DefaultData>
+    </Parameter>
+    <Parameter Name="Inp_Hand" TagType="Alias" Usage="Input" Radix="Decimal" AliasFor="CmdSrc.Inp_Hand" Required="false" Visible="true" ExternalAccess="Read/Write" />
+    <Parameter Name="Inp_Ovrd" TagType="Alias" Usage="Input" Radix="Decimal" AliasFor="CmdSrc.Inp_Ovrd" Required="false" Visible="true" ExternalAccess="Read/Write">
+      <Description><![CDATA[1=Override
+Stop the Drive]]></Description>
+    </Parameter>
+    <Parameter Name="Inp_Reset" TagType="Base" DataType="BOOL" Usage="Input" Radix="Decimal" Required="false" Visible="true" ExternalAccess="Read/Write">
+      <Description><![CDATA[1=Reset drive fault conditions and latched Alarms]]></Description>
+      <DefaultData Format="L5K"><![CDATA[0]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="BOOL" Radix="Decimal" Value="0" />
+      </DefaultData>
+    </Parameter>
+    <Parameter Name="PSet_SpdRef" TagType="Base" DataType="REAL" Usage="Input" Radix="Float" Required="false" Visible="true" ExternalAccess="Read/Write">
+      <Description><![CDATA[Program Setting of Speed Reference (EU)]]></Description>
+      <DefaultData Format="L5K"><![CDATA[0.00000000e+000]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="REAL" Radix="Float" Value="0.0" />
+      </DefaultData>
+    </Parameter>
+    <Parameter Name="PCmd_Start" TagType="Base" DataType="BOOL" Usage="Input" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[Program Command to Start Drive]]></Description>
+      <DefaultData Format="L5K"><![CDATA[0]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="BOOL" Radix="Decimal" Value="0" />
+      </DefaultData>
+    </Parameter>
+    <Parameter Name="PCmd_Stop" TagType="Base" DataType="BOOL" Usage="Input" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[Program Command to Stop Drive]]></Description>
+      <DefaultData Format="L5K"><![CDATA[0]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="BOOL" Radix="Decimal" Value="0" />
+      </DefaultData>
+    </Parameter>
+    <Parameter Name="PCmd_Fwd" TagType="Base" DataType="BOOL" Usage="Input" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[Program Command to set direction to Fowrard]]></Description>
+      <DefaultData Format="L5K"><![CDATA[0]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="BOOL" Radix="Decimal" Value="0" />
+      </DefaultData>
+    </Parameter>
+    <Parameter Name="PCmd_Rev" TagType="Base" DataType="BOOL" Usage="Input" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[Program Command to set direction to Reverse]]></Description>
+      <DefaultData Format="L5K"><![CDATA[0]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="BOOL" Radix="Decimal" Value="0" />
+      </DefaultData>
+    </Parameter>
+    <Parameter Name="PCmd_Prog" TagType="Alias" Usage="Input" Radix="Decimal" AliasFor="CmdSrc.PCmd_Prog" Required="false" Visible="false" ExternalAccess="Read/Write" />
+    <Parameter Name="PCmd_Oper" TagType="Alias" Usage="Input" Radix="Decimal" AliasFor="CmdSrc.PCmd_Oper" Required="false" Visible="false" ExternalAccess="Read/Write" />
+    <Parameter Name="PCmd_Lock" TagType="Alias" Usage="Input" Radix="Decimal" AliasFor="CmdSrc.PCmd_Lock" Required="false" Visible="false" ExternalAccess="Read/Write" />
+    <Parameter Name="PCmd_Unlock" TagType="Alias" Usage="Input" Radix="Decimal" AliasFor="CmdSrc.PCmd_Unlock" Required="false" Visible="false" ExternalAccess="Read/Write" />
+    <Parameter Name="PCmd_Reset" TagType="Base" DataType="BOOL" Usage="Input" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[Program Command to Reset drive fault and all Alarms requiring Reset]]></Description>
+      <DefaultData Format="L5K"><![CDATA[0]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="BOOL" Radix="Decimal" Value="0" />
+      </DefaultData>
+    </Parameter>
+    <Parameter Name="OSet_SpdRef" TagType="Base" DataType="REAL" Usage="Input" Radix="Float" Required="false" Visible="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[Operator Setting of Speed Reference (EU)]]></Description>
+      <DefaultData Format="L5K"><![CDATA[0.00000000e+000]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="REAL" Radix="Float" Value="0.0" />
+      </DefaultData>
+    </Parameter>
+    <Parameter Name="OCmd_Start" TagType="Base" DataType="BOOL" Usage="Input" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[Operator Command to Start Drive]]></Description>
+      <DefaultData Format="L5K"><![CDATA[0]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="BOOL" Radix="Decimal" Value="0" />
+      </DefaultData>
+    </Parameter>
+    <Parameter Name="OCmd_Stop" TagType="Base" DataType="BOOL" Usage="Input" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[Operator Command to Stop Drive]]></Description>
+      <DefaultData Format="L5K"><![CDATA[0]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="BOOL" Radix="Decimal" Value="0" />
+      </DefaultData>
+    </Parameter>
+    <Parameter Name="OCmd_Fwd" TagType="Base" DataType="BOOL" Usage="Input" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[Operator Command to set direction to Forward]]></Description>
+      <DefaultData Format="L5K"><![CDATA[0]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="BOOL" Radix="Decimal" Value="0" />
+      </DefaultData>
+    </Parameter>
+    <Parameter Name="OCmd_Rev" TagType="Base" DataType="BOOL" Usage="Input" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[Operator Command to set direction to Reverse]]></Description>
+      <DefaultData Format="L5K"><![CDATA[0]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="BOOL" Radix="Decimal" Value="0" />
+      </DefaultData>
+    </Parameter>
+    <Parameter Name="OCmd_Jog" TagType="Base" DataType="BOOL" Usage="Input" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[Operator Command to Jog Drive (not cleared by P_VSD!)]]></Description>
+      <DefaultData Format="L5K"><![CDATA[0]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="BOOL" Radix="Decimal" Value="0" />
+      </DefaultData>
+    </Parameter>
+    <Parameter Name="OCmd_Prog" TagType="Alias" Usage="Input" Radix="Decimal" AliasFor="CmdSrc.OCmd_Prog" Required="false" Visible="false" ExternalAccess="Read/Write" />
+    <Parameter Name="OCmd_Oper" TagType="Alias" Usage="Input" Radix="Decimal" AliasFor="CmdSrc.OCmd_Oper" Required="false" Visible="false" ExternalAccess="Read/Write" />
+    <Parameter Name="OCmd_Lock" TagType="Alias" Usage="Input" Radix="Decimal" AliasFor="CmdSrc.OCmd_Lock" Required="false" Visible="false" ExternalAccess="Read/Write" />
+    <Parameter Name="OCmd_Unlock" TagType="Alias" Usage="Input" Radix="Decimal" AliasFor="CmdSrc.OCmd_Unlock" Required="false" Visible="false" ExternalAccess="Read/Write" />
+    <Parameter Name="OCmd_Reset" TagType="Base" DataType="BOOL" Usage="Input" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[Operator Command to Reset all Alarms requiring Reset]]></Description>
+      <DefaultData Format="L5K"><![CDATA[0]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="BOOL" Radix="Decimal" Value="0" />
+      </DefaultData>
+    </Parameter>
+    <Parameter Name="MCmd_IS" TagType="Alias" Usage="Input" Radix="Decimal" AliasFor="CmdSrc.MCmd_IS" Required="false" Visible="false" ExternalAccess="Read/Write" />
+    <Parameter Name="MCmd_OoS" TagType="Alias" Usage="Input" Radix="Decimal" AliasFor="CmdSrc.MCmd_OoS" Required="false" Visible="false" ExternalAccess="Read/Write" />
+    <Parameter Name="MCmd_Acq" TagType="Alias" Usage="Input" Radix="Decimal" AliasFor="CmdSrc.MCmd_Acq" Required="false" Visible="false" ExternalAccess="Read/Write" />
+    <Parameter Name="MCmd_Rel" TagType="Alias" Usage="Input" Radix="Decimal" AliasFor="CmdSrc.MCmd_Rel" Required="false" Visible="false" ExternalAccess="Read/Write" />
+    <Parameter Name="Out_SpdRefIO" TagType="Base" DataType="REAL" Usage="Output" Radix="Float" Required="false" Visible="false" ExternalAccess="Read Only">
+      <Description><![CDATA[Drive Speed Reference in Drive I/O Units]]></Description>
+      <DefaultData Format="L5K"><![CDATA[0.00000000e+000]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="REAL" Radix="Float" Value="0.0" />
+      </DefaultData>
+    </Parameter>
+    <Parameter Name="Out_Start" TagType="Base" DataType="BOOL" Usage="Output" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read Only">
+      <Description><![CDATA[Momentary Start Output
+1=Start Drive]]></Description>
+      <DefaultData Format="L5K"><![CDATA[0]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="BOOL" Radix="Decimal" Value="0" />
+      </DefaultData>
+    </Parameter>
+    <Parameter Name="Out_Stop" TagType="Base" DataType="BOOL" Usage="Output" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read Only">
+      <Description><![CDATA[Momentary Stop Output
+1=Stop Drive]]></Description>
+      <DefaultData Format="L5K"><![CDATA[0]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="BOOL" Radix="Decimal" Value="0" />
+      </DefaultData>
+    </Parameter>
+    <Parameter Name="Out_Run" TagType="Base" DataType="BOOL" Usage="Output" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read Only">
+      <Description><![CDATA[Maintained Run Output (1=Run/0=Stop)]]></Description>
+      <DefaultData Format="L5K"><![CDATA[0]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="BOOL" Radix="Decimal" Value="0" />
+      </DefaultData>
+    </Parameter>
+    <Parameter Name="Out_Jog" TagType="Base" DataType="BOOL" Usage="Output" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read Only">
+      <Description><![CDATA[1=Jog drive at Jog Speed, -->0=stop jogging]]></Description>
+      <DefaultData Format="L5K"><![CDATA[0]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="BOOL" Radix="Decimal" Value="0" />
+      </DefaultData>
+    </Parameter>
+    <Parameter Name="Out_Rev" TagType="Base" DataType="BOOL" Usage="Output" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read Only">
+      <Description><![CDATA[1=Set drive direction to Reverse]]></Description>
+      <DefaultData Format="L5K"><![CDATA[0]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="BOOL" Radix="Decimal" Value="0" />
+      </DefaultData>
+    </Parameter>
+    <Parameter Name="Out_ClrFlt" TagType="Base" DataType="BOOL" Usage="Output" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read Only">
+      <Description><![CDATA[1=Attempt to clear Drive Fault]]></Description>
+      <DefaultData Format="L5K"><![CDATA[0]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="BOOL" Radix="Decimal" Value="0" />
+      </DefaultData>
+    </Parameter>
+    <Parameter Name="Val_SpdRef" TagType="Base" DataType="REAL" Usage="Output" Radix="Float" Required="false" Visible="true" ExternalAccess="Read Only">
+      <Description><![CDATA[Speed Reference (target) to drive]]></Description>
+      <EngineeringUnits>
+        <EngineeringUnit><![CDATA[Hz]]></EngineeringUnit>
+      </EngineeringUnits>
+      <DefaultData Format="L5K"><![CDATA[0.00000000e+000]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="REAL" Radix="Float" Value="0.0" />
+      </DefaultData>
+    </Parameter>
+    <Parameter Name="Val_SpdFdbk" TagType="Base" DataType="REAL" Usage="Output" Radix="Float" Required="false" Visible="true" ExternalAccess="Read Only">
+      <Description><![CDATA[Speed Feedback (actual) from drive]]></Description>
+      <EngineeringUnits>
+        <EngineeringUnit><![CDATA[Hz]]></EngineeringUnit>
+      </EngineeringUnits>
+      <DefaultData Format="L5K"><![CDATA[0.00000000e+000]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="REAL" Radix="Float" Value="0.0" />
+      </DefaultData>
+    </Parameter>
+    <Parameter Name="Val_SpdRefMin" TagType="Base" DataType="REAL" Usage="Output" Radix="Float" Required="false" Visible="false" ExternalAccess="Read Only">
+      <Description><![CDATA[Minimum of Speed Reference = MIN (Cfg_SpeedFdbkEUMin, Cfg_SpeedFdbkEUMax)]]></Description>
+      <DefaultData Format="L5K"><![CDATA[0.00000000e+000]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="REAL" Radix="Float" Value="0.0" />
+      </DefaultData>
+    </Parameter>
+    <Parameter Name="Val_SpdRefMax" TagType="Base" DataType="REAL" Usage="Output" Radix="Float" Required="false" Visible="false" ExternalAccess="Read Only">
+      <Description><![CDATA[Maximum of Speed Reference = MAX (Cfg_SpeedFdbkEUMin, Cfg_SpeedFdbkEUMax)]]></Description>
+      <DefaultData Format="L5K"><![CDATA[6.00000000e+001]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="REAL" Radix="Float" Value="60.0" />
+      </DefaultData>
+    </Parameter>
+    <Parameter Name="Val_SpdFdbkMin" TagType="Base" DataType="REAL" Usage="Output" Radix="Float" Required="false" Visible="false" ExternalAccess="Read Only">
+      <Description><![CDATA[Minimum of Speed Feedback = MIN (Cfg_SpeedFdbkEUMin, Cfg_SpeedFdbkEUMax)]]></Description>
+      <DefaultData Format="L5K"><![CDATA[0.00000000e+000]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="REAL" Radix="Float" Value="0.0" />
+      </DefaultData>
+    </Parameter>
+    <Parameter Name="Val_SpdFdbkMax" TagType="Base" DataType="REAL" Usage="Output" Radix="Float" Required="false" Visible="false" ExternalAccess="Read Only">
+      <Description><![CDATA[Maximum of Speed Feedback = MAX (Cfg_SpeedFdbkEUMin, Cfg_SpeedFdbkEUMax)]]></Description>
+      <DefaultData Format="L5K"><![CDATA[6.00000000e+001]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="REAL" Radix="Float" Value="60.0" />
+      </DefaultData>
+    </Parameter>
+    <Parameter Name="Val_OutputCurrent" TagType="Base" DataType="REAL" Usage="Output" Radix="Float" Required="false" Visible="false" ExternalAccess="Read Only">
+      <Description><![CDATA[VFD Current Output (amps)]]></Description>
+      <DefaultData Format="L5K"><![CDATA[0.00000000e+000]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="REAL" Radix="Float" Value="0.0" />
+      </DefaultData>
+    </Parameter>
+    <Parameter Name="Val_OutputVolts" TagType="Base" DataType="REAL" Usage="Output" Radix="Float" Required="false" Visible="false" ExternalAccess="Read Only">
+      <Description><![CDATA[VFD Volts Output]]></Description>
+      <DefaultData Format="L5K"><![CDATA[0.00000000e+000]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="REAL" Radix="Float" Value="0.0" />
+      </DefaultData>
+    </Parameter>
+    <Parameter Name="Val_OutputPower" TagType="Base" DataType="REAL" Usage="Output" Radix="Float" Required="false" Visible="false" ExternalAccess="Read Only">
+      <Description><![CDATA[VFD Power Output (kW)]]></Description>
+      <DefaultData Format="L5K"><![CDATA[0.00000000e+000]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="REAL" Radix="Float" Value="0.0" />
+      </DefaultData>
+    </Parameter>
+    <Parameter Name="Val_FaultCode" TagType="Base" DataType="DINT" Usage="Output" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read Only">
+      <Description><![CDATA[VFD Last Fault Code]]></Description>
+      <DefaultData Format="L5K"><![CDATA[0]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="DINT" Radix="Decimal" Value="0" />
+      </DefaultData>
+    </Parameter>
+    <Parameter Name="Val_SrcQ" TagType="Base" DataType="SINT" Usage="Output" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read Only">
+      <Description><![CDATA[Source and Quality of primary I/O (enumeration)]]></Description>
+      <DefaultData Format="L5K"><![CDATA[0]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="SINT" Radix="Decimal" Value="0" />
+      </DefaultData>
+    </Parameter>
+    <Parameter Name="Val_Sts" TagType="Base" DataType="SINT" Usage="Output" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read Only">
+      <Description><![CDATA[Device Confirmed Sts 0? 1=Stop 2=RunF 3=RunR 4=JogF 5=JogR 6=Stopping 7=Starting F 8=Starting R, 33=Disabled]]></Description>
+      <DefaultData Format="L5K"><![CDATA[0]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="SINT" Radix="Decimal" Value="0" />
+      </DefaultData>
+    </Parameter>
+    <Parameter Name="Val_Fault" TagType="Base" DataType="SINT" Usage="Output" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read Only">
+      <Description><![CDATA[Device Fault Status 0=None, 16=Fail to Start, 17 = Fail to Stop, 18=Drive Fault, 32=I/O Fault, 34=Config Error]]></Description>
+      <DefaultData Format="L5K"><![CDATA[0]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="SINT" Radix="Decimal" Value="0" />
+      </DefaultData>
+    </Parameter>
+    <Parameter Name="Sts_Stopped" TagType="Base" DataType="BOOL" Usage="Output" Radix="Decimal" Required="false" Visible="true" ExternalAccess="Read Only">
+      <Description><![CDATA[1=Drive requested to stop and is confirmed stopped]]></Description>
+      <DefaultData Format="L5K"><![CDATA[0]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="BOOL" Radix="Decimal" Value="0" />
+      </DefaultData>
+    </Parameter>
+    <Parameter Name="Sts_Starting" TagType="Base" DataType="BOOL" Usage="Output" Radix="Decimal" Required="false" Visible="true" ExternalAccess="Read Only">
+      <Description><![CDATA[1=Drive requested to run and awaiting run feedback]]></Description>
+      <DefaultData Format="L5K"><![CDATA[0]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="BOOL" Radix="Decimal" Value="0" />
+      </DefaultData>
+    </Parameter>
+    <Parameter Name="Sts_Running" TagType="Base" DataType="BOOL" Usage="Output" Radix="Decimal" Required="false" Visible="true" ExternalAccess="Read Only">
+      <Description><![CDATA[1=Drive requested to run and is confirmed running]]></Description>
+      <DefaultData Format="L5K"><![CDATA[0]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="BOOL" Radix="Decimal" Value="0" />
+      </DefaultData>
+    </Parameter>
+    <Parameter Name="Sts_Stopping" TagType="Base" DataType="BOOL" Usage="Output" Radix="Decimal" Required="false" Visible="true" ExternalAccess="Read Only">
+      <Description><![CDATA[1=Drive requested to stop and awaiting stopped feedback]]></Description>
+      <DefaultData Format="L5K"><![CDATA[0]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="BOOL" Radix="Decimal" Value="0" />
+      </DefaultData>
+    </Parameter>
+    <Parameter Name="Sts_Jog" TagType="Base" DataType="BOOL" Usage="Output" Radix="Decimal" Required="false" Visible="true" ExternalAccess="Read Only">
+      <Description><![CDATA[1=Drive requested to Jog]]></Description>
+      <DefaultData Format="L5K"><![CDATA[0]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="BOOL" Radix="Decimal" Value="0" />
+      </DefaultData>
+    </Parameter>
+    <Parameter Name="Sts_Rev" TagType="Base" DataType="BOOL" Usage="Output" Radix="Decimal" Required="false" Visible="true" ExternalAccess="Read Only">
+      <Description><![CDATA[Drive Direction 1=Reverse 0=Forward]]></Description>
+      <State0s>
+        <State0><![CDATA[Forward]]></State0>
+      </State0s>
+      <State1s>
+        <State1><![CDATA[Reverse]]></State1>
+      </State1s>
+      <DefaultData Format="L5K"><![CDATA[0]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="BOOL" Radix="Decimal" Value="0" />
+      </DefaultData>
+    </Parameter>
+    <Parameter Name="Sts_AtSpd" TagType="Base" DataType="BOOL" Usage="Output" Radix="Decimal" Required="false" Visible="true" ExternalAccess="Read Only">
+      <Description><![CDATA[1=Drive is running at reference speed]]></Description>
+      <DefaultData Format="L5K"><![CDATA[0]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="BOOL" Radix="Decimal" Value="0" />
+      </DefaultData>
+    </Parameter>
+    <Parameter Name="Sts_SpdLim" TagType="Base" DataType="BOOL" Usage="Output" Radix="Decimal" Required="false" Visible="true" ExternalAccess="Read Only">
+      <Description><![CDATA[1=Speed Reference Setting exceeds configured Max/Min limit]]></Description>
+      <DefaultData Format="L5K"><![CDATA[0]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="BOOL" Radix="Decimal" Value="0" />
+      </DefaultData>
+    </Parameter>
+    <Parameter Name="Sts_Hand" TagType="Alias" Usage="Output" Radix="Decimal" AliasFor="CmdSrc.Sts_Hand" Required="false" Visible="true" ExternalAccess="Read Only" />
+    <Parameter Name="Sts_OOS" TagType="Alias" Usage="Output" Radix="Decimal" AliasFor="wrkNotRdy.0" Required="false" Visible="true" ExternalAccess="Read Only">
+      <Description><![CDATA[1=Drive is Out of Service]]></Description>
+    </Parameter>
+    <Parameter Name="Sts_Maint" TagType="Alias" Usage="Output" Radix="Decimal" AliasFor="CmdSrc.Sts_Maint" Required="false" Visible="true" ExternalAccess="Read Only" />
+    <Parameter Name="Sts_Ovrd" TagType="Alias" Usage="Output" Radix="Decimal" AliasFor="wrkNotRdy.2" Required="false" Visible="true" ExternalAccess="Read Only" />
+    <Parameter Name="Sts_Prog" TagType="Alias" Usage="Output" Radix="Decimal" AliasFor="CmdSrc.Sts_Prog" Required="false" Visible="true" ExternalAccess="Read Only" />
+    <Parameter Name="Sts_ProgLocked" TagType="Alias" Usage="Output" Radix="Decimal" AliasFor="CmdSrc.Sts_ProgLocked" Required="false" Visible="false" ExternalAccess="Read Only" />
+    <Parameter Name="Sts_Oper" TagType="Alias" Usage="Output" Radix="Decimal" AliasFor="CmdSrc.Sts_Oper" Required="false" Visible="true" ExternalAccess="Read Only" />
+    <Parameter Name="Sts_OperLocked" TagType="Alias" Usage="Output" Radix="Decimal" AliasFor="CmdSrc.Sts_OperLocked" Required="false" Visible="false" ExternalAccess="Read Only" />
+    <Parameter Name="Sts_NotRdy" TagType="Base" DataType="BOOL" Usage="Output" Radix="Decimal" Required="false" Visible="true" ExternalAccess="Read Only">
+      <Description><![CDATA[1=Device Not Ready, see detail bits for reason]]></Description>
+      <DefaultData Format="L5K"><![CDATA[0]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="BOOL" Radix="Decimal" Value="0" />
+      </DefaultData>
+    </Parameter>
+    <Parameter Name="Sts_Fault" TagType="Base" DataType="BOOL" Usage="Output" Radix="Decimal" Required="false" Visible="true" ExternalAccess="Read Only">
+      <Description><![CDATA[Fault Exists
+See Flt_ Outputs for Detail]]></Description>
+      <DefaultData Format="L5K"><![CDATA[0]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="BOOL" Radix="Decimal" Value="0" />
+      </DefaultData>
+    </Parameter>
+    <Parameter Name="Flt_DriveFault" TagType="Alias" Usage="Output" Radix="Decimal" AliasFor="wrkNotRdy.4" Required="false" Visible="true" ExternalAccess="Read Only">
+      <Description><![CDATA[1=Drive Fault (see drive display or manual)]]></Description>
+    </Parameter>
+    <Parameter Name="Flt_IOComm" TagType="Alias" Usage="Output" Radix="Decimal" AliasFor="wrkNotRdy.6" Required="false" Visible="true" ExternalAccess="Read Only">
+      <Description><![CDATA[I/O Comm Fault Status (0=OK, 1=Bad)]]></Description>
+    </Parameter>
+    <Parameter Name="Flt_FailToStart" TagType="Alias" Usage="Output" Radix="Decimal" AliasFor="wrkNotRdy.8" Required="false" Visible="true" ExternalAccess="Read Only">
+      <Description><![CDATA[1=Drive Failed to Start (One-Shot)]]></Description>
+    </Parameter>
+    <Parameter Name="Flt_FailToStop" TagType="Alias" Usage="Output" Radix="Decimal" AliasFor="wrkNotRdy.9" Required="false" Visible="true" ExternalAccess="Read Only">
+      <Description><![CDATA[1=Drive Failed to Stop]]></Description>
+    </Parameter>
+    <Parameter Name="Sts_ER" TagType="Alias" Usage="Output" Radix="Decimal" AliasFor="wrkNotRdy.1" Required="false" Visible="true" ExternalAccess="Read Only">
+      <Description><![CDATA[1=Error in Config: see detail bits for reason]]></Description>
+    </Parameter>
+    <Parameter Name="Err_Timer" TagType="Base" DataType="BOOL" Usage="Output" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read Only">
+      <Description><![CDATA[1=Error in Config: Invalid Check or Reset Pulse Time (use 0 to 2147483)]]></Description>
+      <DefaultData Format="L5K"><![CDATA[0]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="BOOL" Radix="Decimal" Value="0" />
+      </DefaultData>
+    </Parameter>
+    <Parameter Name="Err_FdbkIO" TagType="Base" DataType="BOOL" Usage="Output" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read Only">
+      <Description><![CDATA[1=Erron in Config: Speed Fdbk Raw Min = Max]]></Description>
+      <DefaultData Format="L5K"><![CDATA[0]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="BOOL" Radix="Decimal" Value="0" />
+      </DefaultData>
+    </Parameter>
+    <Parameter Name="Err_FdbkEU" TagType="Base" DataType="BOOL" Usage="Output" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read Only">
+      <Description><![CDATA[1=Error in Config: Speed Fdbk EU Min = Max]]></Description>
+      <DefaultData Format="L5K"><![CDATA[0]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="BOOL" Radix="Decimal" Value="0" />
+      </DefaultData>
+    </Parameter>
+    <Parameter Name="Err_RefLim" TagType="Base" DataType="BOOL" Usage="Output" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read Only">
+      <Description><![CDATA[1=Error in Config: Speed Ref Limit Min > Max]]></Description>
+      <DefaultData Format="L5K"><![CDATA[0]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="BOOL" Radix="Decimal" Value="0" />
+      </DefaultData>
+    </Parameter>
+    <Parameter Name="Err_RefEU" TagType="Base" DataType="BOOL" Usage="Output" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read Only">
+      <Description><![CDATA[1=Error in Config: Speed Ref EU Min = Max]]></Description>
+      <DefaultData Format="L5K"><![CDATA[0]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="BOOL" Radix="Decimal" Value="0" />
+      </DefaultData>
+    </Parameter>
+    <Parameter Name="Err_RefIO" TagType="Base" DataType="BOOL" Usage="Output" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read Only">
+      <Description><![CDATA[1=Error in Config: Speed Ref Raw Min = Max]]></Description>
+      <DefaultData Format="L5K"><![CDATA[0]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="BOOL" Radix="Decimal" Value="0" />
+      </DefaultData>
+    </Parameter>
+    <Parameter Name="Cfg_HasJog" TagType="Base" DataType="BOOL" Usage="Input" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[1=Drive Jog Command enabled/visible, 0=Drive Jog Command not allowed]]></Description>
+      <DefaultData Format="L5K"><![CDATA[0]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="BOOL" Radix="Decimal" Value="0" />
+      </DefaultData>
+    </Parameter>
+    <Parameter Name="Cfg_HasRev" TagType="Base" DataType="BOOL" Usage="Input" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[1=Drive can be run reverse, 0=Forward only]]></Description>
+      <DefaultData Format="L5K"><![CDATA[0]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="BOOL" Radix="Decimal" Value="0" />
+      </DefaultData>
+    </Parameter>
+    <Parameter Name="Cfg_Owner" TagType="Base" DataType="SINT" Usage="Input" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[Ownership Model
+0=Normal
+1=No Oper Lock
+2=Prog Level
+3=No Operator Owner
+4= No Program Owner
+]]></Description>
+      <DefaultData Format="L5K"><![CDATA[0]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="SINT" Radix="Decimal" Value="0" />
+      </DefaultData>
+    </Parameter>
+    <Parameter Name="Cfg_FailToStartT" TagType="Base" DataType="REAL" Usage="Input" Radix="Float" Required="false" Visible="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[Time after Start to get Run Feedback before Fault (sec)]]></Description>
+      <DefaultData Format="L5K"><![CDATA[1.50000000e+001]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="REAL" Radix="Float" Value="15.0" />
+      </DefaultData>
+    </Parameter>
+    <Parameter Name="Cfg_FailToStopT" TagType="Base" DataType="REAL" Usage="Input" Radix="Float" Required="false" Visible="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[Time after Stop to drop Run Feedback before Fault (sec)]]></Description>
+      <DefaultData Format="L5K"><![CDATA[1.50000000e+001]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="REAL" Radix="Float" Value="15.0" />
+      </DefaultData>
+    </Parameter>
+    <Parameter Name="Cfg_MaxJogT" TagType="Base" DataType="REAL" Usage="Input" Radix="Float" Required="false" Visible="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[Maximum jog time (sec, 0=unlimited)]]></Description>
+      <DefaultData Format="L5K"><![CDATA[0.00000000e+000]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="REAL" Radix="Float" Value="0.0" />
+      </DefaultData>
+    </Parameter>
+    <Parameter Name="Cfg_ResetPulseT" TagType="Base" DataType="REAL" Usage="Input" Radix="Float" Required="false" Visible="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[Time to pulse Out_Reset to clear drive fault]]></Description>
+      <DefaultData Format="L5K"><![CDATA[2.00000000e+000]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="REAL" Radix="Float" Value="2.0" />
+      </DefaultData>
+    </Parameter>
+    <Parameter Name="Cfg_SpdRefHLim" TagType="Base" DataType="REAL" Usage="Input" Radix="Float" Required="false" Visible="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[Maximum Speed Reference in EU (for limiting)]]></Description>
+      <DefaultData Format="L5K"><![CDATA[6.00000000e+001]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="REAL" Radix="Float" Value="60.0" />
+      </DefaultData>
+    </Parameter>
+    <Parameter Name="Cfg_SpdRefLLim" TagType="Base" DataType="REAL" Usage="Input" Radix="Float" Required="false" Visible="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[Minimum Speed Reference in EU (for limiting)]]></Description>
+      <DefaultData Format="L5K"><![CDATA[0.00000000e+000]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="REAL" Radix="Float" Value="0.0" />
+      </DefaultData>
+    </Parameter>
+    <Parameter Name="Cfg_SpdRefMax" TagType="Base" DataType="REAL" Usage="Input" Radix="Float" Required="false" Visible="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[Speed Reference Maximum in Engineering Units (for scaling)]]></Description>
+      <DefaultData Format="L5K"><![CDATA[6.00000000e+001]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="REAL" Radix="Float" Value="60.0" />
+      </DefaultData>
+    </Parameter>
+    <Parameter Name="Cfg_SpdRefMin" TagType="Base" DataType="REAL" Usage="Input" Radix="Float" Required="false" Visible="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[Speed Reference Minimum in Engineering Units (for scaling)]]></Description>
+      <DefaultData Format="L5K"><![CDATA[0.00000000e+000]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="REAL" Radix="Float" Value="0.0" />
+      </DefaultData>
+    </Parameter>
+    <Parameter Name="Cfg_SpdRefMaxIO" TagType="Base" DataType="REAL" Usage="Input" Radix="Float" Required="false" Visible="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[Speed Reference Maximum in Drive (raw) Units (for scaling)]]></Description>
+      <DefaultData Format="L5K"><![CDATA[6.00000000e+003]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="REAL" Radix="Float" Value="6000.0" />
+      </DefaultData>
+    </Parameter>
+    <Parameter Name="Cfg_SpdRefMinIO" TagType="Base" DataType="REAL" Usage="Input" Radix="Float" Required="false" Visible="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[Speed Reference Minimum in Drive (raw) Units (for scaling)]]></Description>
+      <DefaultData Format="L5K"><![CDATA[0.00000000e+000]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="REAL" Radix="Float" Value="0.0" />
+      </DefaultData>
+    </Parameter>
+    <Parameter Name="Cfg_SpdFdbkMax" TagType="Base" DataType="REAL" Usage="Input" Radix="Float" Required="false" Visible="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[Speed Feedback Maximum in Engineering Units (for scaling)]]></Description>
+      <DefaultData Format="L5K"><![CDATA[6.00000000e+001]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="REAL" Radix="Float" Value="60.0" />
+      </DefaultData>
+    </Parameter>
+    <Parameter Name="Cfg_SpdFdbkMin" TagType="Base" DataType="REAL" Usage="Input" Radix="Float" Required="false" Visible="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[Speed Feedback Minimum in Engineering Units (for scaling)]]></Description>
+      <DefaultData Format="L5K"><![CDATA[0.00000000e+000]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="REAL" Radix="Float" Value="0.0" />
+      </DefaultData>
+    </Parameter>
+    <Parameter Name="Cfg_SpdFdbkMaxIO" TagType="Base" DataType="REAL" Usage="Input" Radix="Float" Required="false" Visible="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[Speed Feedback Maximum in Drive (raw) Units (for scaling)]]></Description>
+      <DefaultData Format="L5K"><![CDATA[6.00000000e+003]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="REAL" Radix="Float" Value="6000.0" />
+      </DefaultData>
+    </Parameter>
+    <Parameter Name="Cfg_SpdFdbkMinIO" TagType="Base" DataType="REAL" Usage="Input" Radix="Float" Required="false" Visible="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[Speed Feedback Minimum in Drive (raw) Units (for scaling)]]></Description>
+      <DefaultData Format="L5K"><![CDATA[0.00000000e+000]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="REAL" Radix="Float" Value="0.0" />
+      </DefaultData>
+    </Parameter>
+    <Parameter Name="HMI_Tab" TagType="Base" DataType="SINT" Usage="Input" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[Tab to display (FTView ME)]]></Description>
+      <Comments>
+        <Comment Operand=".0"><![CDATA[Short Description]]></Comment>
+        <Comment Operand=".1"><![CDATA[Tag Name]]></Comment>
+        <Comment Operand=".2"><![CDATA[RA-OEM]]></Comment>
+        <Comment Operand=".3"><![CDATA[raC_Dvc_VFD]]></Comment>
+      </Comments>
+      <DefaultData Format="L5K"><![CDATA[0]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="SINT" Radix="Decimal" Value="0" />
+      </DefaultData>
+    </Parameter>
+    <Parameter Name="O_VFD" TagType="Base" DataType="BOOL" Usage="Input" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+      <Description><![CDATA[AOI Identifier]]></Description>
+      <DefaultData Format="L5K"><![CDATA[0]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="BOOL" Radix="Decimal" Value="0" />
+      </DefaultData>
+    </Parameter>
+  </Parameters>
+  <LocalTags>
+    <LocalTag Name="wrkRun" DataType="BOOL" Radix="Decimal" ExternalAccess="None">
+      <Description><![CDATA[1=Drive should be "running", 0=should be "stopped"]]></Description>
+      <DefaultData Format="L5K"><![CDATA[0]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="BOOL" Radix="Decimal" Value="0" />
+      </DefaultData>
+    </LocalTag>
+    <LocalTag Name="wrkSpdRef" DataType="REAL" Radix="Float" ExternalAccess="None">
+      <Description><![CDATA[Working copy of Speed Reference (for limiting)]]></Description>
+      <DefaultData Format="L5K"><![CDATA[0.00000000e+000]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="REAL" Radix="Float" Value="0.0" />
+      </DefaultData>
+    </LocalTag>
+    <LocalTag Name="wrkJog" DataType="BOOL" Radix="Decimal" ExternalAccess="None">
+      <Description><![CDATA[1=Jog Drive, 0=Drive not jogging]]></Description>
+      <DefaultData Format="L5K"><![CDATA[0]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="BOOL" Radix="Decimal" Value="0" />
+      </DefaultData>
+    </LocalTag>
+    <LocalTag Name="wrkResetTmr" DataType="TIMER" ExternalAccess="None">
+      <Description><![CDATA[Reset Output Pulse Timer]]></Description>
+      <DefaultData Format="L5K"><![CDATA[[0,0,0]]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <Structure DataType="TIMER">
+          <DataValueMember Name="PRE" DataType="DINT" Radix="Decimal" Value="0" />
+          <DataValueMember Name="ACC" DataType="DINT" Radix="Decimal" Value="0" />
+          <DataValueMember Name="EN" DataType="BOOL" Value="0" />
+          <DataValueMember Name="TT" DataType="BOOL" Value="0" />
+          <DataValueMember Name="DN" DataType="BOOL" Value="0" />
+        </Structure>
+      </DefaultData>
+    </LocalTag>
+    <LocalTag Name="wrkResetONS" DataType="BOOL" Radix="Decimal" ExternalAccess="None">
+      <Description><![CDATA[One-Shot to fire Reset Timer to ensure min. output ON time.]]></Description>
+      <DefaultData Format="L5K"><![CDATA[0]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="BOOL" Radix="Decimal" Value="0" />
+      </DefaultData>
+    </LocalTag>
+    <LocalTag Name="wrkStopFailTmr" DataType="TIMER" ExternalAccess="Read Only">
+      <Description><![CDATA[Stop Check Timer (for Fail to Stop)]]></Description>
+      <DefaultData Format="L5K"><![CDATA[[0,0,0]]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <Structure DataType="TIMER">
+          <DataValueMember Name="PRE" DataType="DINT" Radix="Decimal" Value="0" />
+          <DataValueMember Name="ACC" DataType="DINT" Radix="Decimal" Value="0" />
+          <DataValueMember Name="EN" DataType="BOOL" Value="0" />
+          <DataValueMember Name="TT" DataType="BOOL" Value="0" />
+          <DataValueMember Name="DN" DataType="BOOL" Value="0" />
+        </Structure>
+      </DefaultData>
+    </LocalTag>
+    <LocalTag Name="wrkStartFailTmr" DataType="TIMER" ExternalAccess="Read Only">
+      <Description><![CDATA[Start Check Timer (for Fail to Start)]]></Description>
+      <DefaultData Format="L5K"><![CDATA[[0,0,0]]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <Structure DataType="TIMER">
+          <DataValueMember Name="PRE" DataType="DINT" Radix="Decimal" Value="0" />
+          <DataValueMember Name="ACC" DataType="DINT" Radix="Decimal" Value="0" />
+          <DataValueMember Name="EN" DataType="BOOL" Value="0" />
+          <DataValueMember Name="TT" DataType="BOOL" Value="0" />
+          <DataValueMember Name="DN" DataType="BOOL" Value="0" />
+        </Structure>
+      </DefaultData>
+    </LocalTag>
+    <LocalTag Name="wrkSts" DataType="DINT" Radix="Decimal" ExternalAccess="None">
+      <Description><![CDATA[Buffer for building Val_Sts]]></Description>
+      <DefaultData Format="L5K"><![CDATA[0]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="DINT" Radix="Decimal" Value="0" />
+      </DefaultData>
+    </LocalTag>
+    <LocalTag Name="wrkFault" DataType="DINT" Radix="Decimal" ExternalAccess="None">
+      <Description><![CDATA[Buffer for building Val_Fault]]></Description>
+      <DefaultData Format="L5K"><![CDATA[0]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="DINT" Radix="Decimal" Value="0" />
+      </DefaultData>
+    </LocalTag>
+    <LocalTag Name="wrkSrcQ" DataType="DINT" Radix="Decimal" ExternalAccess="None">
+      <Description><![CDATA[Register for building Source / Quality enumeration]]></Description>
+      <DefaultData Format="L5K"><![CDATA[0]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="DINT" Radix="Decimal" Value="0" />
+      </DefaultData>
+    </LocalTag>
+    <LocalTag Name="wrkNotRdy" DataType="INT" Radix="Binary" ExternalAccess="Read Only">
+      <Description><![CDATA[Device Not Ready]]></Description>
+      <Comments>
+        <Comment Operand=".0"><![CDATA[Drive Not Ready:
+Out of Service]]></Comment>
+        <Comment Operand=".1"><![CDATA[Drive Not Ready:
+Configuration Error]]></Comment>
+        <Comment Operand=".2"><![CDATA[Drive Not Ready:
+Loss of Interlock OK]]></Comment>
+        <Comment Operand=".3"><![CDATA[Drive Not Ready:
+Permissive Not OK]]></Comment>
+        <Comment Operand=".4"><![CDATA[Drive Not Ready:
+Hardware Faulted]]></Comment>
+        <Comment Operand=".5"><![CDATA[Drive Not Ready:
+Not Ready to Run From Drive]]></Comment>
+        <Comment Operand=".6"><![CDATA[Drive Not Ready: Communication Loss
+Reset Required]]></Comment>
+        <Comment Operand=".7"><![CDATA[1=Device Not Ready: Operator State 0 Priority Command Requires Reset]]></Comment>
+        <Comment Operand=".8"><![CDATA[Drive Not Ready: Failed to Start
+Reset Required]]></Comment>
+        <Comment Operand=".9"><![CDATA[1=Device Not Ready: Failed to Stop
+Reset Required]]></Comment>
+      </Comments>
+      <DefaultData Format="L5K"><![CDATA[0]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="INT" Radix="Binary" Value="2#0000_0000_0000_0000" />
+      </DefaultData>
+    </LocalTag>
+    <LocalTag Name="wrkJogTmr" DataType="TIMER" ExternalAccess="Read Only">
+      <Description><![CDATA[Jog Timer]]></Description>
+      <DefaultData Format="L5K"><![CDATA[[0,0,0]]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <Structure DataType="TIMER">
+          <DataValueMember Name="PRE" DataType="DINT" Radix="Decimal" Value="0" />
+          <DataValueMember Name="ACC" DataType="DINT" Radix="Decimal" Value="0" />
+          <DataValueMember Name="EN" DataType="BOOL" Value="0" />
+          <DataValueMember Name="TT" DataType="BOOL" Value="0" />
+          <DataValueMember Name="DN" DataType="BOOL" Value="0" />
+        </Structure>
+      </DefaultData>
+    </LocalTag>
+    <LocalTag Name="wrkStop" DataType="BOOL" Radix="Decimal" ExternalAccess="None">
+      <DefaultData Format="L5K"><![CDATA[0]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="BOOL" Radix="Decimal" Value="0" />
+      </DefaultData>
+    </LocalTag>
+    <LocalTag Name="Rdy_Fwd" DataType="BOOL" Radix="Decimal" ExternalAccess="Read Only">
+      <Description><![CDATA[1=Ready to receive OCmd_Fwd (enabled HMI button)]]></Description>
+      <DefaultData Format="L5K"><![CDATA[0]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="BOOL" Radix="Decimal" Value="0" />
+      </DefaultData>
+    </LocalTag>
+    <LocalTag Name="Rdy_Jog" DataType="BOOL" Radix="Decimal" ExternalAccess="Read Only">
+      <Description><![CDATA[1=Ready to receive OCmd_Jog (enables HMI button)]]></Description>
+      <DefaultData Format="L5K"><![CDATA[0]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="BOOL" Radix="Decimal" Value="0" />
+      </DefaultData>
+    </LocalTag>
+    <LocalTag Name="Rdy_Rev" DataType="BOOL" Radix="Decimal" ExternalAccess="Read Only">
+      <Description><![CDATA[1=Ready to receive OCmd_Rev (enables HMI button)]]></Description>
+      <DefaultData Format="L5K"><![CDATA[0]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="BOOL" Radix="Decimal" Value="0" />
+      </DefaultData>
+    </LocalTag>
+    <LocalTag Name="Rdy_Start" DataType="BOOL" Radix="Decimal" ExternalAccess="Read Only">
+      <Description><![CDATA[1=Ready to receive OCmd_Start (enables HMI button)]]></Description>
+      <DefaultData Format="L5K"><![CDATA[0]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="BOOL" Radix="Decimal" Value="0" />
+      </DefaultData>
+    </LocalTag>
+    <LocalTag Name="Rdy_Stop" DataType="BOOL" Radix="Decimal" ExternalAccess="Read Only">
+      <Description><![CDATA[1=Ready to receive OCmd_Stop (enables HMI button)]]></Description>
+      <DefaultData Format="L5K"><![CDATA[0]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="BOOL" Radix="Decimal" Value="0" />
+      </DefaultData>
+    </LocalTag>
+    <LocalTag Name="Rdy_Reset" DataType="BOOL" Radix="Decimal" ExternalAccess="Read Only">
+      <Description><![CDATA[Ready to recieve OCmd_Reset]]></Description>
+      <DefaultData Format="L5K"><![CDATA[0]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="BOOL" Radix="Decimal" Value="0" />
+      </DefaultData>
+    </LocalTag>
+    <LocalTag Name="wrkFaultDescFSC" DataType="CONTROL" ExternalAccess="None">
+      <Description><![CDATA[Fault Code Look-up]]></Description>
+      <DefaultData Format="L5K"><![CDATA[[0,1,0]]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <Structure DataType="CONTROL">
+          <DataValueMember Name="LEN" DataType="DINT" Radix="Decimal" Value="1" />
+          <DataValueMember Name="POS" DataType="DINT" Radix="Decimal" Value="0" />
+          <DataValueMember Name="EN" DataType="BOOL" Value="0" />
+          <DataValueMember Name="EU" DataType="BOOL" Value="0" />
+          <DataValueMember Name="DN" DataType="BOOL" Value="0" />
+          <DataValueMember Name="EM" DataType="BOOL" Value="0" />
+          <DataValueMember Name="ER" DataType="BOOL" Value="0" />
+          <DataValueMember Name="UL" DataType="BOOL" Value="0" />
+          <DataValueMember Name="IN" DataType="BOOL" Value="0" />
+          <DataValueMember Name="FD" DataType="BOOL" Value="0" />
+        </Structure>
+      </DefaultData>
+    </LocalTag>
+    <LocalTag Name="Val_FaultDesc" DataType="STRING_40" ExternalAccess="Read Only">
+      <Description><![CDATA[Current Drive Fault Description]]></Description>
+      <DefaultData Format="L5K"><![CDATA[[0,'$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00']]]></DefaultData>
+      <DefaultData Format="String" Length="0"><![CDATA['']]></DefaultData>
+    </LocalTag>
+    <LocalTag Name="CmdSrc" DataType="raM_Opr_CmdSrc" ExternalAccess="Read/Write">
+      <Description><![CDATA[Ownership]]></Description>
+      <DefaultData Format="L5K"><![CDATA[[2033,0,1,0,[8,'P_CmdSrc$00$00$00$00'],[6,'RA-BAS$00$00']]]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <Structure DataType="raM_Opr_CmdSrc">
+          <DataValueMember Name="EnableIn" DataType="BOOL" Value="1" />
+          <DataValueMember Name="EnableOut" DataType="BOOL" Value="0" />
+          <DataValueMember Name="Inp_Hand" DataType="BOOL" Value="0" />
+          <DataValueMember Name="Inp_Ovrd" DataType="BOOL" Value="0" />
+          <DataValueMember Name="Cfg_HasOper" DataType="BOOL" Value="1" />
+          <DataValueMember Name="Cfg_HasOperLocked" DataType="BOOL" Value="1" />
+          <DataValueMember Name="Cfg_HasProg" DataType="BOOL" Value="1" />
+          <DataValueMember Name="Cfg_HasProgLocked" DataType="BOOL" Value="1" />
+          <DataValueMember Name="Cfg_HasMaint" DataType="BOOL" Value="1" />
+          <DataValueMember Name="Cfg_HasMOoS" DataType="BOOL" Value="1" />
+          <DataValueMember Name="Cfg_OvrdOverLock" DataType="BOOL" Value="1" />
+          <DataValueMember Name="Cfg_ProgPwrUp" DataType="BOOL" Value="0" />
+          <DataValueMember Name="Cfg_ProgNormal" DataType="BOOL" Value="0" />
+          <DataValueMember Name="Cfg_PCmdPriority" DataType="BOOL" Value="0" />
+          <DataValueMember Name="Cfg_PCmdLockAsLevel" DataType="BOOL" Value="0" />
+          <DataValueMember Name="PCmd_Oper" DataType="BOOL" Value="0" />
+          <DataValueMember Name="PCmd_Prog" DataType="BOOL" Value="0" />
+          <DataValueMember Name="PCmd_Lock" DataType="BOOL" Value="0" />
+          <DataValueMember Name="PCmd_Unlock" DataType="BOOL" Value="0" />
+          <DataValueMember Name="PCmd_Normal" DataType="BOOL" Value="0" />
+          <DataValueMember Name="MCmd_OoS" DataType="BOOL" Value="0" />
+          <DataValueMember Name="MCmd_IS" DataType="BOOL" Value="0" />
+          <DataValueMember Name="MCmd_Acq" DataType="BOOL" Value="0" />
+          <DataValueMember Name="MCmd_Rel" DataType="BOOL" Value="0" />
+          <DataValueMember Name="OCmd_Oper" DataType="BOOL" Value="0" />
+          <DataValueMember Name="OCmd_Prog" DataType="BOOL" Value="0" />
+          <DataValueMember Name="OCmd_Lock" DataType="BOOL" Value="0" />
+          <DataValueMember Name="OCmd_Unlock" DataType="BOOL" Value="0" />
+          <DataValueMember Name="OCmd_Normal" DataType="BOOL" Value="0" />
+          <DataValueMember Name="Sts_eSrc" DataType="SINT" Radix="Decimal" Value="0" />
+          <DataValueMember Name="Sts_bSrc" DataType="INT" Radix="Decimal" Value="1" />
+          <DataValueMember Name="Sts_Hand" DataType="BOOL" Value="0" />
+          <DataValueMember Name="Sts_OoS" DataType="BOOL" Value="0" />
+          <DataValueMember Name="Sts_Maint" DataType="BOOL" Value="0" />
+          <DataValueMember Name="Sts_Ovrd" DataType="BOOL" Value="0" />
+          <DataValueMember Name="Sts_Prog" DataType="BOOL" Value="0" />
+          <DataValueMember Name="Sts_ProgLocked" DataType="BOOL" Value="0" />
+          <DataValueMember Name="Sts_Oper" DataType="BOOL" Value="0" />
+          <DataValueMember Name="Sts_OperLocked" DataType="BOOL" Value="0" />
+          <DataValueMember Name="Sts_ProgOperSel" DataType="BOOL" Value="0" />
+          <DataValueMember Name="Sts_ProgOperLock" DataType="BOOL" Value="0" />
+          <DataValueMember Name="Sts_Normal" DataType="BOOL" Value="0" />
+          <DataValueMember Name="Sts_NormalReqInh" DataType="BOOL" Value="0" />
+          <DataValueMember Name="Sts_MAcqRcvd" DataType="BOOL" Value="0" />
+          <DataValueMember Name="MRdy_OoS" DataType="BOOL" Value="0" />
+          <DataValueMember Name="MRdy_IS" DataType="BOOL" Value="0" />
+          <DataValueMember Name="MRdy_Acq" DataType="BOOL" Value="0" />
+          <DataValueMember Name="MRdy_Rel" DataType="BOOL" Value="0" />
+          <DataValueMember Name="ORdy_Oper" DataType="BOOL" Value="0" />
+          <DataValueMember Name="ORdy_Prog" DataType="BOOL" Value="0" />
+          <DataValueMember Name="ORdy_Lock" DataType="BOOL" Value="0" />
+          <DataValueMember Name="ORdy_Unlock" DataType="BOOL" Value="0" />
+          <DataValueMember Name="ORdy_Normal" DataType="BOOL" Value="0" />
+          <DataValueMember Name="raM_Opr_CmdSrc" DataType="BOOL" Value="0" />
+        </Structure>
+      </DefaultData>
+    </LocalTag>
+    <LocalTag Name="wrkCfgOwner" DataType="DINT" Radix="Decimal" ExternalAccess="None">
+      <DefaultData Format="L5K"><![CDATA[0]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="DINT" Radix="Decimal" Value="0" />
+      </DefaultData>
+    </LocalTag>
+    <LocalTag Name="wrkInitDone" DataType="BOOL" Radix="Decimal" ExternalAccess="None">
+      <Description><![CDATA[Initialized and First Scan Done]]></Description>
+      <DefaultData Format="L5K"><![CDATA[0]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="BOOL" Radix="Decimal" Value="0" />
+      </DefaultData>
+    </LocalTag>
+    <LocalTag Name="wrkFaultONS" DataType="BOOL" Radix="Decimal" ExternalAccess="None">
+      <Description><![CDATA[One-shot to load fault description string]]></Description>
+      <DefaultData Format="L5K"><![CDATA[0]]></DefaultData>
+      <DefaultData Format="Decorated">
+        <DataValue DataType="BOOL" Radix="Decimal" Value="0" />
+      </DefaultData>
+    </LocalTag>
+  </LocalTags>
+  <Routines />
+  <Dependencies>
+    <Dependency Type="AddOnInstructionDefinition" Name="raM_Opr_CmdSrc" />
+    <Dependency Type="DataType" Name="P_DescList" />
+    <Dependency Type="DataType" Name="STRING_40" />
+  </Dependencies>
+</AddOnInstructionDefinition>

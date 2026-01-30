@@ -1,0 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Tag Name="Cmd_TglCausticWash" TagType="Alias" Radix="Decimal" AliasFor="wrkEditCmds.1" ExternalAccess="Read/Write" OpcUaAccess="None" DataExchangeId="{B51B7880-C425-4E4D-85E9-C9C32CE74EEB}">
+  <Description><![CDATA[Set CausticWash and clear all other phases, or Clear CausticWash]]></Description>
+</Tag>

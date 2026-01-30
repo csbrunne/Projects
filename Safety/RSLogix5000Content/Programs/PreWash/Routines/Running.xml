@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Routine Name="Running" Type="RLL">
+  <RLLContent>
+    <Rung Type="N">
+      <Text><![CDATA[RTO(tmrPreCirc,?,?);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(tmrPreCirc.DN)OTE(wrkSupplyEnable);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[[XIO(wrkSupplyEnable) XIO(\CirculationPump.EM.Sts_bStateCurrent.3) XIO(\CirculationPump.EM.Sts_bStateCurrent.4) OTL(\CirculationPump.EM.PCmd_bStateReq.3) ,XIC(wrkSupplyEnable) XIO(\CirculationPump.EM.Sts_bStateCurrent.5) XIO(\CirculationPump.EM.Sts_bStateCurrent.6) OTL(\CirculationPump.EM.PCmd_bStateReq.5) ];]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(\CirculationPump.Sts_ProcessFlowOK)OTE(Sts_FlowConfirmed);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[SUB(tmrPreCirc.PRE,tmrPreCirc.ACC,wrkPreCircSecLeft)DIV(wrkPreCircSecLeft,1000,wrkPreCircSecLeft)LT(wrkPreCircSecLeft,0)CLR(wrkPreCircSecLeft);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[MUL(Set_Time,60000,tmrRunning.PRE);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(Sts_FlowConfirmed)[RTO(tmrRunning,?,?) ,DIV(tmrRunning.ACC,60000.0,Val_TimeAtTemp) ];]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[SUB(tmrRunning.PRE,tmrRunning.ACC,wrkRunSecLeft)DIV(wrkRunSecLeft,1000,wrkRunSecLeft)LT(wrkRunSecLeft,0)CLR(wrkRunSecLeft);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[ADD(wrkPreCircSecLeft,wrkRunSecLeft,Val_SecRemaining);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[MOVE(Set_Conductivity,Val_ConductivitySP)MOVE(Set_Temperature,Val_TemperatureSP)MOVE(Set_Time,Val_TimeSP);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[MOVE(Set_Conductivity,Val_Conductivity)ADD(Set_Temperature,5.0,Val_MaxTemp)SUB(Set_Temperature,5.0,Val_MinTemp);]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[[XIO(\SupplyHeader.EM.Sts_bStateCurrent.6) XIO(\SupplyHeader.EM.Sts_bStateCurrent.5) OTL(\SupplyHeader.EM.PCmd_bStateReq.5) ,XIO(tmrPreCirc.DN) XIO(\ReturnHeader.EM.Sts_bStateCurrent.6) XIO(\ReturnHeader.EM.Sts_bStateCurrent.5) OTL(\ReturnHeader.EM.PCmd_bStateReq.5) ,XIC(tmrPreCirc.DN) XIO(\ReturnHeader.EM.Sts_bStateCurrent.4) XIO(\ReturnHeader.EM.Sts_bStateCurrent.3) OTL(\ReturnHeader.EM.PCmd_bStateReq.3) ,XIO(\TankRecover.EM.Sts_bStateCurrent.3) OTL(\TankRecover.EM.PCmd_bStateReq.3) ];]]></Text>
+    </Rung>
+    <Rung Type="N">
+      <Text><![CDATA[XIC(tmrRunning.DN)OTL(\TankRecover.EM.PCmd_bStateReq.1)OTL(pSeqComplete);]]></Text>
+    </Rung>
+  </RLLContent>
+</Routine>
